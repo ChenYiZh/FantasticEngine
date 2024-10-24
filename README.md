@@ -1,4 +1,4 @@
-# README[![Fantasy Engine](Logo.png)](http://www.chenyizh.cn)
+# README
 [![Fantasy Engine](Logo.png)](http://www.chenyizh.cn)
 
 ## 什么是Fantasy Engine？
