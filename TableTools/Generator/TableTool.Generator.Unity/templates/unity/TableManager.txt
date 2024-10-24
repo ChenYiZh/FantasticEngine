@@ -1,0 +1,10 @@
+﻿/// <summary>
+/// 读表类
+/// </summary>
+public partial class TableManager
+{
+	private void OnInitialize()
+	{
+{{0}}
+	}
+}

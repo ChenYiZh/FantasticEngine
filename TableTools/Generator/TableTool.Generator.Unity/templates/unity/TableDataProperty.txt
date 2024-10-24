@@ -1,0 +1,4 @@
+﻿	/// <summary>
+	/// {{0}} {{1}} {{2}}
+	/// </summary>
+	public {{3}} {{4}} { get; private set; }

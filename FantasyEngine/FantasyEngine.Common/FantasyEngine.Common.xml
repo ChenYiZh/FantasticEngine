@@ -1,0 +1,2344 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FantasyEngine.Common</name>
+    </assembly>
+    <members>
+        <member name="T:FantasyEngine.Action.IAction">
+            <summary>
+            消息处理类
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Action.IAction.MsgId">
+            <summary>
+            消息Id
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Action.IAction.ActionId">
+            <summary>
+            ActionId
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Action.IAction.AnalysisTime">
+            <summary>
+            是否统计时间
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Action.IAction.AlertTimeout">
+            <summary>
+            警告超时时间，0为全部统计
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Action.IAction.Awake">
+            <summary>
+            刚创建时处理，所有参数都还没有赋值
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Action.IAction.SetReader(FantasyEngine.IO.IMessageReader)">
+            <summary>
+            预处理数据在所有操作之前
+            </summary>
+            <param name="reader"></param>
+        </member>
+        <member name="M:FantasyEngine.Action.IAction.Check">
+            <summary>
+            判断有效性
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Action.IAction.TakeAction(FantasyEngine.IO.IMessageReader)">
+            <summary>
+            处理操作
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Action.GameAction">
+            <summary>
+            消息基类
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Action.GameAction.MsgId">
+            <summary>
+            消息Id
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Action.GameAction.ActionId">
+            <summary>
+            ActionId
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Action.GameAction.AnalysisTime">
+            <summary>
+            是否统计时间
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Action.GameAction.AlertTimeout">
+            <summary>
+            警告超时时间毫秒，0为全部统计
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Action.GameAction.EnterTime">
+            <summary>
+            Action执行的时机
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Action.GameAction.Reader">
+            <summary>
+            接收到的消息
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Action.GameAction.Awake">
+            <summary>
+            刚创建时处理，所有参数都还没有赋值
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Action.GameAction._typeName">
+            <summary>
+            类名
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Action.GameAction.TypeName">
+            <summary>
+            类名
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Action.GameAction.Work(System.Int32,FantasyEngine.IO.IMessageReader)">
+            <summary>
+            工作函数
+            </summary>
+            <param name="actionId"></param>
+            <param name="reader"></param>
+        </member>
+        <member name="M:FantasyEngine.Action.GameAction.Check">
+            <summary>
+            判断有效性
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Action.GameAction.SetReader(FantasyEngine.IO.IMessageReader)">
+            <summary>
+            消息预处理
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Action.GameAction.TakeAction(FantasyEngine.IO.IMessageReader)">
+            <summary>
+            消息处理
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Collections.IReadOnlyQueue`1">
+            <summary>
+            只读队列
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:FantasyEngine.Collections.IThreadSafeDictionary`2">
+            <summary>
+            线程安全字典接口
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Collections.IThreadSafeList`1">
+            <summary>
+            线程安全列表接口
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Collections.TQueue`1">
+            <summary>
+            特殊队列，继承只读队列的接口
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.IO.ICompression">
+            <summary>
+            压缩接口
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.ICompression.Compress(System.Byte[])">
+            <summary>
+            压缩
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.ICompression.Uncompress(System.Byte[])">
+            <summary>
+            解压缩
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.IO.IMessageHeader">
+            <summary>
+            消息构造接口
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.IMessageHeader.MsgId">
+            <summary>
+            消息Id
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.IMessageHeader.OpCode">
+            <summary>
+            操作码
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.IMessageHeader.ActionId">
+            <summary>
+            通讯协议Id
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.IMessageHeader.Compress">
+            <summary>
+            是否数据压缩
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.IMessageHeader.Secret">
+            <summary>
+            是否加密
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.IMessageHeader.IsError">
+            <summary>
+            是否有报错
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.IMessageHeader.Error">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageHeader.GetPacketLength">
+            <summary>
+            包体长度
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageHeader.GetContext">
+            <summary>
+            内容信息
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.IMessageHeader.ContextLength">
+            <summary>
+            内容长度
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.IO.IMessageReader">
+            <summary>
+            通讯数据读取
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadBool">
+            <summary>
+            读取Boolean
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadChar">
+            <summary>
+            读取Char
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadFloat">
+            <summary>
+            读取Float
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadDouble">
+            <summary>
+            读取Double
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadDecimal">
+            <summary>
+            读取Decimal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadSByte">
+            <summary>
+            读取SByte
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadShort">
+            <summary>
+            读取Short
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadInt">
+            <summary>
+            读取Int
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadLong">
+            <summary>
+            读取Long
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadByte">
+            <summary>
+            读取Byte
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadUShort">
+            <summary>
+            读取UShort
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadUInt">
+            <summary>
+            读取UInt
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadULong">
+            <summary>
+            读取ULong
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadDateTime">
+            <summary>
+            读取时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageReader.ReadString">
+            <summary>
+            读取字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FantasyEngine.IO.IMessageWriter">
+            <summary>
+            数据写入
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.IMessageWriter.MsgId">
+            <summary>
+            消息Id
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.IMessageWriter.OpCode">
+            <summary>
+            操作码
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.IMessageWriter.ActionId">
+            <summary>
+            通讯协议Id
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteHeader(System.Byte[],System.Int32)">
+            <summary>
+            写入消息头数据
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteBool(System.Boolean)">
+            <summary>
+            写入Boolean
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteChar(System.Char)">
+            <summary>
+            写入Char
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteFloat(System.Single)">
+            <summary>
+            写入Float
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteDouble(System.Double)">
+            <summary>
+            写入Double
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteDecimal(System.Decimal)">
+            <summary>
+            写入Decimal
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteSByte(System.SByte)">
+            <summary>
+            写入SByte
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteShort(System.Int16)">
+            <summary>
+            写入Short
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteInt(System.Int32)">
+            <summary>
+            写入Int
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteLong(System.Int64)">
+            <summary>
+            写入Long
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteByte(System.Byte)">
+            <summary>
+            写入Byte
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteUShort(System.UInt16)">
+            <summary>
+            写入UShort
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteUInt(System.UInt32)">
+            <summary>
+            写入UInt
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteULong(System.UInt64)">
+            <summary>
+            写入ULong
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteDateTime(System.DateTime)">
+            <summary>
+            写入时间
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.IMessageWriter.WriteString(System.String)">
+            <summary>
+            写入字符串
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.IO.FPath">
+            <summary>
+            路径管理类
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.FPath.GetFullPath(System.String)">
+            <summary>
+            路径补全
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.IO.GZipCompression">
+            <summary>
+            gzip压缩
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.GZipCompression.CompressionLevel">
+            <summary>
+            压缩级别
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.GZipCompression.Compress(System.Byte[])">
+            <summary>
+            压缩
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.GZipCompression.Uncompress(System.Byte[])">
+            <summary>
+            解压
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.IO.MessageInfo">
+            <summary>
+            包含通讯协议的一些内部数据
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageInfo.HeaderLength">
+            <summary>
+            消息的头数据大小
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageInfo.#cctor">
+            <summary>
+            静态构造函数
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.IO.MessageReader">
+            <summary>
+            通讯包解析
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageReader.MsgId">
+            <summary>
+            消息Id
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageReader.OpCode">
+            <summary>
+            操作码
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageReader.ActionId">
+            <summary>
+            通讯协议Id
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageReader.Compress">
+            <summary>
+            是否数据压缩
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageReader.Secret">
+            <summary>
+            是否加密
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageReader.IsError">
+            <summary>
+            是否有报错
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageReader.Error">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageReader.ContextLength">
+            <summary>
+            内容长度
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.IO.MessageReader._readIndex">
+            <summary>
+            读取的数据指针
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.IO.MessageReader._context">
+            <summary>
+            通信包内容
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.GetContext">
+            <summary>
+            内容信息
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.IO.MessageReader._packetLength">
+            <summary>
+            包体长度
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.GetPacketLength">
+            <summary>
+            包体长度
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.#ctor(System.Byte[],System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="package"></param>
+            <param name="offset"></param>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadHeader(System.Byte[],System.Int32)">
+            <summary>
+            消息的基本数据读取
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadBool">
+            <summary>
+            读取Boolean
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadByte">
+            <summary>
+            读取Byte
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadChar">
+            <summary>
+            读取Char
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadDateTime">
+            <summary>
+            读取时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadDecimal">
+            <summary>
+            读取Decimal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadDouble">
+            <summary>
+            读取Double
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadFloat">
+            <summary>
+            读取Float
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadInt">
+            <summary>
+            读取Int
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadLong">
+            <summary>
+            读取Long
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadSByte">
+            <summary>
+            读取SByte
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadShort">
+            <summary>
+            读取Short
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadString">
+            <summary>
+            读取字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadUInt">
+            <summary>
+            读取UInt
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadULong">
+            <summary>
+            读取ULong
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageReader.ReadUShort">
+            <summary>
+            读取UShort
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FantasyEngine.IO.MessageWriter">
+            <summary>
+            通讯数据构建
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageWriter.MsgId">
+            <summary>
+            消息Id
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageWriter.OpCode">
+            <summary>
+            操作码
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageWriter.ActionId">
+            <summary>
+            通讯协议Id
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageWriter.Compress">
+            <summary>
+            是否数据压缩
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageWriter.Secret">
+            <summary>
+            是否加密
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageWriter.IsError">
+            <summary>
+            是否有报错
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageWriter.Error">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.IO.MessageWriter.ContextLength">
+            <summary>
+            内容长度
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.GetPacketLength">
+            <summary>
+            包体长度
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.GetContext">
+            <summary>
+            内容信息
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.IO.MessageWriter._stream">
+            <summary>
+            缓存池
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.Finalize">
+            <summary>
+            析构函数
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteHeader(System.Byte[],System.Int32)">
+            <summary>
+            写入消息头数据
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteBool(System.Boolean)">
+            <summary>
+            写入Boolean
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteByte(System.Byte)">
+            <summary>
+            写入Byte
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteChar(System.Char)">
+            <summary>
+            写入Char
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteDateTime(System.DateTime)">
+            <summary>
+            写入时间
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteDecimal(System.Decimal)">
+            <summary>
+            写入Decimal
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteDouble(System.Double)">
+            <summary>
+            写入Double
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteFloat(System.Single)">
+            <summary>
+            写入Float
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteInt(System.Int32)">
+            <summary>
+            写入Int
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteLong(System.Int64)">
+            <summary>
+            写入Long
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteSByte(System.SByte)">
+            <summary>
+            写入SByte
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteShort(System.Int16)">
+            <summary>
+            写入Short
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteString(System.String)">
+            <summary>
+            写入字符串
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteUInt(System.UInt32)">
+            <summary>
+            写入UInt
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteULong(System.UInt64)">
+            <summary>
+            写入ULong
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteUShort(System.UInt16)">
+            <summary>
+            写入UShort
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.IO.MessageWriter.WriteBytes(System.Byte[])">
+            <summary>
+            写入字节流
+            </summary>
+            <param name="bytes"></param>
+        </member>
+        <member name="T:FantasyEngine.Log.ILogger">
+            <summary>
+            日志保存接口
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.ILogger.SaveLog(System.String,System.String)">
+            <summary>
+            保存日志
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:FantasyEngine.Log.FConsole">
+            <summary>
+            输出类
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Log.FConsole.LogStackTracker">
+            <summary>
+            是否输出堆栈
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Log.FConsole.CATEGORY">
+            <summary>
+            默认类别名称
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Log.FConsole.LogStackLevels">
+            <summary>
+            需要输出堆栈的Level
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Log.FConsole.Loggers">
+            <summary>
+            已注册的Logger
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.RegistLogger(FantasyEngine.Log.ILogger)">
+            <summary>
+            注册Logger
+            </summary>
+            <param name="logger"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.RemoveLogger(FantasyEngine.Log.ILogger)">
+            <summary>
+            移除Logger
+            </summary>
+            <param name="logger"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.Write(System.Object)">
+            <summary>
+            输出到Debug目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteWithCategory(System.String,System.Object)">
+            <summary>
+            输出到Debug目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteFormat(System.String,System.Object[])">
+            <summary>
+            输出到Debug目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteFormatWithCategory(System.String,System.String,System.Object[])">
+            <summary>
+            输出到Debug目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteInfo(System.Object)">
+            <summary>
+            输出到Info目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteInfoWithCategory(System.String,System.Object)">
+            <summary>
+            输出到Info目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteInfoFormat(System.String,System.Object[])">
+            <summary>
+            输出到Info目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteInfoFormatWithCategory(System.String,System.String,System.Object[])">
+            <summary>
+            输出到Info目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteWarn(System.Object)">
+            <summary>
+            输出到Warn目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteWarnWithCategory(System.String,System.Object)">
+            <summary>
+            指定类别输出到Warn目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteWarnFormat(System.String,System.Object[])">
+            <summary>
+            输出到Warn目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteWarnFormatWithCategory(System.String,System.String,System.Object[])">
+            <summary>
+            指定类别输出到Warn目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteError(System.Object)">
+            <summary>
+            输出到Exception目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteErrorWithCategory(System.String,System.Object)">
+            <summary>
+            输出到Exception目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteErrorFormat(System.String,System.Object[])">
+            <summary>
+            输出到Exception目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteErrorFormatWithCategory(System.String,System.String,System.Object[])">
+            <summary>
+            输出到Exception目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteException(System.Exception)">
+            <summary>
+            输出到Exception目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteException(System.String,System.Exception)">
+            <summary>
+            输出到Exception目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteExceptionWithCategory(System.String,System.Exception)">
+            <summary>
+            输出到Exception目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteExceptionWithCategory(System.String,System.String,System.Exception)">
+            <summary>
+            输出到Exception目录
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteTo(System.String,System.String,System.String)">
+            <summary>
+            输出到指定类别
+            </summary>
+            <param name="level">日志等级</param>
+            <param name="category">日志类别</param>
+            <param name="message">日志内容</param>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.WriteTo(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            输出到指定类别
+            </summary>
+            <param name="level">日志等级</param>
+            <param name="category">日志类别</param>
+            <param name="message">日志内容</param>
+            <param name="args"></param>
+        </member>
+        <member name="M:FantasyEngine.Log.FConsole.FormatCustomMessage(System.String,System.String)">
+            <summary>
+            用输出格式格式化自定义数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FantasyEngine.Net.IMessageEventArgs`1">
+            <summary>
+            连接消息处理
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.IMessageEventArgs`1.Socket">
+            <summary>
+            获取封装的套接字
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.IMessageEventArgs`1.Message">
+            <summary>
+            获取消息
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.IMsgSocket">
+            <summary>
+            消息配置的修改接口定义
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.IMsgSocket.SetMessageOffset(System.Int32)">
+            <summary>
+            消息偏移值
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.IMsgSocket.SetCompression(FantasyEngine.IO.ICompression)">
+            <summary>
+            压缩工具
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.IMsgSocket.SetCryptoProvide(FantasyEngine.Security.ICryptoProvider)">
+            <summary>
+            加密工具
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.IReceivableSocket">
+            <summary>
+            消息接收的处理套接字接口定义
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.IReceiver">
+            <summary>
+            消息接收处理类
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.ISendableSocket">
+            <summary>
+            带有发送函数的套接字接口定义
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.ISender">
+            <summary>
+            套接字消息发送的接口定义
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.ISender.MessageNumber">
+            <summary>
+            消息Id
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.ISender.Send(FantasyEngine.IO.IMessageWriter)">
+            <summary>
+            数据发送<c>异步</c>
+            </summary>
+            <param name="message">大宋的消息</param>
+            <returns>判断有没有发送出去</returns>
+        </member>
+        <member name="M:FantasyEngine.Net.ISender.SendImmediately(FantasyEngine.IO.IMessageWriter)">
+            <summary>
+            立即发送消息，会打乱消息顺序。只有类似心跳包这种及时的需要用到。一般使用Send就满足使用
+            </summary>
+            <param name="message">发送的消息</param>
+        </member>
+        <member name="T:FantasyEngine.Net.ISocket">
+            <summary>
+            套接字扩充接口
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.ISocket.IsRunning">
+            <summary>
+            是否在运行
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.ISocket.Connected">
+            <summary>
+            Socket是否还连接着？
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.ISocket.Address">
+            <summary>
+            封装的地址
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.ISocket.Socket">
+            <summary>
+            原生套接字
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.ISocket.EventArgs">
+            <summary>
+            套接字增强类
+            <para>https://learn.microsoft.com/zh-cn/dotnet/api/system.net.sockets.socketasynceventargs</para>
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.ISocket.UserToken">
+            <summary>
+            自定义管理类
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.ISocket.Type">
+            <summary>
+            获取类型
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.ISocket.MessageOffset">
+            <summary>
+            消息偏移值
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.ISocket.Compression">
+            <summary>
+            压缩工具
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.ISocket.CryptoProvider">
+            <summary>
+            加密工具
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.ISocket.MessageEventProcessor">
+            <summary>
+            消息处理方案
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.ISocket.Close(FantasyEngine.Net.EOpCode)">
+            <summary>
+            关闭函数
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.ISocket.TrySend(System.Boolean)">
+            <summary>
+            尝试开始发送
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.ISocket.TryReceive(System.Boolean)">
+            <summary>
+            尝试开始接收
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.Net.ISocket.Operating">
+            <summary>
+            是否正处于操作阶段
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.ISocket.OperationCompleted">
+            <summary>
+            操作完成时执行
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.ISocket.NextStep(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            执行下步操作
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.ISocket.InLooping">
+            <summary>
+            正在NextStep的循环中
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.ISocket.OutLooping">
+            <summary>
+            已经离开NextStep的循环中
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.IUserToken">
+            <summary>
+            连接套接字管理类内部对象
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.IUserToken.Socket">
+            <summary>
+            嵌套的Socket
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.IUserToken.OriginalOffset">
+            <summary>
+            原本的生成时的offset
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.IUserToken.Reset">
+            <summary>
+            重置数据
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.PoolInfo">
+            <summary>
+            字节池的信息
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.PoolInfo.SingleLength">
+            <summary>
+            每一个分组长度
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.PoolInfo.GroupCount">
+            <summary>
+            整个分组数量
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.PoolInfo.TotalLength">
+            <summary>
+            整个字节长度
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.PoolInfo.#ctor(System.Int32,System.Int32)">
+            <summary>
+            初始化
+            </summary>
+            <param name="singleLength">每一个分组长度</param>
+            <param name="groupCount">整个分组数量</param>
+        </member>
+        <member name="T:FantasyEngine.Net.BytePool">
+            <summary>
+            字节流缓存池
+            <para>https://learn.microsoft.com/zh-cn/dotnet/api/system.net.sockets.socketasynceventargs.setbuffer</para>
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.BytePool._syncRoot">
+            <summary>
+            锁
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.BytePool.Pool">
+            <summary>
+            字节池
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.BytePool.PoolInfo">
+            <summary>
+            整个字节长度
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.BytePool.Offsets">
+            <summary>
+            可用队列的起始id
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.BytePool.#ctor(System.Int32,System.Int32)">
+            <summary>
+            初始化
+            </summary>
+            <param name="singleLength">每一个分组长度</param>
+            <param name="groupCount">整个分组数量</param>
+        </member>
+        <member name="M:FantasyEngine.Net.BytePool.CreatePool">
+            <summary>
+            创建缓存池
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.BytePool.GetByteBlock(System.Byte[]@,System.Int32@,System.Int32@)">
+            <summary>
+            获取可使用的字节段
+            </summary>
+            <param name="buffer">字节</param>
+            <param name="offset">索引位置，使用前先和buffer.length取余，求出内部Index</param>
+            <param name="length"></param>
+        </member>
+        <member name="M:FantasyEngine.Net.BytePool.Release(System.Int32)">
+            <summary>
+            释放，需要回传原本获取到的offset
+            </summary>
+            <param name="offset"></param>
+        </member>
+        <member name="T:FantasyEngine.Net.FSocket">
+            <summary>
+            套接字管理基类
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.FSocket.IsRunning">
+            <summary>
+            是否在运行
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.FSocket._operation">
+            <summary>
+            0：等待，1：发送，2：接收，3：在循环中
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.FSocket.TrySend(System.Boolean)">
+            <summary>
+            尝试开始发送
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.FSocket.TryReceive(System.Boolean)">
+            <summary>
+            尝试接收
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.FSocket.Operating">
+            <summary>
+            是否正处于操作
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.Net.FSocket.InLooping">
+            <summary>
+            进入循环
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.FSocket.OutLooping">
+            <summary>
+            移出循环
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.FSocket.OperationCompleted">
+            <summary>
+            操作完成时执行
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.FSocket.NextStep(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            执行下步操作
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.FSocket.Connected">
+            <summary>
+            是否已经开始运行
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.FSocket.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.FSocket.Socket">
+            <summary>
+            原生套接字
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.FSocket.EventArgs">
+            <summary>
+            内部关键原生Socket
+            <para>https://learn.microsoft.com/zh-cn/dotnet/api/system.net.sockets.socketasynceventargs</para>
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.FSocket.UserToken">
+            <summary>
+            自定义数据结构
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.FSocket.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.FSocket.MessageOffset">
+            <summary>
+            消息偏移值
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.FSocket.Compression">
+            <summary>
+            压缩工具
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.FSocket.CryptoProvider">
+            <summary>
+            加密工具
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.FSocket.MessageEventProcessor">
+            <summary>
+            消息处理方案
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.FSocket.#ctor(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.FSocket.Close(FantasyEngine.Net.EOpCode)">
+            <summary>
+            关闭函数
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.FSocket.MakeEventArgs(System.Net.Sockets.Socket,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            创建Socket的超类
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.MessageReceiverEventArgs`1">
+            <summary>
+            接收到的消息处理
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.MessageReceiverEventArgs`1.Socket">
+            <summary>
+            发送的套接字
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.MessageReceiverEventArgs`1.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.EOpCode">
+            <summary>
+            操作码
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.EOpCode.Empty">
+            <summary>
+            空数据
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.EOpCode.Text">
+            <summary>
+            文本数据
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.EOpCode.Binary">
+            <summary>
+            二进制数据
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.EOpCode.Close">
+            <summary>
+            关闭操作数据
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.EOpCode.Ping">
+            <summary>
+            Ping数据
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.EOpCode.Pong">
+            <summary>
+            Pong数据
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.EResultCode">
+            <summary>
+            操作结果
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.EResultCode.Wait">
+            <summary>
+            等待阶段
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.EResultCode.Success">
+            <summary>
+            操作成功
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.EResultCode.Close">
+            <summary>
+            Socket已经关闭
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.EResultCode.Error">
+            <summary>
+            Socket 已报错
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.SocketAsyncResult">
+            <summary>
+            套接字处理结果
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.SocketAsyncResult.Socket">
+            <summary>
+            内部关联的Socket
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.SocketAsyncResult.Buffer">
+            <summary>
+            需要发送的消息大小
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.SocketAsyncResult.Result">
+            <summary>
+            处理结果
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.SocketAsyncResult.Error">
+            <summary>
+            报错信息
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.SocketAsyncResult.OnCallback">
+            <summary>
+            数据处理完成后的回调
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.SocketAsyncResult.Execute">
+            <summary>
+            消息处理完成时执行
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.SocketReceiver`1">
+            <summary>
+            消息接收处理类
+            <para>https://learn.microsoft.com/zh-cn/dotnet/api/system.net.sockets.socketasynceventargs</para>
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.SocketReceiver`1.Socket">
+            <summary>
+            核心Socket
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.SocketReceiver`1.MessageReceiveEventHandler">
+            <summary>
+            收发消息处理
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.SocketReceiver`1.OnMessageReceived">
+            <summary>
+            接收到数据包事件
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.SocketReceiver`1.OnPing">
+            <summary>
+            心跳探索事件
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.SocketReceiver`1.OnPong">
+            <summary>
+            心跳回应事件
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.SocketReceiver`1.ProcessReceive(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            处理数据接收回调
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.SocketReceiver`1.CopySocketBuffer(System.Net.Sockets.SocketAsyncEventArgs,System.Byte[],System.Int32)">
+            <summary>
+            统一从缓存池读取数据
+            </summary>
+            <param name="ioEventArgs"></param>
+            <param name="to"></param>
+            <param name="offset"></param>
+        </member>
+        <member name="M:FantasyEngine.Net.SocketReceiver`1.PostReceive(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            投递接收数据请求
+            </summary>
+            <param name="ioEventArgs"></param>
+        </member>
+        <member name="M:FantasyEngine.Net.SocketReceiver`1.Close(System.Net.Sockets.SocketAsyncEventArgs,FantasyEngine.Net.EOpCode)">
+            <summary>
+            关闭操作
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.SocketSender">
+            <summary>
+            消息发送处理类
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.SocketSender.Socket">
+            <summary>
+            套接字管理类
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.SocketSender.#ctor(FantasyEngine.Net.ISocket)">
+            <summary>
+            消息发送处理类
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.SocketSender.ProcessSend(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            消息发送处理
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.SocketSender.PostSend(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            开始执行发送
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.SocketSender.SendCompleted(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            消息执行完后，判断还有没有需要继续发送的消息
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.ESocketType">
+            <summary>
+            套接字类型
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.ESocketType.Tcp">
+            <summary>
+            Tcp
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.ESocketType.Http">
+            <summary>
+            Http
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.ESocketType.Udp">
+            <summary>
+            Udp
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.ESocketType.Web">
+            <summary>
+            WebSocket
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Net.UserToken">
+            <summary>
+            寄宿在原生Socket的管理类
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.UserToken.Socket">
+            <summary>
+            嵌套的Socket
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.UserToken.ReceivedStartIndex">
+            <summary>
+            已经接收的数据长度
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.UserToken.ReceivedBuffer">
+            <summary>
+            解析包时解析不完的数据
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.UserToken.SendingBuffer">
+            <summary>
+            正在发送的数据
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.UserToken.SentCount">
+            <summary>
+            已经发送的字节数量
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.UserToken.OriginalOffset">
+            <summary>
+            原本的生成时的offset
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.UserToken.OriginalLength">
+            <summary>
+            原本缓存的字节长度
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.UserToken.#ctor(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.UserToken.Reset">
+            <summary>
+            重置数据
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.UserToken.SetOriginalOffset(System.Int32,System.Int32)">
+            <summary>
+            设置原本的生成时的offset
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.UserToken._messageNumber">
+            <summary>
+            消息Id，需要加原子锁
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Net.UserToken.MessageNumber">
+            <summary>
+            消息Id
+            <para>get 返回时会自动 +1</para>
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Net.UserToken._waitToSendMessages">
+            <summary>
+            待发送的消息列表
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Net.UserToken.Push(System.Byte[],System.Boolean)">
+            <summary>
+            缓存需要发送的数据
+            </summary>
+            <param name="msg"></param>
+            <param name="immediate"></param>
+        </member>
+        <member name="M:FantasyEngine.Net.UserToken.TryDequeueMsg(System.Byte[]@)">
+            <summary>
+            判断是否有数据并且返回第一个值
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.Net.UserToken.HasMsg">
+            <summary>
+            是否有消息需要发送
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FantasyEngine.Proxy.IBoss">
+            <summary>
+            工头
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Proxy.IBoss.CheckIn(FantasyEngine.Proxy.IWorker)">
+            <summary>
+            工人加入
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Proxy.IWorker">
+            <summary>
+            工人
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Proxy.IWorker.Work">
+            <summary>
+            工作
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Proxy.ActionBoss">
+            <summary>
+            Action的老板
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Proxy.ActionBoss.Exploit(FantasyEngine.Action.GameAction,System.Int32,FantasyEngine.IO.IMessageReader)">
+            <summary>
+            剥削
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Proxy.DirectMessageProcessor">
+            <summary>
+            消息处理方案，直接处理
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Proxy.DirectMessageProcessor.CheckIn(FantasyEngine.Proxy.IWorker)">
+            <summary>
+            直接进行事务处理
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Security.ICryptoProvider">
+            <summary>
+            加密类
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Security.ICryptoProvider.Encrypt(System.Byte[])">
+            <summary>
+            加密
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Security.ICryptoProvider.Decrypt(System.Byte[])">
+            <summary>
+            解密
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Security.AESCryptoProvider">
+            <summary>
+            AES加密
+            <para>https://learn.microsoft.com/zh-cn/dotnet/api/system.security.cryptography.aescryptoserviceprovider?view=netstandard-2.0</para>
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Security.AESCryptoProvider.#ctor(System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="key"></param>
+            <param name="iv"></param>
+        </member>
+        <member name="M:FantasyEngine.Security.AESCryptoProvider.Encrypt(System.Byte[])">
+            <summary>
+            加密
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.Security.AESCryptoProvider.Decrypt(System.Byte[])">
+            <summary>
+            解密
+            </summary>
+            <param name="buffer"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FantasyEngine.Security.RSACryptoProvider">
+            <summary>
+            RSA加密类
+            <para>https://learn.microsoft.com/zh-cn/dotnet/api/system.security.cryptography.rsacryptoserviceprovider?view=netstandard-2.0</para>
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Security.RSACryptoProvider.OAEP">
+            <summary>
+            非对称性填充
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Security.RSACryptoProvider.RSAKeyInfo">
+            <summary>
+            密钥
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Security.RSACryptoProvider.#ctor(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="key">密钥</param>
+            <param name="oaep">非对称性填充</param>
+        </member>
+        <member name="M:FantasyEngine.Security.RSACryptoProvider.Encrypt(System.Byte[])">
+            <summary>
+            加密
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.Security.RSACryptoProvider.Decrypt(System.Byte[])">
+            <summary>
+            解密
+            </summary>
+            <param name="buffer"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FantasyEngine.Timer.IPacketWatch.Now">
+            <summary>
+            获取当前时间
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.IPacketWatch.UTC">
+            <summary>
+            获取UTC时间
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Timer.TimeLord">
+            <summary>
+            时间管理类
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeLord.PacketWatch">
+            <summary>
+            当前使用的计时控件
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Timer.TimeLord._syncRoot">
+            <summary>
+            锁
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeLord.SetPacketWatch(FantasyEngine.Timer.IPacketWatch)">
+            <summary>
+            设置时间控件
+            </summary>
+            <param name="watch"></param>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeLord.Now">
+            <summary>
+            获取当前时间
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeLord.UTC">
+            <summary>
+            获取当前时间
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeLord.Worker">
+            <summary>
+            内部的时间计划管理者
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeLord.Append(FantasyEngine.Timer.TimeSchedule)">
+            <summary>
+            添加新的时间计划
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeLord.Remove(FantasyEngine.Timer.TimeSchedule)">
+            <summary>
+            移除时间计划
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeLord.#cctor">
+            <summary>
+            初始化操作
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Timer.PlanCycle">
+            <summary>
+            计划周期
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Timer.PlanCycle.Once">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Timer.PlanCycle.Day">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Timer.PlanCycle.Week">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Timer.TimeScheduleCallback">
+            <summary>
+            时间计划回调
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Timer.TimeSchedule">
+            <summary>
+            时间计划
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeSchedule.ExcutingNum">
+            <summary>
+            执行次数
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeSchedule.IsCycle">
+            <summary>
+            是否循环
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeSchedule.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeSchedule.Callback">
+            <summary>
+            回调
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeSchedule.BeginTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeSchedule.DeltaSeconds">
+            <summary>
+            执行时长
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeSchedule.SecondInterval">
+            <summary>
+            执行间隔
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeSchedule.ExecTime">
+            <summary>
+            最新执行时间
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeSchedule.NextTime">
+            <summary>
+            下次执行时间
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeSchedule.PlanCycle">
+            <summary>
+            循环周期
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeSchedule.DayOfWeek">
+            <summary>
+            执行星期
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeSchedule.IsExpired">
+            <summary>
+            是否到期
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeSchedule.IsExecuting">
+            <summary>
+            是否一直在执行阶段
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeSchedule.EndTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeSchedule.#ctor(System.Boolean,FantasyEngine.Timer.PlanCycle,System.String,FantasyEngine.Timer.TimeScheduleCallback,System.String,System.String,System.Int32,System.DayOfWeek)">
+            <summary>
+            时间计划
+            </summary>
+            <param name="isCycle">是否循环</param>
+            <param name="planCycle">循环类型</param>
+            <param name="name">唯一名称</param>
+            <param name="callback">回调</param>
+            <param name="beginTime">开始时间"2015/01/01 09:00:00", 或者 "09:00:00"</param>
+            <param name="endTime">结束时间"2015/01/01 09:00:00", 或者 "09:00:00"</param>
+            <param name="secondInterval">间隔</param>
+            <param name="week">周几执行</param>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeSchedule.Execute">
+            <summary>
+            执行任务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeSchedule.EveryDayPlan(FantasyEngine.Timer.TimeScheduleCallback,System.String,System.String)">
+            <summary>
+            创建每日任务
+            </summary>
+            <param name="callback">任务回调</param>
+            <param name="name">唯一名称</param>
+            <param name="beginTime">开始时间"2015/01/01 09:00:00", 或者 "09:00:00"</param>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeSchedule.EveryMinutePlan(FantasyEngine.Timer.TimeScheduleCallback,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            每分钟任务
+            </summary>
+            <param name="callback">任务回调</param>
+            <param name="name">唯一名称</param>
+            <param name="beginTime">开始时间"2015/01/01 09:00:00", 或者 "09:00:00"</param>
+            <param name="endTime">结束时间"2015/01/01 09:00:00", 或者 "09:00:00"</param>
+            <param name="secondInterval">循环间隔</param>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeSchedule.EveryWeekPlan(FantasyEngine.Timer.TimeScheduleCallback,System.String,System.DayOfWeek,System.String)">
+            <summary>
+            每周任务
+            </summary>
+            <param name="callback">任务回调</param>
+            <param name="name">唯一名称</param>
+            <param name="week">周几执行</param>
+            <param name="beginTime">开始时间"09:00:00"</param>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeSchedule.EveryWeekPlan(FantasyEngine.Timer.TimeScheduleCallback,System.String,System.DayOfWeek,System.String,System.String,System.Int32)">
+            <summary>
+            每周任务
+            </summary>
+            <param name="callback">任务回调</param>
+            <param name="name">唯一名称</param>
+            <param name="week">周几执行</param>
+            <param name="beginTime">开始时间"09:00:00"</param>
+            <param name="endTime">结束时间"09:00:00"</param>
+            <param name="secondInterval">循环间隔</param>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeSchedule.OncePlan(FantasyEngine.Timer.TimeScheduleCallback,System.String,System.String)">
+            <summary>
+            只执行一次
+            </summary>
+            <param name="callback">任务回调</param>
+            <param name="name">唯一名称</param>
+            <param name="beginTime">开始时间"2015/01/01 09:00:00", 或者 "09:00:00"</param>
+        </member>
+        <member name="T:FantasyEngine.Timer.TimeWorker">
+            <summary>
+            时间任务管理
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Timer.TimeWorker.Timer">
+            <summary>
+            计时器
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Timer.TimeWorker._schedules">
+            <summary>
+            时间计划
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeWorker.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Timer.TimeWorker.INTERVAL">
+            <summary>
+            计时器间隔
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeWorker.Restart">
+            <summary>
+            重启
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeWorker.Start">
+            <summary>
+            启动
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeWorker.Update(System.Object)">
+            <summary>
+            计时器执行的操作
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeWorker.Append(FantasyEngine.Timer.TimeSchedule)">
+            <summary>
+            添加新的时间计划
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeWorker.Remove(FantasyEngine.Timer.TimeSchedule)">
+            <summary>
+            移除时间计划
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Timer.TimeWorker.Stop">
+            <summary>
+            移除并结束所有任务
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Common.AssemblyService">
+            <summary>
+            程序集管理类
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Common.AssemblyService.Assemblies">
+            <summary>
+            已加载的程序集
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Common.AssemblyService.Load(System.String)">
+            <summary>
+            读取程序集
+            </summary>
+            <param name="dllPath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FantasyEngine.Common.ByteUtil">
+            <summary>
+            字节流处理
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Common.ByteUtil.ONE">
+            <summary>
+            1字节
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Common.ByteUtil.ZERO">
+            <summary>
+            0字节
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Common.CachePool`1">
+            <summary>
+            缓存队列池
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:FantasyEngine.Common.CachePool`1._execution">
+            <summary>
+            队列操作
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Common.CachePool`1._pools">
+            <summary>
+            缓存池
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Common.CachePool`1._currentPoolIndex">
+            <summary>
+            当前压入的缓存池索引
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Common.CachePool`1.Thread">
+            <summary>
+            线程对象
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Common.CachePool`1.SyncRoot">
+            <summary>
+            线程锁
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Common.CachePool`1.DeltaMilliseconds">
+            <summary>
+            线程循环的间隔
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Common.CachePool`1.LockerTimeout">
+            <summary>
+            循环中锁的最长等待时间
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Common.CachePool`1._isReleased">
+            <summary>
+            工作状态标识
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Common.CachePool`1.#ctor(System.Action{FantasyEngine.Collections.IReadOnlyQueue{`0}},System.Int32,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="execution">回调函数</param>
+            <param name="lockerTimeout">循环中锁的最长等待时间</param>
+            <param name="deltaMilliseconds">线程循环的间隔</param>
+        </member>
+        <member name="M:FantasyEngine.Common.CachePool`1.Push(`0)">
+            <summary>
+            数据推入
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Common.CachePool`1.Processing">
+            <summary>
+            线程执行的操作
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Common.CachePool`1.Release">
+            <summary>
+            线程释放，所有数据释放
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Common.Constants">
+            <summary>
+            一些常量
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Common.Constants.HeartBeatsInterval">
+            <summary>
+            心跳包间隔
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Common.Constants.PingInterval">
+            <summary>
+            Ping间隔
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Common.Constants.MaxRoundtripTime">
+            <summary>
+            Ping显示的最大往返时间
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Common.FType`1">
+            <summary>
+            Type缓存类，防止多次调用GetType或者typeof
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:FantasyEngine.Common.FType`1.Type">
+            <summary>
+            获取泛型的Type
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Common.FType">
+            <summary>
+            Type的一些操作
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Common.FType.GetDefaultValueFromType(System.Type)">
+            <summary>
+            根据Type，获取默认值
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Common.FType.IsSubInterfaceOf(System.Type,System.Type)">
+            <summary>
+            判断是否实现某个泛型接口，少用
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Common.EMessageType">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Common.EMessageType.NoProcess">
+            <summary>
+            什么都不处理
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Common.EMessageType.OnlyCompress">
+            <summary>
+            压缩过
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Common.EMessageType.OnlyCrypto">
+            <summary>
+            加密过
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Common.EMessageType.CompressAndCrypto">
+            <summary>
+            解压+加密
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Common.PackageFactory">
+            <summary>
+            消息处理类
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Common.PackageFactory.Pack(FantasyEngine.IO.IMessageWriter,System.Int32,FantasyEngine.IO.ICompression,FantasyEngine.Security.ICryptoProvider)">
+            <summary>
+            打包
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Common.PackageFactory.Unpack(System.Byte[],System.Int32,FantasyEngine.IO.ICompression,FantasyEngine.Security.ICryptoProvider)">
+            <summary>
+            解包
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Common.PackageFactory.GetTotalLength(System.Byte[],System.Int32)">
+            <summary>
+            预解析整体包体大小
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Common.Singleton`1">
+            <summary>
+            单例类
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:FantasyEngine.Common.Singleton`1.Instance">
+            <summary>
+            单例
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Common.Singleton`1.Reset">
+            <summary>
+            重置
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Common.StringFactory">
+            <summary>
+            string转换
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Common.StringFactory.Make(System.Exception)">
+            <summary>
+            从Exception转成字符串
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.Common.StringFactory.Make(System.String,System.Exception)">
+            <summary>
+            从Exception转成字符串
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FantasyEngine.Sources.Common.RandomUtil">
+            <summary>
+            随机数管理
+            </summary>
+        </member>
+        <member name="P:FantasyEngine.Sources.Common.RandomUtil.Seed">
+            <summary>
+            种子
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Sources.Common.RandomUtil.RandomByte">
+            <summary>
+            随机一个字节
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FantasyEngine.Sources.Common.RandomUtil.RandomRange(System.Int32,System.Int32)">
+            <summary>
+            范围随机
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Sources.Common.RandomUtil.RandomRange(System.Single,System.Single)">
+            <summary>
+            范围随机
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Sources.Common.RandomUtil.RandomRange(System.Double,System.Double)">
+            <summary>
+            范围随机
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Sources.Common.RandomUtil.Random">
+            <summary>
+            随机数
+            </summary>
+        </member>
+        <member name="T:FantasyEngine.Reflection.ObjectFactory">
+            <summary>
+            反射创建对象
+            </summary>
+        </member>
+        <member name="F:FantasyEngine.Reflection.ObjectFactory._types">
+            <summary>
+            缓存池
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Reflection.ObjectFactory.Create``1(System.String,System.Object[])">
+            <summary>
+            自动通过程序集搜索创建
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Reflection.ObjectFactory.CreateSimply``1(System.String,System.Object[])">
+            <summary>
+            直接反射创建对象
+            </summary>
+        </member>
+        <member name="M:FantasyEngine.Reflection.ObjectFactory.CreateForce``1(System.Reflection.Assembly,System.String,System.Object[])">
+            <summary>
+            通过程序集创建对象
+            </summary>
+        </member>
+    </members>
+</doc>
