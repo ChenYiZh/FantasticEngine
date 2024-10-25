@@ -18,13 +18,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="FantasyEngine.Common.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Compile Remove="Interfaces\Common\**" />
+    <EmbeddedResource Remove="Interfaces\Common\**" />
+    <None Remove="Interfaces\Common\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\Common\" />
+    <None Update="FantasyEngine.Common.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
