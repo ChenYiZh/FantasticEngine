@@ -3,7 +3,7 @@
 /// </summary>
 public partial class TableManager
 {
-	private void OnInitialize()
+	protected override void OnInitialize()
 	{
 {{0}}
 	}
