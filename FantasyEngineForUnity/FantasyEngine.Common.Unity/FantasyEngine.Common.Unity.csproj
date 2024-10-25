@@ -12,16 +12,13 @@
 
   <ItemGroup>
     <Reference Include="UnityEditor">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\5.6.0f1\Editor\Data\Managed\UnityEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Graphs">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\5.6.0f1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
+      <HintPath>..\unity5.6.0\UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\5.6.0f1\Editor\Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\unity5.6.0\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\5.6.0f1\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
+      <HintPath>..\unity5.6.0\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
 

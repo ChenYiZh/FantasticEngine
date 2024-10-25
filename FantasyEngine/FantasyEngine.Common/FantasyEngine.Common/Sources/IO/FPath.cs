@@ -28,7 +28,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace FantasyEngine.IO
+namespace FantasyEngine
 {
     /// <summary>
     /// 路径管理类

@@ -27,7 +27,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FantasyEngine.Sources.Common
+namespace FantasyEngine
 {
     /// <summary>
     /// 随机数管理

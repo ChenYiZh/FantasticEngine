@@ -27,7 +27,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FantasyEngine.Common
+namespace FantasyEngine
 {
     /// <summary>
     /// 当屏幕接收到点击事件后，这个物体就隐藏了

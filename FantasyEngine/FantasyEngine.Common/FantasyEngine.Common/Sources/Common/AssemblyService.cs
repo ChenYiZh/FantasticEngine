@@ -31,7 +31,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 
-namespace FantasyEngine.Common
+namespace FantasyEngine
 {
     /// <summary>
     /// 程序集管理类

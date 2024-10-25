@@ -26,7 +26,7 @@ SOFTWARE.
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace FantasyEngine.Common
+namespace FantasyEngine
 {
     /// <summary>
     /// 如果内容超过限制就滚动播放

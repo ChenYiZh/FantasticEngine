@@ -28,7 +28,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 
-namespace FantasyEngine.Common
+namespace FantasyEngine
 {
     public static class XmlExtensions
     {

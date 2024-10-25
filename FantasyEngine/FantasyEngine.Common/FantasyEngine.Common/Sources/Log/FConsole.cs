@@ -24,7 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ****************************************************************************/
 using FantasyEngine.Collections;
-using FantasyEngine.Common;
+using FantasyEngine.Log;
 using FantasyEngine.Timer;
 using System;
 using System.Collections.Generic;
@@ -33,7 +33,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace FantasyEngine.Log
+namespace FantasyEngine
 {
     /// <summary>
     /// 输出类

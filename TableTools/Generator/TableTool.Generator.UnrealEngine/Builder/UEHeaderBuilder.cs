@@ -78,7 +78,7 @@ namespace FantasyEngine.TableTool.Generator.UnrealEngine
                 publicProperties.AppendLine($"{offset}{UEConverter.GetTypeString(headerType)} Get{name}() const {{ return {name}; }}");
                 publicProperties.AppendLine();
             }
-            string model = File.ReadAllText(Path.Combine(System.Environment.CurrentDirectory, "templates/unreal/Header.txt"), Encoding.UTF8);
+            string model = FileUtility.ReadFileText(Path.Combine(System.Environment.CurrentDirectory, "templates/unreal/Header.txt"), Encoding.UTF8);
             return new StringBuilder(
                 model
                 .Replace("{0}", tableName)

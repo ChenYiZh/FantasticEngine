@@ -28,7 +28,7 @@ using FantasyEngine.Common.Attribute;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-namespace FantasyEngine.Common
+namespace FantasyEngine
 {
     /// <summary>
     /// 按钮事件，在按钮触发的不同阶段显示不同gameObject

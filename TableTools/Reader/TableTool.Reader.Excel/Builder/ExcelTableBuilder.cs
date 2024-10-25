@@ -58,7 +58,7 @@ namespace FantasyEngine.TableTool.Reader.Excel.Builder
             table.Name = Path.GetFileNameWithoutExtension(_fullPath);
             try
             {
-                using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(File.OpenRead(_fullPath)))
+                using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(FileUtility.OpenRead(_fullPath)))
                 {
                     reader.Reset();
                     ExcelHeadLineBuilder builder = new ExcelHeadLineBuilder();

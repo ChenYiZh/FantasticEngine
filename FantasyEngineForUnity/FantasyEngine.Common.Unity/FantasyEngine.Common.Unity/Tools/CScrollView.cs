@@ -32,7 +32,7 @@ using FantasyEngine.Log;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-namespace FantasyEngine.Common
+namespace FantasyEngine
 {
     /// <summary>
     /// 无限循环的ScrollView

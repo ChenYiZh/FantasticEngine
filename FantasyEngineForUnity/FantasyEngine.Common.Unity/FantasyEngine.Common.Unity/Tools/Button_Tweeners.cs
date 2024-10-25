@@ -27,7 +27,7 @@ using FantasyEngine.Common.Attribute;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace FantasyEngine.Common
+namespace FantasyEngine.Tweener
 {
     /// <summary>
     /// 按钮点击时播放不同Tween动画

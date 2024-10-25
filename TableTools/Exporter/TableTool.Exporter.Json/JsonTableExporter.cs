@@ -68,7 +68,7 @@ namespace FantasyEngine.TableTool.Exporter.Json
                     });
                 }
             }
-            File.WriteAllText(path, JsonConvert.SerializeObject(tables), new UTF8Encoding(false));
+            FileUtility.SaveFile(path, JsonConvert.SerializeObject(tables), new UTF8Encoding(false));
         }
     }
 }

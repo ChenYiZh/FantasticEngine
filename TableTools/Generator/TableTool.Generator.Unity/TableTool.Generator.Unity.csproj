@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\FantasyEngine\FantasyEngine.Common\FantasyEngine.Common.csproj" />
     <ProjectReference Include="..\..\TableTool.Framework\TableTool.Framework.csproj" />
   </ItemGroup>
 

@@ -99,7 +99,7 @@ namespace FantasyEngine.TableTool.Framework
                 {
                     if (file.EndsWith(Extension))
                     {
-                        File.Delete(file);
+                        FileUtility.Delete(file);
                     }
                 }
             }
@@ -115,7 +115,7 @@ namespace FantasyEngine.TableTool.Framework
                     builder.Build();
                 }
                 string tableName = ForceUpFirstChar ? char.ToUpper(table.Value.Name[0]) + table.Value.Name.Substring(1) : table.Value.Name;
-                File.WriteAllText(Path.Combine(ExportFullPath, tableName + Extension), context.ToString(), UTF8Encoding);
+                FileUtility.SaveFile(Path.Combine(ExportFullPath, tableName + Extension), context.ToString(), UTF8Encoding);
             });
         }
     }

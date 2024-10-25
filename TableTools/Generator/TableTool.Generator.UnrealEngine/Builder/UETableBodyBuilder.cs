@@ -56,7 +56,7 @@ namespace FantasyEngine.TableTool.Generator.UnrealEngine
                 includes.AppendLine($"#include \"{ReleativePath}Table{tableName}.h\"");
                 registers.AppendLine($"{offset}Tables.Add(Singleton<UTable{tableName}>());");
             }
-            string model = File.ReadAllText(Path.Combine(System.Environment.CurrentDirectory, $"templates/unreal/TablesBody.txt"), Encoding.UTF8);
+            string model = FileUtility.ReadFileText(Path.Combine(System.Environment.CurrentDirectory, $"templates/unreal/TablesBody.txt"), Encoding.UTF8);
             return new StringBuilder(
                 model
                 .Replace("{0}", UEScriptsExporter.ExportName)

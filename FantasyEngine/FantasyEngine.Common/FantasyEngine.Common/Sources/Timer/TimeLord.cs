@@ -24,11 +24,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ****************************************************************************/
 using FantasyEngine.Log;
+using FantasyEngine.Timer;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FantasyEngine.Timer
+namespace FantasyEngine
 {
     /// <summary>
     /// 时间管理类

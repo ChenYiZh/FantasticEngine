@@ -26,7 +26,7 @@ SOFTWARE.
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace FantasyEngine.Common
+namespace FantasyEngine.Tweener
 {
     /// <summary>
     /// Tween动画基类

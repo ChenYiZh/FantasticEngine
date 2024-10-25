@@ -27,13 +27,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FantasyEngine.Common
+namespace FantasyEngine
 {
     /// <summary>
     /// Type缓存类，防止多次调用GetType或者typeof
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public static class FType<T>
+    public static class FEType<T>
     {
         /// <summary>
         /// 获取泛型的Type

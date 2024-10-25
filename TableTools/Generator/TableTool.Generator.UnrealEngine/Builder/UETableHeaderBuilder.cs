@@ -56,7 +56,7 @@ namespace FantasyEngine.TableTool.Generator.UnrealEngine
                 string line = string.Format(UEConverter.GetMethodString(headerType),/* "m" +*/ name, "Line[" + index++ + "]");
                 functions.AppendLine($"{offset}{line}");
             }
-            string model = File.ReadAllText(Path.Combine(System.Environment.CurrentDirectory, "templates/unreal/Body.txt"), Encoding.UTF8);
+            string model = FileUtility.ReadFileText(Path.Combine(System.Environment.CurrentDirectory, "templates/unreal/Body.txt"), Encoding.UTF8);
             string tableName = char.ToUpper(Table.Name[0]) + Table.Name.Substring(1);
             return new StringBuilder(
                 model

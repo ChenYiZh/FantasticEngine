@@ -29,7 +29,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEditor;
 using UnityEngine;
-namespace FantasyEngine.EditorTool
+namespace FantasyEngine
 {
     /// <summary>
     /// 编辑器工具

@@ -27,7 +27,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FantasyEngine.Common
+namespace FantasyEngine
 {
     /// <summary>
     /// string转换

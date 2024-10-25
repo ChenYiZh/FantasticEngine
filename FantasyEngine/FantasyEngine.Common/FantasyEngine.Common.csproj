@@ -18,9 +18,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Interfaces\Common\**" />
-    <EmbeddedResource Remove="Interfaces\Common\**" />
-    <None Remove="Interfaces\Common\**" />
+    <Compile Remove="FantasyEngine.Common\Interfaces\Common\**" />
+    <EmbeddedResource Remove="FantasyEngine.Common\Interfaces\Common\**" />
+    <None Remove="FantasyEngine.Common\Interfaces\Common\**" />
   </ItemGroup>
 
   <ItemGroup>

@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
-namespace FantasyEngine.Common
+namespace FantasyEngine
 {
     /// <summary>
     /// 缓存队列池

@@ -27,7 +27,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-namespace FantasyEngine.Common
+namespace FantasyEngine.Tweener
 {
     /// <summary>
     /// UI上的Alpha过度

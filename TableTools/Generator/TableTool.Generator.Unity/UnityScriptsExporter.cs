@@ -61,13 +61,13 @@ namespace FantasyEngine.TableTool.Generator
         {
             Target = target;
             ExportPath = path;
-            _clientGameTablesTxt = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "templates/unity/ClientGameTables.txt"), Encoding.UTF8).Replace("{", "{{").Replace("}", "}}").Replace("{{{{", "{").Replace("}}}}", "}");
-            _serverGameTablesTxt = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "templates/unity/ServerGameTables.txt"), Encoding.UTF8).Replace("{", "{{").Replace("}", "}}").Replace("{{{{", "{").Replace("}}}}", "}");
-            _tableManagerTxt = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "templates/unity/TableManager.txt"), Encoding.UTF8).Replace("{", "{{").Replace("}", "}}").Replace("{{{{", "{").Replace("}}}}", "}");
-            _wholeTableTxt = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "templates/unity/WholeTable.txt"), Encoding.UTF8).Replace("{", "{{").Replace("}", "}}").Replace("{{{{", "{").Replace("}}}}", "}");
-            _tableDataTxt = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "templates/unity/TableData.txt"), Encoding.UTF8).Replace("{", "{{").Replace("}", "}}").Replace("{{{{", "{").Replace("}}}}", "}");
-            _tableDataPropertyTxt = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "templates/unity/TableDataProperty.txt"), Encoding.UTF8).Replace("{", "{{").Replace("}", "}}").Replace("{{{{", "{").Replace("}}}}", "}");
-            _tableBodyTxt = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "templates/unity/TableBody.txt"), Encoding.UTF8).Replace("{", "{{").Replace("}", "}}").Replace("{{{{", "{").Replace("}}}}", "}");
+            _clientGameTablesTxt = FileUtility.ReadFileText(Path.Combine(Environment.CurrentDirectory, "templates/unity/ClientGameTables.txt"), Encoding.UTF8).Replace("{", "{{").Replace("}", "}}").Replace("{{{{", "{").Replace("}}}}", "}");
+            _serverGameTablesTxt = FileUtility.ReadFileText(Path.Combine(Environment.CurrentDirectory, "templates/unity/ServerGameTables.txt"), Encoding.UTF8).Replace("{", "{{").Replace("}", "}}").Replace("{{{{", "{").Replace("}}}}", "}");
+            _tableManagerTxt = FileUtility.ReadFileText(Path.Combine(Environment.CurrentDirectory, "templates/unity/TableManager.txt"), Encoding.UTF8).Replace("{", "{{").Replace("}", "}}").Replace("{{{{", "{").Replace("}}}}", "}");
+            _wholeTableTxt = FileUtility.ReadFileText(Path.Combine(Environment.CurrentDirectory, "templates/unity/WholeTable.txt"), Encoding.UTF8).Replace("{", "{{").Replace("}", "}}").Replace("{{{{", "{").Replace("}}}}", "}");
+            _tableDataTxt = FileUtility.ReadFileText(Path.Combine(Environment.CurrentDirectory, "templates/unity/TableData.txt"), Encoding.UTF8).Replace("{", "{{").Replace("}", "}}").Replace("{{{{", "{").Replace("}}}}", "}");
+            _tableDataPropertyTxt = FileUtility.ReadFileText(Path.Combine(Environment.CurrentDirectory, "templates/unity/TableDataProperty.txt"), Encoding.UTF8).Replace("{", "{{").Replace("}", "}}").Replace("{{{{", "{").Replace("}}}}", "}");
+            _tableBodyTxt = FileUtility.ReadFileText(Path.Combine(Environment.CurrentDirectory, "templates/unity/TableBody.txt"), Encoding.UTF8).Replace("{", "{{").Replace("}", "}}").Replace("{{{{", "{").Replace("}}}}", "}");
         }
         public void Generate(IDatabase database)
         {
@@ -119,7 +119,7 @@ namespace FantasyEngine.TableTool.Generator
             {
                 wholeText = string.Format(_serverGameTablesTxt, "\t" + tableManager.Replace("\n", "\n\t"), "\t" + tableList.ToString().Replace("\n", "\n\t"));
             }
-            File.WriteAllText(ExportPath, wholeText, Encoding.UTF8);
+            FileUtility.SaveFile(ExportPath, wholeText, Encoding.UTF8);
         }
     }
 }

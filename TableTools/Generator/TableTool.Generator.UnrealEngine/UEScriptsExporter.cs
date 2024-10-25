@@ -108,19 +108,19 @@ namespace FantasyEngine.TableTool.Generator
                 headerBuilder.Table = table.Value;
                 headerBuilder.ProjectName = ProjectName;
                 string tableName = "Table" + char.ToUpper(table.Value.Name[0]) + table.Value.Name.Substring(1);
-                File.WriteAllText(Path.Combine(headerPath, tableName + ".h"), headerBuilder.Build().ToString(), Encoding.UTF8);
+                FileUtility.SaveFile(Path.Combine(headerPath, tableName + ".h"), headerBuilder.Build().ToString(), Encoding.UTF8);
                 UEBodyBuilder bodyBuilder = new UEBodyBuilder();
                 bodyBuilder.Table = table.Value;
-                File.WriteAllText(Path.Combine(bodyPath, tableName + ".cpp"), bodyBuilder.Build().ToString(), Encoding.UTF8);
+                FileUtility.SaveFile(Path.Combine(bodyPath, tableName + ".cpp"), bodyBuilder.Build().ToString(), Encoding.UTF8);
             }
 
             UETableHeaderBuilder headersBuilder = new UETableHeaderBuilder();
-            File.WriteAllText(Path.Combine(headerPath, $"{ExportName}.h"), headersBuilder.Build().ToString(), Encoding.UTF8);
+            FileUtility.SaveFile(Path.Combine(headerPath, $"{ExportName}.h"), headersBuilder.Build().ToString(), Encoding.UTF8);
 
             UETableBodyBuilder bodysBuilder = new UETableBodyBuilder();
             bodysBuilder.ReleativePath = "Tables/";
             bodysBuilder.DataBase = database;
-            File.WriteAllText(Path.Combine(bodyPath, $"{ExportName}.cpp"), bodysBuilder.Build().ToString(), Encoding.UTF8);
+            FileUtility.SaveFile(Path.Combine(bodyPath, $"{ExportName}.cpp"), bodysBuilder.Build().ToString(), Encoding.UTF8);
         }
     }
 }
