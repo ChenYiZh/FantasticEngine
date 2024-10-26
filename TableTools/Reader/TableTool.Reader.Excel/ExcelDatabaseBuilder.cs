@@ -28,6 +28,7 @@ using FantasyEngine.TableTool.Framework.Common;
 using FantasyEngine.TableTool.Reader.Excel.Builder;
 using FantasyEngine.TableTool.Reader.Excel.Common;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -43,24 +44,30 @@ namespace FantasyEngine.TableTool.Reader.Excel
         /// <summary>
         /// 读取Excel数据
         /// </summary>
-        public override IDatabase Build(string fullPath)
+        protected override IDatabase Make(string fullPath)
         {
             if (!Directory.Exists(fullPath))
             {
                 return null;
             }
-            ExcelDatabase database = new ExcelDatabase();
-            database.FullPath = fullPath;
             string[] files = Directory.GetFiles(fullPath, "*.xlsx", SearchOption.TopDirectoryOnly);
+            ConcurrentDictionary<string, ITable> databaseAsync = new ConcurrentDictionary<string, ITable>();
             foreach (string file in files)
             {
-                database.Add(Path.GetFileNameWithoutExtension(file), null);
+                databaseAsync.TryAdd(Path.GetFileNameWithoutExtension(file), null);
             }
             Parallel.ForEach(files, (file) =>
             {
                 ExcelTableBuilder builder = new ExcelTableBuilder(file);
-                database[Path.GetFileNameWithoutExtension(file)] = builder.Build();
+                databaseAsync[Path.GetFileNameWithoutExtension(file)] = builder.Build();
             });
+
+            ExcelDatabase database = new ExcelDatabase();
+            database.FullPath = fullPath;
+            foreach (KeyValuePair<string, ITable> kv in databaseAsync)
+            {
+                database.Add(kv.Key, kv.Value);
+            }
             return database;
         }
     }

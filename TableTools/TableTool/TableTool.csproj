@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\FantasyEngine\FantasyEngine.Common\FantasyEngine.Common.csproj" />
     <ProjectReference Include="..\Exporter\TableTool.Exporter.Json\TableTool.Exporter.Json.csproj" />
     <ProjectReference Include="..\Exporter\TableTool.Exporter.Text\TableTool.Exporter.Text.csproj" />

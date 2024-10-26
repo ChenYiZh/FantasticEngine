@@ -23,6 +23,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ****************************************************************************/
+using FantasyEngine.TableTool.Framework.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -35,6 +36,14 @@ namespace FantasyEngine.TableTool.Framework.Common
         /// <summary>
         /// Build函数
         /// </summary>
-        public abstract IDatabase Build(string fullPath);
+        public IDatabase Build(string fullPath)
+        {
+            HeaderUtility.InitDic();
+            return Make(fullPath);
+        }
+        /// <summary>
+        /// 内部函数
+        /// </summary>
+        protected abstract IDatabase Make(string fullPath);
     }
 }

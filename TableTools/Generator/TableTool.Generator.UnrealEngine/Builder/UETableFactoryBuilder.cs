@@ -23,13 +23,38 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ****************************************************************************/
+using FantasyEngine.TableTool.Framework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace FantasyEngine.TableTool.Generator.UnrealEngine.Builder
 {
-    class UETableFactoryBuilder
+    internal class UETableFactoryBuilder
     {
+        public string ReleativePath { get; set; }
+
+        public string ExportFullPath { get; set; }
+
+        internal IDatabase DataBase { get; set; }
+
+        public StringBuilder Build()
+        {
+            StringBuilder includes = new StringBuilder();
+            StringBuilder registers = new StringBuilder();
+            string offset = "\t";
+            foreach (KeyValuePair<string, ITable> table in DataBase)
+            {
+                string tableName = char.ToUpper(table.Value.Name[0]) + table.Value.Name.Substring(1);
+                includes.AppendLine($"#include \"{ReleativePath}Table{tableName}.h\"");
+                registers.AppendLine($"{offset}Tables.Add(Singleton<UTable{tableName}>());");
+            }
+            string model = File.ReadAllText(Path.Combine(System.Environment.CurrentDirectory, $"templates/unreal/FTableFactory.txt"), Encoding.UTF8);
+            return new StringBuilder(
+                model
+                .Replace("{0}", includes.ToString().TrimEnd('\n').TrimEnd('\r'))
+                .Replace("{1}", registers.ToString().TrimEnd('\n').TrimEnd('\r')));
+        }
     }
 }

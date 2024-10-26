@@ -38,31 +38,14 @@ namespace FantasyEngine.TableTool.Generator.UnrealEngine
     /// </summary>
     internal class UETableHeaderBuilder
     {
-        internal ITable Table { get; set; }
+        internal IDatabase Database { get; set; }
+
+        internal string ProjectName { get; set; }
 
         public StringBuilder Build()
         {
-            IEnumerable<IHeader> headers = Table.Headers.Values.Where(h => HeaderUtility.IsValid(h, ETarget.CLIENT)).OrderBy(h => h.Index);
-            string offset = "\t";
-
-            StringBuilder functions = new StringBuilder();
-            int index = 0;
-            bool isFirst = true;
-            foreach (IHeader header in headers)
-            {
-                string name = header.Name;// NameUtility.GetDefaultPropertyName(header.Name);// char.ToUpper(header.Name[0]) + header.Name.Substring(1);
-                EHeaderType headerType = isFirst ? EHeaderType.INT : header.Type;
-                isFirst = false;
-                string line = string.Format(UEConverter.GetMethodString(headerType),/* "m" +*/ name, "Line[" + index++ + "]");
-                functions.AppendLine($"{offset}{line}");
-            }
-            string model = FileUtility.ReadFileText(Path.Combine(System.Environment.CurrentDirectory, "templates/unreal/Body.txt"), Encoding.UTF8);
-            string tableName = char.ToUpper(Table.Name[0]) + Table.Name.Substring(1);
-            return new StringBuilder(
-                model
-                .Replace("{0}", tableName)
-                .Replace("{1}", Table.Name)
-                .Replace("{2}", functions.ToString().TrimEnd('\n').TrimEnd('\r')));
+            string model = File.ReadAllText(Path.Combine(System.Environment.CurrentDirectory, $"templates/unreal/TablesHeader.txt"), Encoding.UTF8);
+            return new StringBuilder(model.Replace("{0}", UEScriptsExporter.ExportName).Replace("{1}", string.IsNullOrEmpty(ProjectName) ? "" : ProjectName.ToUpper() + "_API"));
         }
     }
 }

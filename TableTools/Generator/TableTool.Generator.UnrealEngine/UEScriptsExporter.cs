@@ -51,7 +51,7 @@ namespace FantasyEngine.TableTool.Generator
             set
             {
                 _exportPath = value;
-                ProjectName = Path.GetFileName(value);
+                //ProjectName = Path.GetFileName(value);
             }
         }
         /// <summary>
@@ -115,6 +115,8 @@ namespace FantasyEngine.TableTool.Generator
             }
 
             UETableHeaderBuilder headersBuilder = new UETableHeaderBuilder();
+            headersBuilder.Database = database;
+            headersBuilder.ProjectName = ProjectName;
             FileUtility.SaveFile(Path.Combine(headerPath, $"{ExportName}.h"), headersBuilder.Build().ToString(), Encoding.UTF8);
 
             UETableBodyBuilder bodysBuilder = new UETableBodyBuilder();

@@ -72,7 +72,7 @@ namespace FantasyEngine.TableTool.Reader.Excel.Builder
                         lineBuilder.Reader = reader;
                         lineBuilder.Table = table;
                         lineBuilder.Line = lineIndex++;
-                        var line = lineBuilder.Build();
+                        ITableLine line = lineBuilder.Build();
                         if (line != null)
                         {
                             table.Add(lineBuilder.Line, line);

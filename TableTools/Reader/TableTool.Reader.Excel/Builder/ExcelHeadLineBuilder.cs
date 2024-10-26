@@ -78,7 +78,7 @@ namespace FantasyEngine.TableTool.Reader.Excel.Builder
                 ExcelHeaderBuilder builder = new ExcelHeaderBuilder();
                 builder.InValues = tHeaders[i];
                 builder.Index = i;
-                var header = builder.Build();
+                IHeader header = builder.Build();
                 if (header == null)
                 {
                     return null;

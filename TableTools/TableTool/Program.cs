@@ -47,6 +47,7 @@ namespace FantasyEngine.TableTool
     {
         static void Main(string[] args)
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             FConsole.RegistLogger(new Logger());
 
             try
@@ -134,19 +135,20 @@ namespace FantasyEngine.TableTool
                         switch (platform)
                         {
                             case EPlatform.Unreal:
-                            {
-                                string[] folders = Directory.GetDirectories(clientPath);
-                                if (folders == null || folders.Length == 0)
                                 {
-                                    FConsole.WriteError("无法生成UE客户端代码，因为该项目没有包含C++工程！！");
-                                    goto end;
-                                }
+                                    string[] folders = Directory.GetDirectories(Path.Combine(clientPath, "Source"));
+                                    if (folders == null || folders.Length == 0)
+                                    {
+                                        FConsole.WriteError("无法生成UE客户端代码，因为该项目没有包含C++工程！！");
+                                        FConsole.WriteError("判断为 “项目路径/Source/工程目录”");
+                                        goto end;
+                                    }
 
-                                string protectName = folders[0];
-                                UEScriptsExporter ueExporter = new UEScriptsExporter(clientPath);
-                                scriptsExporter = ueExporter;
-                                ueExporter.ProjectName = protectName;
-                            }
+                                    string protectName = Path.GetFileName(folders[0].Replace('/', '\\'));
+                                    UEScriptsExporter ueExporter = new UEScriptsExporter(clientPath);
+                                    scriptsExporter = ueExporter;
+                                    ueExporter.ProjectName = protectName;
+                                }
                                 break;
                             case EPlatform.Unity:
                                 scriptsExporter = new UnityScriptsExporter(ETarget.CLIENT,
@@ -164,61 +166,62 @@ namespace FantasyEngine.TableTool
                         switch (platform)
                         {
                             case EPlatform.Unreal:
-                            {
-                                string outFolder = clientPath + "/Content/Resources";
-                                if (Directory.Exists(outFolder + "/Tables"))
                                 {
-                                    Directory.Delete(outFolder + "/Tables", true);
-                                }
+                                    string outFolder = clientPath + "/Content/Resources";
+                                    if (Directory.Exists(outFolder + "/Tables"))
+                                    {
+                                        Directory.Delete(outFolder + "/Tables", true);
+                                    }
 
-                                Directory.CreateDirectory(outFolder + "/Tables");
-                                File.Copy("../Client/assets.idx", outFolder + "/assets.idx", true);
-                                string[] clientOutTables = Directory.GetFiles("../Client/Tables");
-                                foreach (string outTable in clientOutTables)
-                                {
-                                    File.Copy(outTable, outFolder + "/Tables/" + Path.GetFileName(outTable));
+                                    Directory.CreateDirectory(outFolder + "/Tables");
+                                    File.Copy("../Client/assets.idx", outFolder + "/assets.idx", true);
+                                    string[] clientOutTables = Directory.GetFiles("../Client/Tables");
+                                    foreach (string outTable in clientOutTables)
+                                    {
+                                        File.Copy(outTable, outFolder + "/Tables/" + Path.GetFileName(outTable));
+                                    }
                                 }
-                            }
                                 break;
                             case EPlatform.Unity:
-                            {
-                                string outFolder = clientPath + "/_Tables";
-                                if (Directory.Exists(outFolder))
                                 {
-                                    Directory.Delete(outFolder, true);
-                                }
+                                    string outFolder = clientPath + "/_Tables";
+                                    if (Directory.Exists(outFolder))
+                                    {
+                                        Directory.Delete(outFolder, true);
+                                    }
 
-                                Directory.CreateDirectory(outFolder);
-                                Directory.CreateDirectory(outFolder + "/Tables");
-                                File.Copy("../Client/_Tables/assets.idx", outFolder + "/assets.idx", true);
-                                string[] clientOutTables = Directory.GetFiles("../Client/_Tables/Tables");
-                                foreach (string outTable in clientOutTables)
-                                {
-                                    File.Copy(outTable, outFolder + "/Tables/" + Path.GetFileName(outTable));
-                                }
+                                    Directory.CreateDirectory(outFolder);
+                                    Directory.CreateDirectory(outFolder + "/Tables");
 
+                                    File.Copy("../Client/assets.idx", outFolder + "/assets.idx", true);
 
-                                File.Copy("../Client/Assets/Resources/assets.txt",
-                                    clientPath + "/Assets/Resources/assets.txt", true);
-                                string[] clientResTables = Directory.GetFiles("../Client/Assets/Resources/Tables");
-                                if (Directory.Exists(clientPath + "/Assets/Resources/Tables/"))
-                                {
-                                    Directory.Delete(clientPath + "/Assets/Resources/Tables/", true);
-                                }
+                                    string[] clientOutTables = Directory.GetFiles("../Client/Tables");
+                                    foreach (string outTable in clientOutTables)
+                                    {
+                                        File.Copy(outTable, outFolder + "/Tables/" + Path.GetFileName(outTable));
+                                    }
 
-                                Directory.CreateDirectory(clientPath + "/Assets/Resources/Tables/");
-                                foreach (string resTable in clientResTables)
-                                {
-                                    File.Copy(resTable,
-                                        clientPath + "/Assets/Resources/Tables/" + Path.GetFileName(resTable));
+                                    if (Directory.Exists(clientPath + "/Assets/Resources/Tables/"))
+                                    {
+                                        Directory.Delete(clientPath + "/Assets/Resources/Tables/", true);
+                                    }
+                                    Directory.CreateDirectory(clientPath + "/Assets/Resources/Tables/");
+
+                                    File.Copy("../Client/assets.idx", clientPath + "/Assets/Resources/assets.txt", true);
+
+                                    string[] clientResTables = Directory.GetFiles("../Client/Tables", "*.zip");
+                                    foreach (string resTable in clientResTables)
+                                    {
+                                        File.Copy(resTable,
+                                            clientPath + "/Assets/Resources/Tables/" + Path.GetFileNameWithoutExtension(resTable) + ".txt");
+                                    }
                                 }
-                            }
                                 break;
                         }
                     }
                 }
 
-                end:
+            end:
                 FConsole.Write("导表完成");
                 FConsole.Write("任意键退出");
             }
