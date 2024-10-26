@@ -42,6 +42,7 @@ namespace FantasyEngine.TableTool
         Unity,
         Unreal
     }
+
     class Program
     {
         static void Main(string[] args)
@@ -61,25 +62,31 @@ namespace FantasyEngine.TableTool
                 FConsole.Write("正在生成客户端表...");
                 exporter = new DatabaseExporter("../Client/Tables", ".txt", true);
                 exporter.Target = ETarget.CLIENT;
-                exporter.Export(database, new TextTableBodyBuilder());//未混淆数据用来给策划做比对
+                exporter.Export(database, new TextTableBodyBuilder()); //未混淆数据用来给策划做比对
                 exporter = new DatabaseExporter("../Client/Tables", ".zip", true);
                 exporter.Target = ETarget.CLIENT;
-                exporter.Export(database, new TextTableBodyBuilder(), new TextContextFastObfuscatedBuilder());//混淆后的数据
+                exporter.Export(database, new TextTableBodyBuilder(), new TextContextFastObfuscatedBuilder()); //混淆后的数据
 
                 FConsole.Write("正在生成MD5校验文件...");
                 string[] files = Directory.GetFiles("../Client/Tables", "*.zip", SearchOption.TopDirectoryOnly);
                 StringBuilder builder = new StringBuilder();
                 foreach (string file in files)
                 {
-                    string line = string.Format("{0}|{1}", Path.GetFileNameWithoutExtension(file), Md5Utility.GetMd5(File.ReadAllBytes(file)));
+                    string line = string.Format("{0}|{1}", Path.GetFileNameWithoutExtension(file),
+                        Md5Utility.GetMd5(File.ReadAllBytes(file)));
                     builder.AppendLine(line);
                 }
+
                 File.WriteAllText("../Client/assets.idx", builder.ToString(), new UTF8Encoding(false));
 
                 FConsole.Write("正在生成客户端表结构...");
                 JsonTableExporter.Export(database, "../Client/tables.json");
 
-                if (args == null) { goto end; }
+                if (args == null)
+                {
+                    goto end;
+                }
+
                 EPlatform platform = EPlatform.None;
                 if (args.Contains("unity"))
                 {
@@ -97,7 +104,8 @@ namespace FantasyEngine.TableTool
                         string serverPath = arg.Substring("server=".Length);
 
                         FConsole.Write("正在生成服务器读表代码...");
-                        IScriptsExporter scriptsExporter = new UnityScriptsExporter(ETarget.SERVER, serverPath + "/CsScript/Data/GameTables.a.cs");
+                        IScriptsExporter scriptsExporter = new UnityScriptsExporter(ETarget.SERVER,
+                            serverPath + "/CsScript/Data/GameTables.a.cs");
                         scriptsExporter.Generate(database);
 
                         FConsole.Write("正在导出服务器表数据...");
@@ -106,11 +114,13 @@ namespace FantasyEngine.TableTool
                         {
                             Directory.CreateDirectory(serverTablePath);
                         }
+
                         string[] serverTableFiles = Directory.GetFiles(serverTablePath);
                         foreach (string file in serverTableFiles)
                         {
                             File.Delete(file);
                         }
+
                         string[] serverTables = Directory.GetFiles("../Server");
                         foreach (string file in serverTables)
                         {
@@ -124,82 +134,91 @@ namespace FantasyEngine.TableTool
                         switch (platform)
                         {
                             case EPlatform.Unreal:
+                            {
+                                string[] folders = Directory.GetDirectories(clientPath);
+                                if (folders == null || folders.Length == 0)
                                 {
-                                    string[] folders = Directory.GetDirectories(clientPath);
-                                    if (folders == null || folders.Length == 0)
-                                    {
-                                        FConsole.WriteError("无法生成UE客户端代码，因为该项目没有包含C++工程！！");
-                                        goto end;
-                                    }
-                                    string protectName = folders[0];
-                                    UEScriptsExporter ueExporter = new UEScriptsExporter(clientPath);
-                                    scriptsExporter = ueExporter;
-                                    ueExporter.ProjectName = protectName;
+                                    FConsole.WriteError("无法生成UE客户端代码，因为该项目没有包含C++工程！！");
+                                    goto end;
                                 }
+
+                                string protectName = folders[0];
+                                UEScriptsExporter ueExporter = new UEScriptsExporter(clientPath);
+                                scriptsExporter = ueExporter;
+                                ueExporter.ProjectName = protectName;
+                            }
                                 break;
                             case EPlatform.Unity:
-                                scriptsExporter = new UnityScriptsExporter(ETarget.CLIENT, clientPath + "/Assets/Scripts/Data/GameTables.a.cs");
+                                scriptsExporter = new UnityScriptsExporter(ETarget.CLIENT,
+                                    clientPath + "/Assets/Scripts/Data/GameTables.a.cs");
                                 break;
                         }
-                        FConsole.Write("正在生成客户端读表代码...");
-                        scriptsExporter.Generate(database);
+
+                        if (scriptsExporter != null)
+                        {
+                            FConsole.Write("正在生成客户端读表代码...");
+                            scriptsExporter.Generate(database);
+                        }
 
                         FConsole.Write("正在导出客户端表数据...");
                         switch (platform)
                         {
                             case EPlatform.Unreal:
+                            {
+                                string outFolder = clientPath + "/Content/Resources";
+                                if (Directory.Exists(outFolder + "/Tables"))
                                 {
-                                    string outFolder = clientPath + "/Content/Resources";
-                                    if (Directory.Exists(outFolder + "/Tables"))
-                                    {
-                                        Directory.Delete(outFolder + "/Tables", true);
-                                    }
-
-                                    Directory.CreateDirectory(outFolder + "/Tables");
-                                    File.Copy("../Client/assets.idx", outFolder + "/assets.idx", true);
-                                    string[] clientOutTables = Directory.GetFiles("../Client/Tables");
-                                    foreach (string outTable in clientOutTables)
-                                    {
-                                        File.Copy(outTable, outFolder + "/Tables/" + Path.GetFileName(outTable));
-                                    }
+                                    Directory.Delete(outFolder + "/Tables", true);
                                 }
+
+                                Directory.CreateDirectory(outFolder + "/Tables");
+                                File.Copy("../Client/assets.idx", outFolder + "/assets.idx", true);
+                                string[] clientOutTables = Directory.GetFiles("../Client/Tables");
+                                foreach (string outTable in clientOutTables)
+                                {
+                                    File.Copy(outTable, outFolder + "/Tables/" + Path.GetFileName(outTable));
+                                }
+                            }
                                 break;
                             case EPlatform.Unity:
+                            {
+                                string outFolder = clientPath + "/_Tables";
+                                if (Directory.Exists(outFolder))
                                 {
-                                    string outFolder = clientPath + "/_Tables";
-                                    if (Directory.Exists(outFolder))
-                                    {
-                                        Directory.Delete(outFolder, true);
-                                    }
-                                    Directory.CreateDirectory(outFolder);
-                                    Directory.CreateDirectory(outFolder + "/Tables");
-                                    File.Copy("../Client/_Tables/assets.idx", outFolder + "/assets.idx", true);
-                                    string[] clientOutTables = Directory.GetFiles("../Client/_Tables/Tables");
-                                    foreach (string outTable in clientOutTables)
-                                    {
-                                        File.Copy(outTable, outFolder + "/Tables/" + Path.GetFileName(outTable));
-                                    }
-
-
-                                    File.Copy("../Client/Assets/Resources/assets.txt", clientPath + "/Assets/Resources/assets.txt", true);
-                                    string[] clientResTables = Directory.GetFiles("../Client/Assets/Resources/Tables");
-                                    if (Directory.Exists(clientPath + "/Assets/Resources/Tables/"))
-                                    {
-                                        Directory.Delete(clientPath + "/Assets/Resources/Tables/", true);
-                                    }
-                                    Directory.CreateDirectory(clientPath + "/Assets/Resources/Tables/");
-                                    foreach (string resTable in clientResTables)
-                                    {
-                                        File.Copy(resTable, clientPath + "/Assets/Resources/Tables/" + Path.GetFileName(resTable));
-                                    }
+                                    Directory.Delete(outFolder, true);
                                 }
+
+                                Directory.CreateDirectory(outFolder);
+                                Directory.CreateDirectory(outFolder + "/Tables");
+                                File.Copy("../Client/_Tables/assets.idx", outFolder + "/assets.idx", true);
+                                string[] clientOutTables = Directory.GetFiles("../Client/_Tables/Tables");
+                                foreach (string outTable in clientOutTables)
+                                {
+                                    File.Copy(outTable, outFolder + "/Tables/" + Path.GetFileName(outTable));
+                                }
+
+
+                                File.Copy("../Client/Assets/Resources/assets.txt",
+                                    clientPath + "/Assets/Resources/assets.txt", true);
+                                string[] clientResTables = Directory.GetFiles("../Client/Assets/Resources/Tables");
+                                if (Directory.Exists(clientPath + "/Assets/Resources/Tables/"))
+                                {
+                                    Directory.Delete(clientPath + "/Assets/Resources/Tables/", true);
+                                }
+
+                                Directory.CreateDirectory(clientPath + "/Assets/Resources/Tables/");
+                                foreach (string resTable in clientResTables)
+                                {
+                                    File.Copy(resTable,
+                                        clientPath + "/Assets/Resources/Tables/" + Path.GetFileName(resTable));
+                                }
+                            }
                                 break;
                         }
-
                     }
                 }
 
-            end:
+                end:
                 FConsole.Write("导表完成");
                 FConsole.Write("任意键退出");
             }
@@ -207,6 +226,7 @@ namespace FantasyEngine.TableTool
             {
                 FConsole.WriteException(e);
             }
+
             Console.ReadKey();
         }
     }
