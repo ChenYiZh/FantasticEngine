@@ -57,7 +57,7 @@ namespace FantasyEngine.TableTool.Generator
         /// <summary>
         /// 项目名称
         /// </summary>
-        public string ProjectName { private set; get; }
+        public string ProjectName { set; get; }
         /// <summary>
         /// 清理目录再导出？
         /// </summary>

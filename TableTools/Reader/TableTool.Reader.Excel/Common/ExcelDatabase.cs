@@ -34,7 +34,7 @@ namespace FantasyEngine.TableTool.Reader.Excel.Common
     /// <summary>
     /// Excel的表数据
     /// </summary>
-    public class ExcelDatabase : Dictionary<string, ITable>, IDatabase
+    internal class ExcelDatabase : Dictionary<string, ITable>, IDatabase
     {
         /// <summary>
         /// 数据文件目录

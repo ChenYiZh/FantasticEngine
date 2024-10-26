@@ -29,7 +29,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FantasyEngine.TableTool.Exporter.Text
+namespace FantasyEngine.TableTool.Exporter
 {
     /// <summary>
     /// 输出表头

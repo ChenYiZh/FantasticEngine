@@ -7,4 +7,14 @@
     <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\FantasyEngine\FantasyEngine.Common\FantasyEngine.Common.csproj" />
+    <ProjectReference Include="..\Exporter\TableTool.Exporter.Json\TableTool.Exporter.Json.csproj" />
+    <ProjectReference Include="..\Exporter\TableTool.Exporter.Text\TableTool.Exporter.Text.csproj" />
+    <ProjectReference Include="..\Generator\TableTool.Generator.Unity\TableTool.Generator.Unity.csproj" />
+    <ProjectReference Include="..\Generator\TableTool.Generator.UnrealEngine\TableTool.Generator.UnrealEngine.csproj" />
+    <ProjectReference Include="..\Reader\TableTool.Reader.Excel\TableTool.Reader.Excel.csproj" />
+    <ProjectReference Include="..\TableTool.Framework\TableTool.Framework.csproj" />
+  </ItemGroup>
+
 </Project>

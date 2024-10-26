@@ -31,7 +31,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace FantasyEngine.TableTool.Exporter.Json
+namespace FantasyEngine.TableTool.Exporter
 {
     /// <summary>
     /// 通过Json导出表格的基本信息
