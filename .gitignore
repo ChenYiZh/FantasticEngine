@@ -27,3 +27,16 @@
 /FantasyEngineForUnity/FantasyEngine.Common.Unity/bin
 /FantasyEngineForUnity/FantasyEngine.Framework/obj
 /FantasyEngineForUnity/FantasyEngine.Framework/bin
+.idea
+/FantasyEngine/FantasyEngine/.vsconfig
+/FantasyEngine/FantasyEngine/.idea
+/FantasyEngine/FantasyEngine/.vs
+/FantasyEngine/FantasyEngine/Saved
+/FantasyEngine/FantasyEngine/Binaries
+/FantasyEngine/FantasyEngine/Config
+/FantasyEngine/FantasyEngine/DerivedDataCache
+/FantasyEngine/FantasyEngine/Intermediate
+/FantasyEngine/FantasyEngine/Plugins/FantasyEngine_Common/Intermediate
+/FantasyEngine/FantasyEngine/Plugins/FantasyEngine_Common/Binaries
+/FantasyEngine/cmake-build-release
+/FantasyEngine/cmake-build-debug
