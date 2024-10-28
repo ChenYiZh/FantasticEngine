@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>D:\UEProjects\FantasyEngine\FantasyEngine\FantasyEngine\FantasyEngine.Common.xml</DocumentationFile>
+    <DocumentationFile>D:\UEProjects\FantasyEngine\FantasyEngine\FantasyEngine.Common\FantasyEngine.Common.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
