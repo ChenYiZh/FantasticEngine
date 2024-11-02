@@ -1,9 +1,9 @@
 rd /s /q Binaries\Win64
-rd /s /q Plugins\VirtualInputCore\Binaries
-rd /s /q Plugins\Framework\Binaries
-@rd /s /q Plugins\FoolishClient\Binaries
-rd /s /q Plugins\FoolishGames\Binaries
-rd /s /q Plugins\GameplayMode\Binaries
+rd /s /q Plugins\FantasyEngine_VirtualInput\Binaries
+rd /s /q Plugins\FantasyEngine_Framework\Binaries
+@rd /s /q Plugins\FantasyEngine_Network\Binaries
+rd /s /q Plugins\FantasyEngine_Common\Binaries
+rd /s /q Plugins\FantasyEngine_Gameplay\Binaries
 @rd /s /q Plugins\WorldCreator\Binaries
 
 @echo off
