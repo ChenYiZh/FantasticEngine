@@ -36,7 +36,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDeadDynamic, EDieCode, Code);
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnDeadNative, EDieCode);
 
 /** 拥有对象池并且包含出生死亡的标准 Character 组件 */
-UCLASS(Blueprintable, BlueprintType, ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, BlueprintType, ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UCharacterBeingComponent : public UActorComponent, public IPoolItem
 {
 	GENERATED_BODY()

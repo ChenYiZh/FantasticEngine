@@ -16,7 +16,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnActorRayTraced, AActor*, ActorFr
 /** 必须在UPrimitiveComponent类型下，配合 PlayerRayTraceComponent 使用 */
 UCLASS(Blueprintable, BlueprintType,
 	HideCategories=(Mobility, Sockets, ComponentTick, Activation, Cooking, Physics, LOD, Collision),
-	ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+	ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API URayTracedComponent : public UActorComponent
 {
 	GENERATED_BODY()

@@ -101,7 +101,7 @@ public:
 };
 
 /** VR基础操作类 */
-UCLASS(Blueprintable, BlueprintType, ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, BlueprintType, ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UVRPawnOperationsComponent : public UBasicOperationsComponent
 {
 	GENERATED_BODY()

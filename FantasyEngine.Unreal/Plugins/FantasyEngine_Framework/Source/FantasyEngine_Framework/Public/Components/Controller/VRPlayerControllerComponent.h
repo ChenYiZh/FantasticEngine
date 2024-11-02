@@ -8,7 +8,7 @@
 #include "VRPlayerControllerComponent.generated.h"
 
 /** VR Player Controller */
-UCLASS(Blueprintable, BlueprintType, ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, BlueprintType, ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UVRPlayerControllerComponent : public UBasePlayerControllerComponent
 {
 	GENERATED_BODY()

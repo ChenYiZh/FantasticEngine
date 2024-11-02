@@ -8,7 +8,7 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPlayerTriggerTracked);
 
-UCLASS(ClassGroup="Fantasy Engine", hidecategories=(Object,LOD,Lighting,TextureStreaming), editinlinenew,
+UCLASS(ClassGroup="FantasyEngine", hidecategories=(Object,LOD,Lighting,TextureStreaming), editinlinenew,
 	meta=( BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UPlayerTriggerComponent : public UBoxComponent
 {

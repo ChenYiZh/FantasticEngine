@@ -9,7 +9,7 @@
 /**
  * 起始位置在脚底
  */
-UCLASS(Blueprintable, ClassGroup="Fantasy Engine", hidecategories=Collision)
+UCLASS(Blueprintable, ClassGroup="FantasyEngine", hidecategories=Collision)
 class FANTASYENGINE_FRAMEWORK_API ACustomPlayerStart : public APlayerStart
 {
 	GENERATED_BODY()

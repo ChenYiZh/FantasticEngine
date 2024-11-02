@@ -10,7 +10,7 @@
  * 添加可以显示隐藏的 Actor 的功能，配合 CustomPlayerCameraManager 一起使用
  * https://github.com/EpicGames/UnrealEngine/pull/8896/commits/400abcc895c3d37f2725fdb78e144879bd9b9502
  */
-UCLASS(HideCategories=(Mobility, Rendering, LOD), Blueprintable, ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+UCLASS(HideCategories=(Mobility, Rendering, LOD), Blueprintable, ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UCustomCameraComponent : public UCameraComponent
 {
 	GENERATED_BODY()

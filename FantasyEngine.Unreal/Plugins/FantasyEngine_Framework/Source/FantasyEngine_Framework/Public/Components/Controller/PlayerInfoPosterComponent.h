@@ -10,7 +10,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPostPlayerInfoDynamic);
 
 DECLARE_MULTICAST_DELEGATE(FOnPostPlayerInfoNative)
 
-UCLASS(BlueprintType, Blueprintable, ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+UCLASS(BlueprintType, Blueprintable, ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UPlayerInfoPosterComponent : public UActorComponent
 {
 	GENERATED_BODY()

@@ -65,7 +65,7 @@ public:
 };
 
 /** 基础操作类 */
-UCLASS(Blueprintable, BlueprintType, ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, BlueprintType, ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UBasicOperationsComponent : public UActorComponent
 {
 	GENERATED_BODY()

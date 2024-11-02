@@ -9,7 +9,7 @@
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnTriggerOnTickTracked, AActor*, OtherActor, UPrimitiveComponent*,
                                              OtherComp);
 
-UCLASS(ClassGroup="Fantasy Engine", hidecategories=(Object,LOD,Lighting,TextureStreaming), editinlinenew,
+UCLASS(ClassGroup="FantasyEngine", hidecategories=(Object,LOD,Lighting,TextureStreaming), editinlinenew,
 	meta=( BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UTriggerOnTick : public USceneComponent
 {

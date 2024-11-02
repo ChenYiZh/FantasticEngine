@@ -10,7 +10,7 @@
 /**
  * 
  */
-UCLASS(config=FrameworkSettings, defaultconfig, meta=(DisplayName="Framework"))
+UCLASS(config=FantasyEngineSettings, defaultconfig, meta=(DisplayName="Fantasy Engine Settings"))
 class FANTASYENGINE_FRAMEWORK_API UFantasyEngineSettings : public UObject
 {
 	GENERATED_BODY()

@@ -45,7 +45,7 @@ TSharedRef<FSlateStyleSet> FFantasyEngineStyle::Create()
 	Style->Set("FantasyEngineEditor.GenerateTables", new IMAGE_BRUSH(TEXT("icons/generate_tables"), Icon16x16));
 
 	Style->Set("FantasyEngineEditor.Settings", new IMAGE_BRUSH(TEXT("icons/settings"), Icon16x16));
-	Style->Set("FantasyEngineEditor.FrameworkSettings", new IMAGE_BRUSH(TEXT("icons/framework_settings"), Icon16x16));
+	Style->Set("FantasyEngineEditor.FantasyEngineSettings", new IMAGE_BRUSH(TEXT("icons/framework_settings"), Icon16x16));
 	Style->Set("FantasyEngineEditor.FantasyEngineEditor", new IMAGE_BRUSH(TEXT("icons/fantasy_engine_editor"), Icon16x16));
 
 

@@ -7,7 +7,7 @@
 #include "BasePlayerControllerComponent.generated.h"
 
 
-UCLASS(Blueprintable, NotBlueprintType, Abstract, ClassGroup="Fantasy Engine",
+UCLASS(Blueprintable, NotBlueprintType, Abstract, ClassGroup="FantasyEngine",
 	meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UBasePlayerControllerComponent : public UActorComponent
 {

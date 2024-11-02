@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS(config=FantasyEngineEditor, defaultconfig, meta=(DisplayName="FantasyEngineEditor"))
+UCLASS(config=FantasyEngineEditor, defaultconfig, meta=(DisplayName="Fantasy Engine Editor"))
 class FANTASYENGINE_FRAMEWORK_EDITOR_API UFantasyEngineEditorSettings : public UObject
 {
 	GENERATED_BODY()

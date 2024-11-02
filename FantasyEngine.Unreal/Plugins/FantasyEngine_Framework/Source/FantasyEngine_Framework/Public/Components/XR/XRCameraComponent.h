@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS(HideCategories=(Mobility, Rendering, LOD), Blueprintable, ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+UCLASS(HideCategories=(Mobility, Rendering, LOD), Blueprintable, ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UXRCameraComponent : public UCameraComponent
 {
 	GENERATED_BODY()

@@ -39,7 +39,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnFocusDynamic, USceneComponent*, 
 DECLARE_MULTICAST_DELEGATE_TwoParams(FOnFocusNative, USceneComponent*, bool);
 
 /** 让父节点看向某个位置 */
-UCLASS(NotBlueprintable, BlueprintType, ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+UCLASS(NotBlueprintable, BlueprintType, ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UFocusComponent : public USceneComponent
 {
 	GENERATED_BODY()

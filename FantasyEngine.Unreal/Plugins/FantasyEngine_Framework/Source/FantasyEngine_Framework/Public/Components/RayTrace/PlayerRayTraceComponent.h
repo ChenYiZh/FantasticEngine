@@ -55,7 +55,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPlayerRayTraceActor, AActor*, Ray
 
 /** 玩家用于射线检测的工具，配合 RayTracedComponent 使用 */
 UCLASS(Blueprintable, BlueprintType,
-	HideCategories=(Mobility, Sockets, ComponentTick, Activation, Cooking, Physics, LOD, Collision),ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+	HideCategories=(Mobility, Sockets, ComponentTick, Activation, Cooking, Physics, LOD, Collision),ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UPlayerRayTraceComponent : public USceneComponent
 {
 	GENERATED_BODY()

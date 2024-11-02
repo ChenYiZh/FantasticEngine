@@ -22,7 +22,7 @@ ChenYiZh 源代码:
 
 
 /** Framework Player Controller Component*/
-UCLASS(Blueprintable, BlueprintType, ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, BlueprintType, ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UPrimitivePlayerControllerComponent : public UBasePlayerControllerComponent
 {
 	GENERATED_BODY()

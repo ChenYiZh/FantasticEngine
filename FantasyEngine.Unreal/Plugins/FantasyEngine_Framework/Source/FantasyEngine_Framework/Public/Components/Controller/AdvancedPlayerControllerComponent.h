@@ -34,7 +34,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnTurnViewDynamic, FVector2D, Value
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnTurnViewNative, FVector2D);
 
-UCLASS(Blueprintable, BlueprintType, ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, BlueprintType, ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UAdvancedPlayerControllerComponent : public UPrimitivePlayerControllerComponent
 {
 	GENERATED_BODY()

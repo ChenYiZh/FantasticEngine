@@ -21,7 +21,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FGrabEventDynamic);
 
 DECLARE_MULTICAST_DELEGATE(FGrabEventNative);
 
-UCLASS(Blueprintable, BlueprintType, ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, BlueprintType, ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UGrabComponent : public USceneComponent
 {
 	GENERATED_BODY()

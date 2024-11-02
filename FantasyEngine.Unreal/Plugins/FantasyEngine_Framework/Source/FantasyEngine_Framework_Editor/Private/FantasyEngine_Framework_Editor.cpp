@@ -15,9 +15,9 @@ void FFantasyEngine_Framework_EditorModule::StartupModule()
 	{
 		SettingsModule->RegisterSettings(TEXT("Project"),
 								 TEXT("Fantasy Engine"),
-								 TEXT("Framework"),
+								 TEXT("Fantasy Engine Settings"),
 								 FText::FromString(TEXT("Settings")),
-								 FText::FromString(TEXT("Framework Settings")),
+								 FText::FromString(TEXT("Fantasy Engine Settings")),
 								 GetMutableDefault<UFantasyEngineSettings>());
 		SettingsModule->RegisterSettings(TEXT("Project"),
 		                                 TEXT("Fantasy Engine"),

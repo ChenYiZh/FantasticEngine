@@ -33,7 +33,7 @@ void FFantasyEngineToolbar::StartupModule()
 		{
 			if (ISettingsModule* SettingsModule = FModuleManager::GetModulePtr<ISettingsModule>("Settings"))
 			{
-				SettingsModule->ShowViewer(TEXT("Project"), TEXT("Fantasy Engine"), TEXT("Framework"));
+				SettingsModule->ShowViewer(TEXT("Project"), TEXT("Fantasy Engine"), TEXT("Fantasy Engine Settings"));
 			}
 		}), FCanExecuteAction());
 	CommandList->MapAction(
@@ -112,11 +112,11 @@ TSharedRef<SWidget> FFantasyEngineToolbar::CreateMenu()
 	                       FNewMenuDelegate::CreateLambda([Commands](FMenuBuilder& SubMenuBuilder)
 	                       {
 		                       SubMenuBuilder.AddMenuEntry(Commands.FrameworkSettings, NAME_None,
-		                                                   FText::FromString(TEXT("Framework")),
-		                                                   FText::FromString(TEXT("Framework Settings")),
+		                                                   FText::FromString(TEXT("Settings")),
+		                                                   FText::FromString(TEXT("Fantasy Engine Settings")),
 		                                                   FSlateIcon(
 			                                                   TEXT("FantasyEngineStyle"),
-			                                                   TEXT("FantasyEngineEditor.FrameworkSettings"))
+			                                                   TEXT("FantasyEngineEditor.FantasyEngineSettings"))
 		                       );
 		                       // TArray<TSharedRef<IPlugin>> Plugins = IPluginManager::Get().GetEnabledPlugins();
 		                       // bool bWorldEditorExists = false;
@@ -140,7 +140,7 @@ TSharedRef<SWidget> FFantasyEngineToolbar::CreateMenu()
 		                       }
 		                       SubMenuBuilder.AddSeparator();
 		                       SubMenuBuilder.AddMenuEntry(Commands.FantasyEngineEditor, NAME_None,
-		                                                   FText::FromString(TEXT("Fantasy Engine Editor")),
+		                                                   FText::FromString(TEXT("Editor")),
 		                                                   FText::FromString(TEXT("Fantasy Engine Editor")),
 		                                                   FSlateIcon(
 			                                                   TEXT("FantasyEngineStyle"),

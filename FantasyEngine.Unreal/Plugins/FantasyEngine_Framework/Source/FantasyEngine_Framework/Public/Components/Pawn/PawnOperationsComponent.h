@@ -7,7 +7,7 @@
 #include "PawnOperationsComponent.generated.h"
 
 /** 角色控制组件 */
-UCLASS(Blueprintable, BlueprintType, ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, BlueprintType, ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UPawnOperationsComponent : public UBasicOperationsComponent
 {
 	GENERATED_BODY()

@@ -11,7 +11,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSwitchToNewPawnDynamic, APawn*, T
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnSwitchToNewPawnNative, APawn*);
 
 /** 角色切换类 */
-UCLASS(Blueprintable, NotBlueprintType, ClassGroup="Fantasy Engine", meta=(BlueprintSpawnableComponent))
+UCLASS(Blueprintable, NotBlueprintType, ClassGroup="FantasyEngine", meta=(BlueprintSpawnableComponent))
 class FANTASYENGINE_FRAMEWORK_API UPawnSwitchComponent : public UActorComponent
 {
 	GENERATED_BODY()
