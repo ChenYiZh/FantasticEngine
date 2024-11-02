@@ -1,0 +1,12 @@
+﻿/// <summary>
+/// {{0}}.xlsx
+/// </summary>
+public partial class Table{{1}} : BaseTableReader<Data{{1}}>
+{
+	/// <summary>
+	/// Table{{1}} 单例
+	/// </summary>
+	public static Table{{1}} Instance { get { return Singleton<Table{{1}}>.Instance; } }
+
+	public override string FileName { get { return "{{0}}"; } }
+}

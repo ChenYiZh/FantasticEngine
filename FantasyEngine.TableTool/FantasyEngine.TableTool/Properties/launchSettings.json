@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TableTool": {
+      "commandName": "Project",
+      "commandLineArgs": "ue server=\"../../project/server\" client=\"../../project/client\""
+    }
+  }
+}

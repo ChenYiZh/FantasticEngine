@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>FantasyEngine.TableTool.Exporter.Text</RootNamespace>
+    <AssemblyName>FantasyEngine.TableTool.Exporter.Text</AssemblyName>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FantasyEngine\FantasyEngine.Common\FantasyEngine.Common.csproj" />
+    <ProjectReference Include="..\..\FantasyEngine.TableTool.Framework\TableTool.Framework.csproj" />
+  </ItemGroup>
+
+</Project>
