@@ -134,7 +134,7 @@ namespace FantasyEngine
                 }
                 catch (Exception e)
                 {
-                    FConsole.WriteException(e);
+                    FEConsole.WriteException(e);
                 }
                 Thread.Sleep(DeltaMilliseconds);
             }
@@ -150,7 +150,7 @@ namespace FantasyEngine
                 }
                 catch (Exception e)
                 {
-                    FConsole.WriteException(e);
+                    FEConsole.WriteException(e);
                 }
                 finally
                 {
@@ -175,7 +175,7 @@ namespace FantasyEngine
                 }
                 catch (Exception e)
                 {
-                    FConsole.WriteException(e);
+                    FEConsole.WriteException(e);
                 }
                 Thread = null;
             }

@@ -40,3 +40,17 @@
 /FantasyEngine/FantasyEngine/Plugins/FantasyEngine_Common/Binaries
 /FantasyEngine/cmake-build-release
 /FantasyEngine/cmake-build-debug
+/Experiments/FantasyEngine/cmake-build-debug
+/Experiments/FantasyEngine/cmake-build-release
+/FantasyEngine.TableTool/FantasyEngine.TableTool/obj
+/FantasyEngine.TableTool/FantasyEngine.TableTool/bin
+/FantasyEngine.TableTool/FantasyEngine.TableTool.Exporter/TableTool.Exporter.Csv/obj
+/FantasyEngine.TableTool/FantasyEngine.TableTool.Exporter/TableTool.Exporter.Csv/bin
+/FantasyEngine.TableTool/FantasyEngine.TableTool.Exporter/TableTool.Exporter.Json/obj
+/FantasyEngine.TableTool/FantasyEngine.TableTool.Exporter/TableTool.Exporter.Json/bin
+/FantasyEngine.TableTool/FantasyEngine.TableTool.Exporter/TableTool.Exporter.Text/obj
+/FantasyEngine.TableTool/FantasyEngine.TableTool.Exporter/TableTool.Exporter.Text/bin
+/FantasyEngine.TableTool/FantasyEngine.TableTool.Framework/obj
+/FantasyEngine.TableTool/FantasyEngine.TableTool.Framework/bin
+obj
+bin

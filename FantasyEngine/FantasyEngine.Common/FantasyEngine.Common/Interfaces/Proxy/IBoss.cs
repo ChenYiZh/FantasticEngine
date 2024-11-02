@@ -27,7 +27,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FantasyEngine.Proxy
+namespace FantasyEngine
 {
     /// <summary>
     /// 工头

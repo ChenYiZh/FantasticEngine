@@ -87,7 +87,7 @@ namespace FantasyEngine.Reflection
             }
             catch (Exception e)
             {
-                FConsole.WriteExceptionWithCategory(Categories.REFLECTION, e);
+                FEConsole.WriteExceptionWithCategory(Categories.REFLECTION, e);
                 return null;
             }
         }
@@ -112,7 +112,7 @@ namespace FantasyEngine.Reflection
             }
             catch (Exception e)
             {
-                FConsole.WriteExceptionWithCategory(Categories.REFLECTION, e);
+                FEConsole.WriteExceptionWithCategory(Categories.REFLECTION, e);
                 return null;
             }
         }
@@ -124,7 +124,7 @@ namespace FantasyEngine.Reflection
         {
             if (assembly == null)
             {
-                FConsole.WriteErrorFormatWithCategory(Categories.REFLECTION, "Create object failed, because assembly is null.");
+                FEConsole.WriteErrorFormatWithCategory(Categories.REFLECTION, "Create object failed, because assembly is null.");
                 return null;
             }
             try
@@ -142,7 +142,7 @@ namespace FantasyEngine.Reflection
             }
             catch (Exception e)
             {
-                FConsole.WriteExceptionWithCategory(Categories.REFLECTION, e);
+                FEConsole.WriteExceptionWithCategory(Categories.REFLECTION, e);
                 return null;
             }
         }
