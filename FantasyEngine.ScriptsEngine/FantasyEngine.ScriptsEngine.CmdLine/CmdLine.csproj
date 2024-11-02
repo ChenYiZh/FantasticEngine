@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PublishAot>true</PublishAot>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <StartupObject>CmdLine.Program</StartupObject>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <AssemblyVersion>1.0.0.2</AssemblyVersion>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FantasyEngine\FantasyEngine.Common\FantasyEngine.Common.csproj" />
+    <ProjectReference Include="..\FantasyEngine.ScriptsEngine.Compilation\FantasyEngine.ScriptsEngine.Compilation.CSharp.MSBuild\FantasyEngine.ScriptsEngine.Compilation.CSharp.MSBuild.csproj" />
+  </ItemGroup>
+
+</Project>
