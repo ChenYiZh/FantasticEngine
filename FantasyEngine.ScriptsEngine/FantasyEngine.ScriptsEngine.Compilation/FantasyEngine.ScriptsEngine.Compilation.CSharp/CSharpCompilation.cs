@@ -140,7 +140,7 @@ namespace FantasyEngine.ScriptsEngine.Compilation
 
             //if (string.IsNullOrEmpty(outputFile))
             //{
-            //    outputFile = "FoolishGames.Runtime.dll";
+            //    outputFile = "FantasyEngine.Runtime.dll";
             //}
             //if (!outputFile.EndsWith(".dll"))
             //{
@@ -188,7 +188,7 @@ namespace FantasyEngine.ScriptsEngine.Compilation
         {
             if (string.IsNullOrEmpty(outputFile))
             {
-                outputFile = "FoolishGames.Runtime.dll";
+                outputFile = "FantasyEngine.Server.Runtime.dll";
             }
             if (!outputFile.EndsWith(".dll"))
             {
@@ -211,7 +211,7 @@ namespace FantasyEngine.ScriptsEngine.Compilation
 
             builder.AppendLine($"[assembly: AssemblyTitle(\"{assemblyName}\")]");
             builder.AppendLine($"[assembly: AssemblyProduct(\"{assemblyName}\")]");
-            builder.AppendLine($"[assembly: AssemblyCopyright(\"Copyright © FoolishGames.\")]");
+            builder.AppendLine($"[assembly: AssemblyCopyright(\"Copyright © FantasyEngine.\")]");
             builder.AppendLine($"[assembly: ComVisible(false)]");
             builder.AppendLine($"[assembly: Guid(\"{Guid.NewGuid().ToString()}\")]");
             builder.AppendLine($"[assembly: AssemblyVersion(\"1.0.0.1\")]");
@@ -220,7 +220,7 @@ namespace FantasyEngine.ScriptsEngine.Compilation
 
         private static List<string> GetIgnoreReferences()
         {
-            string xmlFileName = "FoolishGames.CSharp.Ignored.References.config";
+            string xmlFileName = "FantasyEngine.ScriptsEngine.CSharp.Ignored.References.config";
             if (!File.Exists(xmlFileName))
             {
                 return new List<string>();
