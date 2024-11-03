@@ -27,7 +27,7 @@ SOFTWARE.
 
 #include "Timer/TimeLord.h"
 #include "Log/FEConsole.h"
-#include "Log/Categories.h"
+#include "Log/FECategories.h"
 
 void UTimeLord::SetPacketWatch(UObject* Watch)
 {
@@ -35,7 +35,7 @@ void UTimeLord::SetPacketWatch(UObject* Watch)
 	{
 		if (!Watch->Implements<UIPacketWatch>())
 		{
-			UFEConsole::WriteErrorWithCategory(UCategories::TIME_LORD,
+			UFEConsole::WriteErrorWithCategory(UFECategories::TIME_LORD,
 			                                  TEXT("The input value is not implements packtwatch."));
 			return;
 		}

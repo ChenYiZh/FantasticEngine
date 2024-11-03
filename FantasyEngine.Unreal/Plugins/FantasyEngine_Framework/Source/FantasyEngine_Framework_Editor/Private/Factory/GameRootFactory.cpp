@@ -109,7 +109,7 @@ UObject* UGameRootFactory::FactoryCreateNew(UClass* InClass, UObject* InParent, 
 const FSlateBrush* FAssetTypeActions_GameRoot::GetThumbnailBrush(const FAssetData& InAssetData,
                                                                  const FName InClassName) const
 {
-	const FSlateIcon Icon(TEXT("FoolishGameStyle"),TEXT("FoolishGameEditor.GameRoot"));
+	const FSlateIcon Icon(TEXT("FantasyEngineStyle"),TEXT("FantasyEngineEditor.GameRoot"));
 	return Icon.GetIcon();
 }
 

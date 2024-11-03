@@ -8,7 +8,7 @@
 #include "Interfaces/IPluginManager.h"
 #include "Toolbar/Actions/MenuAction_GenerateTables.h"
 
-static const FName FoolishGameToolbarTabName("FantasyEngineToolbar");
+static const FName FantasyEngineToolbarTabName("FantasyEngineToolbar");
 
 #define LOCTEXT_NAMESPACE "Fantasy Engine Editor"
 
@@ -160,10 +160,10 @@ void FFantasyEngineToolbar::RegisterMenus()
 	FToolMenuOwnerScoped OwnerScoped(this);
 
 	// {
-	// 	UToolMenu* Menu = UToolMenus::Get()->ExtendMenu("LevelEditor.MainMenu.FoolishGame");
+	// 	UToolMenu* Menu = UToolMenus::Get()->ExtendMenu("LevelEditor.MainMenu.FantasyEngine");
 	// 	{
 	// 		FToolMenuSection& Section = Menu->FindOrAddSection("WindowLayout");
-	// 		Section.AddMenuEntryWithCommandList(FFoolishGameCommands::Get().ToolbarAction, PluginCommands);
+	// 		Section.AddMenuEntryWithCommandList(FFantasyEngineCommands::Get().ToolbarAction, PluginCommands);
 	// 	}
 	// }
 

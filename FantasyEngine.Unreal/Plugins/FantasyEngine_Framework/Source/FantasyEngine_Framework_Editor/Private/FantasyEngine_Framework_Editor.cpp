@@ -26,8 +26,8 @@ void FFantasyEngine_Framework_EditorModule::StartupModule()
 		                                 FText::FromString(TEXT("Fantasy Engine Editor")),
 		                                 GetMutableDefault<UFantasyEngineEditorSettings>());
 	}
-	FoolishGameToolbar = MakeShareable(new FFantasyEngineToolbar);
-	FoolishGameToolbar->StartupModule();
+	FantasyEngineToolbar = MakeShareable(new FFantasyEngineToolbar);
+	FantasyEngineToolbar->StartupModule();
 	AssetTools = MakeShareable(new FFantasyEngineFrameworkAssetTools);
 	AssetTools->StartupModule();
 }
@@ -36,8 +36,8 @@ void FFantasyEngine_Framework_EditorModule::ShutdownModule()
 {
 	AssetTools->ShutdownModule();
 	AssetTools.Reset();
-	FoolishGameToolbar->ShutdownModule();
-	FoolishGameToolbar.Reset();
+	FantasyEngineToolbar->ShutdownModule();
+	FantasyEngineToolbar.Reset();
 
 	if (ISettingsModule* SettingsModule = FModuleManager::GetModulePtr<ISettingsModule>("Settings"))
 	{
@@ -54,7 +54,7 @@ void FFantasyEngine_Framework_EditorModule::ShutdownModule()
 
 void FFantasyEngine_Framework_EditorModule::OnPostEngineInit()
 {
-	FoolishGameToolbar->StartupModule();
+	FantasyEngineToolbar->StartupModule();
 }
 
 IMPLEMENT_GAME_MODULE(FFantasyEngine_Framework_EditorModule, FantasyEngine_Framework_Editor);

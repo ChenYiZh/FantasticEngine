@@ -20,7 +20,7 @@ private:
 
 public:
 	/** 主工具栏 */
-	TSharedPtr<FFantasyEngineToolbar> FoolishGameToolbar = nullptr;
+	TSharedPtr<FFantasyEngineToolbar> FantasyEngineToolbar = nullptr;
 	/** 右键菜单栏 */
 	TSharedPtr<FFantasyEngineFrameworkAssetTools> AssetTools = nullptr;
 };
