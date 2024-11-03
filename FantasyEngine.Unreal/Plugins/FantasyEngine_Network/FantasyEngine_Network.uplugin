@@ -1,0 +1,39 @@
+﻿{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0.0",
+  "FriendlyName": "FantasyEngine.Network",
+  "Description": "The client and server in fantasy engine network framework.",
+  "Category": "Fantasy Engine",
+  "CreatedBy": "ChenYiZh",
+  "CreatedByURL": "https://space.bilibili.com/9308172",
+  "DocsURL": "https://github.com/ChenYiZh/FantasyEngine",
+  "MarketplaceURL": "",
+  "CanContainContent": true,
+  "IsBetaVersion": true,
+  "EnabledByDefault": true,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "FantasyEngine_Network",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "FantasyEngine_Client",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "FantasyEngine_Server",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "FantasyEngine_Common",
+      "Enabled": true
+    }
+  ]
+}
