@@ -1,0 +1,38 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0.0",
+  "FriendlyName": "FantasyEngine.VirtualInput",
+  "Description": "Virtual joystick input by Fantasy Engine.",
+  "Category": "Fantasy Engine",
+  "CreatedBy": "ChenYiZh",
+  "CreatedByURL": "https://space.bilibili.com/9308172",
+  "DocsURL": "https://github.com/ChenYiZh/FantasyEngine",
+  "MarketplaceURL": "",
+  "SupportURL": "",
+  "EnabledByDefault": true,
+  "CanContainContent": true,
+  "IsBetaVersion": true,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "FantasyEngine_VirtualInput",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "FantasyEngine_Common",
+      "Enabled": true
+    },
+    {
+      "Name": "FantasyEngine_Framework",
+      "Enabled": true
+    },
+    {
+      "Name": "EnhancedInput",
+      "Enabled": true
+    }
+  ]
+}
