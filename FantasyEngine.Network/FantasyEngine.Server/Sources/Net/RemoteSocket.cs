@@ -40,7 +40,7 @@ namespace FantasyEngine.Network.Core
     /// <summary>
     /// 套接字嵌套层
     /// </summary>
-    public sealed class RemoteSocket : FSocket, IRemoteSocket
+    public sealed class RemoteSocket : FESocket, IRemoteSocket
     {
         /// <summary>
         /// 尝试开始发送

@@ -48,7 +48,7 @@ namespace FantasyEngine.Network
     /// <summary>
     /// 套接字管理基类
     /// </summary>
-    public abstract class FSocket : ISocket
+    public abstract class FESocket : ISocket
     {
         /// <summary>
         /// 是否在运行
@@ -192,7 +192,7 @@ namespace FantasyEngine.Network
         /// <summary>
         /// 初始化
         /// </summary>
-        protected FSocket(SocketAsyncEventArgs eventArgs)
+        protected FESocket(SocketAsyncEventArgs eventArgs)
         {
             if (eventArgs == null)
             {

@@ -53,7 +53,7 @@ namespace FantasyEngine.Network
     /// <summary>
     /// 服务器套接字管理
     /// </summary>
-    public abstract class ServerSocket : FSocket, IServerSocket
+    public abstract class ServerSocket : FESocket, IServerSocket
     {
         /// <summary>
         /// 连接事件

@@ -28,13 +28,13 @@ SOFTWARE.
 
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
-#include "Categories.generated.h"
+#include "FECategories.generated.h"
 
 /**
  * 类别类
  */
 UCLASS(NotBlueprintable, NotBlueprintType, DisplayName="Fantasy Engine|Categories")
-class FANTASYENGINE_COMMON_API UCategories final : public UBlueprintFunctionLibrary
+class FANTASYENGINE_COMMON_API UFECategories final : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 

@@ -25,19 +25,19 @@ SOFTWARE.
 ****************************************************************************/
 
 
-#include "Log/Categories.h"
+#include "Log/FECategories.h"
 
-FName UCategories::GET_TIME_LORD()
+FName UFECategories::GET_TIME_LORD()
 {
 	return TIME_LORD;
 }
 
-FName UCategories::GET_REFLECTION()
+FName UFECategories::GET_REFLECTION()
 {
 	return REFLECTION;
 }
 
-FName UCategories::GET_HTTP()
+FName UFECategories::GET_HTTP()
 {
 	return HTTP;
 }

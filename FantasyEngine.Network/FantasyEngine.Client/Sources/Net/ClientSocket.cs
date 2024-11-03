@@ -41,7 +41,7 @@ namespace FantasyEngine.Network
     /// <summary>
     /// 套接字父类
     /// </summary>
-    public abstract class ClientSocket : FSocket, IClientSocket
+    public abstract class ClientSocket : FESocket, IClientSocket
     {
         /// <summary>
         /// 地址
