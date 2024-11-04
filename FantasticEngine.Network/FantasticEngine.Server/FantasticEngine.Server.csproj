@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>FantasticEngine.Server</RootNamespace>
+    <Authors>ChenYiZh</Authors>
+    <Company>上海米拉伊网络科技有限公司</Company>
+    <PackageIconUrl>https://gitee.com/chenyizh/FoolishServer/blob/main/Logo.png</PackageIconUrl>
+    <PackageProjectUrl>https://gitee.com/chenyizh/FoolishServer</PackageProjectUrl>
+    <Copyright>Copyright ©2024 ChenYiZh and Shanghai miLaYi Tech, Inc. All rights reserved.</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Sources\Config\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FantasticEngine.Common\FantasticEngine.Common\FantasticEngine.Common.csproj" />
+    <ProjectReference Include="..\FantasticEngine.Network\FantasticEngine.Network.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>FantasticEngine.Client</RootNamespace>
+    <ApplicationIcon />
+    <StartupObject />
+    <Authors>ChenYiZh</Authors>
+    <Company>上海米拉伊网络科技有限公司</Company>
+    <PackageProjectUrl>https://github.com/ChenYiZh/FantasticEngine</PackageProjectUrl>
+    <PackageIconUrl>https://github.com//ChenYiZh/FantasticEngine/raw/main/Logo.png</PackageIconUrl>
+    <Copyright>Copyright ©2024 ChenYiZh and Shanghai miLaYi Tech, Inc. All rights reserved.</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FantasticEngine.Common\FantasticEngine.Common\FantasticEngine.Common.csproj" />
+    <ProjectReference Include="..\FantasticEngine.Network\FantasticEngine.Network.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="FantasticEngine.Client.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
