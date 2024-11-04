@@ -83,3 +83,7 @@ bin
 /Experiments/FantasticEngine/FantasticEngine/Saved
 /Experiments/FantasticEngine/FantasticEngine/DerivedDataCache
 /Experiments/Binaries
+/FantasticEngine.ScriptsEngine/FantasticEngine.ScriptsEngine.Generator/il2Native
+/FantasticEngine.ScriptsEngine/.nuget
+/FantasticEngine.ScriptsEngine/packages
+/Binaries

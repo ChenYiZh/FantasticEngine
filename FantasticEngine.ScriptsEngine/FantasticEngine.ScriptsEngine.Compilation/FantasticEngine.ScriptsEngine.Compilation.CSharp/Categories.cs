@@ -2,7 +2,7 @@
 THIS FILE IS PART OF Fantastic Engine PROJECT
 THIS PROGRAM IS FREE SOFTWARE, IS LICENSED UNDER MIT
 
-Copyright (c) 2024 ChenYiZh
+Copyright (c) 2022-2030 ChenYiZh
 https://space.bilibili.com/9308172
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,46 +23,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ****************************************************************************/
-using FantasticEngine.Collections;
-using FantasticEngine.IO;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
 using System.Text;
 
-namespace FantasticEngine
+namespace FantasticEngine.ScriptsEngine.Compilation.CSharp
 {
-    /// <summary>
-    /// 程序集管理类
-    /// </summary>
-    public static class AssemblyService
+    internal class Categories
     {
-        private static ThreadSafeDictionary<string, Assembly> _assemblies = new ThreadSafeDictionary<string, Assembly>();
-        /// <summary>
-        /// 已加载的程序集
-        /// </summary>
-        public static IEnumerable<Assembly> Assemblies { get { return _assemblies.Values; } }
-        /// <summary>
-        /// 读取程序集
-        /// </summary>
-        /// <param name="dllPath"></param>
-        /// <returns></returns>
-        public static Assembly Load(string dllPath)
-        {
-            if (string.IsNullOrEmpty(dllPath)) return null;
-            if (!dllPath.EndsWith(".dll")) return null;
-            string dllName = Path.GetFileNameWithoutExtension(dllPath);
-            if (_assemblies.ContainsKey(dllName))
-            {
-                return _assemblies[dllName];
-            }
-            Assembly assembly = Assembly.LoadFile(FEPath.GetFullPath(dllPath));
-            if (assembly != null)
-            {
-                _assemblies.Add(dllName, assembly);
-            }
-            return assembly;
-        }
+        public static string COMPILATION = "CompilationCSharp";
     }
 }

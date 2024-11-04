@@ -23,46 +23,32 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ****************************************************************************/
-using FantasticEngine.Collections;
-using FantasticEngine.IO;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Text;
 
 namespace FantasticEngine
 {
     /// <summary>
-    /// 程序集管理类
+    /// 路径管理类
     /// </summary>
-    public static class AssemblyService
+    public static class FEPath
     {
-        private static ThreadSafeDictionary<string, Assembly> _assemblies = new ThreadSafeDictionary<string, Assembly>();
         /// <summary>
-        /// 已加载的程序集
+        /// 路径补全
         /// </summary>
-        public static IEnumerable<Assembly> Assemblies { get { return _assemblies.Values; } }
-        /// <summary>
-        /// 读取程序集
-        /// </summary>
-        /// <param name="dllPath"></param>
-        /// <returns></returns>
-        public static Assembly Load(string dllPath)
+        public static string GetFullPath(string path)
         {
-            if (string.IsNullOrEmpty(dllPath)) return null;
-            if (!dllPath.EndsWith(".dll")) return null;
-            string dllName = Path.GetFileNameWithoutExtension(dllPath);
-            if (_assemblies.ContainsKey(dllName))
+            if (string.IsNullOrEmpty(path))
             {
-                return _assemblies[dllName];
+                path = Environment.CurrentDirectory;
             }
-            Assembly assembly = Assembly.LoadFile(FEPath.GetFullPath(dllPath));
-            if (assembly != null)
+            else if (!Path.IsPathRooted(path))
             {
-                _assemblies.Add(dllName, assembly);
+                path = Path.Combine(Environment.CurrentDirectory, path);
             }
-            return assembly;
+            return path;
         }
     }
 }
