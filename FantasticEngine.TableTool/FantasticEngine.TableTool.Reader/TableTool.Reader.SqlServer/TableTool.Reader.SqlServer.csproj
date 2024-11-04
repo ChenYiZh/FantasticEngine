@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>FantasticEngine.TableTool.Reader.SqlServer</RootNamespace>
+    <AssemblyName>FantasticEngine.TableTool.Reader.SqlServer</AssemblyName>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+
+</Project>

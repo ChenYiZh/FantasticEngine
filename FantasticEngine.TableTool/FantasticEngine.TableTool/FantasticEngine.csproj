@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>FantasticEngine.TableTool</RootNamespace>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FantasticEngine.Common\FantasticEngine.Common\FantasticEngine.Common.csproj" />
+    <ProjectReference Include="..\FantasticEngine.TableTool.Exporter\TableTool.Exporter.Json\TableTool.Exporter.Json.csproj" />
+    <ProjectReference Include="..\FantasticEngine.TableTool.Exporter\TableTool.Exporter.Text\TableTool.Exporter.Text.csproj" />
+    <ProjectReference Include="..\FantasticEngine.TableTool.Generator\TableTool.Generator.Unity\TableTool.Generator.Unity.csproj" />
+    <ProjectReference Include="..\FantasticEngine.TableTool.Generator\TableTool.Generator.UnrealEngine\TableTool.Generator.UnrealEngine.csproj" />
+    <ProjectReference Include="..\FantasticEngine.TableTool.Reader\TableTool.Reader.Excel\TableTool.Reader.Excel.csproj" />
+    <ProjectReference Include="..\FantasticEngine.TableTool.Framework\TableTool.Framework.csproj" />
+  </ItemGroup>
+
+</Project>
