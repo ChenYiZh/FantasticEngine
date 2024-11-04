@@ -1,5 +1,5 @@
 # README
-[![Fantasy Engine](Logo.png)](http://www.chenyizh.cn)
+[![Fantastic Engine](Logo.png)](http://www.chenyizh.cn)
 
 ## 什么是Fantasy Engine？
 在不同的游戏引擎上统一一套完整的框架！！
@@ -9,7 +9,7 @@
 # 项目列表
 | 名称 | 功能 | 子功能 | 框架依赖 | Unreal | Unity | .Net |
 | --- | --- | --- | --- | --- | --- | --- |
-| FantasyEngine | 基本框架 |  | | - [✔]  | - [✔]  | - [✔]  |
+| FantasticEngine | 基本框架 |  | | - [✔]  | - [✔]  | - [✔]  |
 | Framework | 整体游戏框架 | 标准框架 | 基本框架 | - [✔]  | - [✔]  | - [ ]  |
 | | | 读表工具 | 打表工具 | - [✔]  | - [✔]  | - [ ]  |
 | | | OpenXR管理 | 标准框架 | - [✔]  | - [ ]  | |

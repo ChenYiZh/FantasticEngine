@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-FantasticEngineCommon.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\UEProjects\FantasticEngine\FantasticEngine\FantasticEngine\Intermediate\Build\Win64\x64\FantasticEngineEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.InclOrderUnreal5_1.h.obj"
+"D:\UEProjects\FantasticEngine\FantasticEngine\FantasticEngine\Plugins\FantasticEngine_Common\Intermediate\Build\Win64\x64\UnrealEditor\Development\FantasticEngineCommon\Module.FantasticEngineCommon.cpp.obj"
+"D:\UEProjects\FantasticEngine\FantasticEngine\FantasticEngine\Plugins\FantasticEngine_Common\Intermediate\Build\Win64\x64\UnrealEditor\Development\FantasticEngineCommon\Default.rc2.res"
+/OUT:"D:\UEProjects\FantasticEngine\FantasticEngine\FantasticEngine\Plugins\FantasticEngine_Common\Intermediate\Build\Win64\x64\UnrealEditor\Development\FantasticEngineCommon\UnrealEditor-FantasticEngineCommon.lib"

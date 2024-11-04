@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "FantasticEngine.Common",
+	"Description": "",
+	"Category": "Other",
+	"CreatedBy": "ChenYiZh",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "FantasticEngineCommon",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

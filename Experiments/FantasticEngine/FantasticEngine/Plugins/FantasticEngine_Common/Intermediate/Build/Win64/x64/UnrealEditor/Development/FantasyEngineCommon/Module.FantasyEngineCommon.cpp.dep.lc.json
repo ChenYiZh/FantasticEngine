@@ -1,0 +1,40 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\ueprojects\\fantasyengine\\fantasyengine\\fantasyengine\\plugins\\fantasyengine_common\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\fantasyenginecommon\\module.fantasyenginecommon.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\ueprojects\\fantasyengine\\fantasyengine\\fantasyengine\\intermediate\\build\\win64\\x64\\fantasyengineeditor\\development\\engine\\sharedpch.engine.shadowerrors.inclorderunreal5_1.h.pch",
+        "Includes": [
+            "d:\\ueprojects\\fantasyengine\\fantasyengine\\fantasyengine\\plugins\\fantasyengine_common\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\fantasyenginecommon\\definitions.fantasyenginecommon.h",
+            "d:\\ueprojects\\fantasyengine\\fantasyengine\\fantasyengine\\plugins\\fantasyengine_common\\source\\fantasyengine_common\\fantasyengine_common.cpp",
+            "d:\\ueprojects\\fantasyengine\\fantasyengine\\fantasyengine\\plugins\\fantasyengine_common\\source\\fantasyengine_common\\fantasyengine_common.h",
+            "d:\\ueprojects\\fantasyengine\\fantasyengine\\fantasyengine\\plugins\\fantasyengine_common\\source\\fantasyengine_common\\src\\test.cpp",
+            "d:\\ueprojects\\fantasyengine\\fantasyengine\\fantasyengine\\plugins\\fantasyengine_common\\source\\fantasyengine_common\\include\\test.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\iostream",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\istream",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\ostream",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\ios",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\xlocnum",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\iterator",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\streambuf",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\xiosbase",
+            "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\share.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\system_error",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\__msvc_system_error_abi.hpp",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\cerrno",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\stdexcept",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\xcall_once.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\xerrc.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\xlocale",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\memory",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\xfacet",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\xlocinfo",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\__msvc_xlocinfo_types.hpp",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\cctype",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\clocale",
+            "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\locale.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

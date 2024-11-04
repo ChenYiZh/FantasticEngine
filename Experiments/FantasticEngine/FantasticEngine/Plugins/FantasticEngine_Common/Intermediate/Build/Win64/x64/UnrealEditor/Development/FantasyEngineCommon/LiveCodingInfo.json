@@ -1,0 +1,9 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.FantasticEngineCommon.cpp.obj": [
+			"FantasticEngine_Common.cpp.obj",
+			"test.cpp.obj"
+		]
+	}
+}

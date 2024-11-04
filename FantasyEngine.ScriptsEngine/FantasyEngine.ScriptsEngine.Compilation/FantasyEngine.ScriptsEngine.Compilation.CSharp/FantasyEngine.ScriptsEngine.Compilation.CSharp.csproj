@@ -15,4 +15,10 @@
     <ProjectReference Include="..\..\FantasyEngine.ScriptsEngine.Standard\FantasyEngine.ScriptsEngine.Standard.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="FantasyEngine.ScriptsEngine.CSharp.Ignored.References.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
