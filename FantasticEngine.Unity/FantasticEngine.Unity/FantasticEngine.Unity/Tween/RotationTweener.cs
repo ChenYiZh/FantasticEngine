@@ -41,7 +41,7 @@ namespace FantasticEngine.Tweener
 
         protected override void Play(float time)
         {
-            transform.localEulerAngles = (to - from) * curve.Evaluate(time) + from;
+            transform.localEulerAngles = Quaternion.Lerp(Quaternion.Euler(from), Quaternion.Euler(to), curve.Evaluate(time)).eulerAngles;
         }
     }
 }

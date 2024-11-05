@@ -35,6 +35,10 @@ namespace FantasticEngine
     public partial class AudioSystem : SystemBasis<AudioSystem>
     {
         /// <summary>
+        /// 首个相机
+        /// </summary>
+        private Camera _camera = null;
+        /// <summary>
         /// 音乐音量
         /// </summary>
         public float MusicVolume = 1.0f;
@@ -86,7 +90,7 @@ namespace FantasticEngine
             AudioConfiguration = AudioSettings.GetConfiguration();
             Reset();
             IndependentAudios = new List<AudioSource>();
-            MusicSource = FEUtility.GetOrAddComponent<AudioSource>(Camera.main.gameObject);
+            MusicSource = FEUtility.GetOrAddComponent<AudioSource>(_camera.gameObject);
             MusicSource.loop = true;
             MusicSource.playOnAwake = false;
             MusicSource.spatialBlend = 0;
@@ -287,12 +291,28 @@ namespace FantasticEngine
         public void Reset()
         {
             AudioSettings.Reset(AudioConfiguration);
-            if (Camera.main.gameObject.GetComponent<AudioListener>())
+            CheckCamera();
+            if (Camera.main)
             {
-                GameObject.DestroyImmediate(Camera.main.gameObject.GetComponent<AudioListener>());
-            }
+                if (Camera.main.gameObject.GetComponent<AudioListener>())
+                {
+                    GameObject.DestroyImmediate(Camera.main.gameObject.GetComponent<AudioListener>());
+                }
 
-            Camera.main.gameObject.AddComponent<AudioListener>();
+                Camera.main.gameObject.AddComponent<AudioListener>();
+            }
+        }
+
+        private void CheckCamera()
+        {
+            if (Camera.main)
+            {
+                _camera = Camera.main;
+            }
+            else
+            {
+                _camera = GameObject.FindAnyObjectByType<Camera>();
+            }
         }
     }
 }

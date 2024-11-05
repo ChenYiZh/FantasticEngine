@@ -27,6 +27,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 namespace FantasticEngine
@@ -69,6 +70,22 @@ namespace FantasticEngine
             }
 
             return "";
+        }
+
+
+        [MenuItem("GameObject/Remove Missing Scripts")]
+        static void RemoveMissingScripts()
+        {
+            List<GameObject[]> selections = Selection.gameObjects.Select(g => g.GetComponentsInChildren<Transform>(true).Select(t => t.gameObject).ToArray()).ToList();
+            foreach (GameObject[] gameObjects in selections)
+            {
+                foreach (GameObject gameObject in gameObjects)
+                {
+#if UNITY_2017_1_OR_NEWER
+                    GameObjectUtility.RemoveMonoBehavioursWithMissingScript(gameObject);
+#endif
+                }
+            }
         }
 
         //[MenuItem("Tools/Atlas/Change Format", priority = 50)]
