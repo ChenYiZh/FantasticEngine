@@ -33,7 +33,7 @@ SOFTWARE.
 /**
  * 时间对象类
  */
-UINTERFACE()
+UINTERFACE(Category="Fantastic Engine")
 class UIPacketWatch : public UInterface
 {
 	GENERATED_BODY()

@@ -7,7 +7,7 @@
 #include "WorldObject.generated.h"
 
 /** 自定义 Object ，可以安全调用 BlueprintFunctionLibrary */
-UCLASS(BlueprintType, Blueprintable)
+UCLASS(BlueprintType, Blueprintable, Category="Fantastic Engine")
 class FANTASTICENGINE_COMMON_API UWorldObject : public UObject
 {
 	GENERATED_BODY()

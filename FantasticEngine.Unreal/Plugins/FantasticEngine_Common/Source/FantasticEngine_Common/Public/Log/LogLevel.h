@@ -33,10 +33,11 @@ SOFTWARE.
 /**
  * 输出等级
  */
-UCLASS(NotBlueprintable, NotBlueprintType, DisplayName="Log Level")
+UCLASS(NotBlueprintable, NotBlueprintType, Category="Fantastic Engine", DisplayName="Log Level")
 class FANTASTICENGINE_COMMON_API ULogLevel : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
+
 public:
 	/**
 	 * DEBUG

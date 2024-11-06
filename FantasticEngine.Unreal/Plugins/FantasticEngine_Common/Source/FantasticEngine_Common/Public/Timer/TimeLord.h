@@ -34,10 +34,11 @@ SOFTWARE.
 /**
  * 时间管理类
  */
-UCLASS(NotBlueprintable, NotBlueprintType, DisplayName="Time Lord")
+UCLASS(NotBlueprintable, NotBlueprintType, Category="Fantastic Engine", DisplayName="Time Lord")
 class FANTASTICENGINE_COMMON_API UTimeLord final : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
+
 private:
 	/**
 	 * 当前使用的计时控件

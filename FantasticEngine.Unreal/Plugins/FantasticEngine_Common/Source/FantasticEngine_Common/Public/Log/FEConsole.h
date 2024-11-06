@@ -35,10 +35,11 @@ SOFTWARE.
 /**
  * 输出类
  */
-UCLASS(NotBlueprintable, NotBlueprintType, DisplayName="Fantastic Engine|FEConsole")
+UCLASS(NotBlueprintable, NotBlueprintType, Category="Fantastic Engine", DisplayName="FEConsole")
 class FANTASTICENGINE_COMMON_API UFEConsole final : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
+
 private:
 	/**
 	 * 是否输出堆栈
@@ -183,11 +184,11 @@ private:
 	 * 消息发送实现
 	 */
 	//UFUNCTION(BlueprintCallable)
-	static void SendMessage(const FName& Level, const FName& Category, FString& Message, const bool& bTrackconst,
+	static void SendLogMessage(const FName& Level, const FName& Category, FString& Message, const bool& bTrackconst,
 	                        const bool& AddToScreen, float TimeToDisplay);
 	/**
 	 * 消息发送实现
 	 */
-	static void SendMessage(const FName& Level, const FString& Message, const bool& AddToScreen,
+	static void SendLogMessage(const FName& Level, const FString& Message, const bool& AddToScreen,
 	                        const float& TimeToDisplay);
 };

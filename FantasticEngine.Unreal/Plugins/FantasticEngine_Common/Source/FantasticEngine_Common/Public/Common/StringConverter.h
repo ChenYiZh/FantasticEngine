@@ -34,10 +34,11 @@ SOFTWARE.
 /**
  * String 转换
  */
-UCLASS(DisplayName="Fantastic Engine|String Converter")
+UCLASS(Category="Fantastic Engine", DisplayName="String Converter")
 class FANTASTICENGINE_COMMON_API UStringConverter : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
+
 public:
 	/**
 	 * 从FString转到Utf8格式的字节流
@@ -95,6 +96,7 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable, Category="Fantastic Engine|String Converter")
 	static FString FastEncrypt(const FString Src, const int32 Shift);
+
 private:
 	/**
 	 * 单字节快速加密

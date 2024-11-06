@@ -33,7 +33,7 @@ SOFTWARE.
 /**
  * 反射创建对象
  */
-UCLASS(DisplayName="Object Builder")
+UCLASS(Category="Fantastic Engine", DisplayName="Object Builder")
 class FANTASTICENGINE_COMMON_API UObjectBuilder : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()

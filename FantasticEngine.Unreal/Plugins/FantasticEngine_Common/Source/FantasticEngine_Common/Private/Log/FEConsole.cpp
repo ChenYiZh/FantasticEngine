@@ -104,51 +104,51 @@ bool UFEConsole::RemoveLogger(UObject* Logger)
 
 void UFEConsole::Write(FString Message, const bool AddToScreen, float TimeToDisplay)
 {
-	SendMessage(ULogLevel::GET_DEBUG(), CATEGORY, Message, true, AddToScreen, TimeToDisplay);
+	SendLogMessage(ULogLevel::GET_DEBUG(), CATEGORY, Message, true, AddToScreen, TimeToDisplay);
 }
 
 void UFEConsole::WriteWithCategory(const FName Category, FString Message, const bool AddToScreen, float TimeToDisplay)
 {
-	SendMessage(ULogLevel::GET_DEBUG(), Category, Message, true, AddToScreen, TimeToDisplay);
+	SendLogMessage(ULogLevel::GET_DEBUG(), Category, Message, true, AddToScreen, TimeToDisplay);
 }
 
 void UFEConsole::WriteInfo(FString Message, const bool AddToScreen, float TimeToDisplay)
 {
-	SendMessage(ULogLevel::GET_INFO(), CATEGORY, Message, true, AddToScreen, TimeToDisplay);
+	SendLogMessage(ULogLevel::GET_INFO(), CATEGORY, Message, true, AddToScreen, TimeToDisplay);
 }
 
 void UFEConsole::WriteInfoWithCategory(const FName Category, FString Message, const bool AddToScreen,
-                                      float TimeToDisplay)
+                                       float TimeToDisplay)
 {
-	SendMessage(ULogLevel::GET_INFO(), Category, Message, true, AddToScreen, TimeToDisplay);
+	SendLogMessage(ULogLevel::GET_INFO(), Category, Message, true, AddToScreen, TimeToDisplay);
 }
 
 void UFEConsole::WriteWarn(FString Message, const bool AddToScreen, float TimeToDisplay)
 {
-	SendMessage(ULogLevel::GET_WARN(), CATEGORY, Message, true, AddToScreen, TimeToDisplay);
+	SendLogMessage(ULogLevel::GET_WARN(), CATEGORY, Message, true, AddToScreen, TimeToDisplay);
 }
 
 void UFEConsole::WriteWarnWithCategory(const FName Category, FString Message, const bool AddToScreen,
-                                      float TimeToDisplay)
+                                       float TimeToDisplay)
 {
-	SendMessage(ULogLevel::GET_WARN(), Category, Message, true, AddToScreen, TimeToDisplay);
+	SendLogMessage(ULogLevel::GET_WARN(), Category, Message, true, AddToScreen, TimeToDisplay);
 }
 
 void UFEConsole::WriteError(FString Message, const bool AddToScreen, float TimeToDisplay)
 {
-	SendMessage(ULogLevel::GET_ERROR(), CATEGORY, Message, true, AddToScreen, TimeToDisplay);
+	SendLogMessage(ULogLevel::GET_ERROR(), CATEGORY, Message, true, AddToScreen, TimeToDisplay);
 }
 
 void UFEConsole::WriteErrorWithCategory(const FName Category, FString Message, const bool AddToScreen,
-                                       float TimeToDisplay)
+                                        float TimeToDisplay)
 {
-	SendMessage(ULogLevel::GET_ERROR(), Category, Message, true, AddToScreen, TimeToDisplay);
+	SendLogMessage(ULogLevel::GET_ERROR(), Category, Message, true, AddToScreen, TimeToDisplay);
 }
 
 void UFEConsole::WriteTo(const FName Level, const FName Category, FString Message, const bool AddToScreen,
-                        float TimeToDisplay)
+                         float TimeToDisplay)
 {
-	SendMessage(Level, Category, Message, true, AddToScreen, TimeToDisplay);
+	SendLogMessage(Level, Category, Message, true, AddToScreen, TimeToDisplay);
 }
 
 FString UFEConsole::FormatCustomMessage(const FName& Level, const FName& Category, FString Message)
@@ -168,8 +168,8 @@ void UFEConsole::Release()
 	Loggers.Empty();
 }
 
-void UFEConsole::SendMessage(const FName& Level, const FName& Category, FString& Message, const bool& bTrack,
-                            const bool& AddToScreen, float TimeToDisplay)
+void UFEConsole::SendLogMessage(const FName& Level, const FName& Category, FString& Message, const bool& bTrack,
+                             const bool& AddToScreen, float TimeToDisplay)
 {
 	Message = FormatCustomMessage(Level, Category, Message);
 	// if (TimeToDisplay < 0)
@@ -195,11 +195,11 @@ void UFEConsole::SendMessage(const FName& Level, const FName& Category, FString&
 			}
 		}
 	}
-	SendMessage(Level, Message, AddToScreen, TimeToDisplay);
+	UFEConsole::SendLogMessage(Level, Message, AddToScreen, TimeToDisplay);
 }
 
-void UFEConsole::SendMessage(const FName& Level, const FString& Message, const bool& AddToScreen,
-                            const float& TimeToDisplay)
+void UFEConsole::SendLogMessage(const FName& Level, const FString& Message, const bool& AddToScreen,
+                             const float& TimeToDisplay)
 {
 	//Message += "\r\n";
 	for (UObject* Logger : Loggers)

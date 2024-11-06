@@ -33,10 +33,11 @@ SOFTWARE.
 /**
  * 字节流处理
  */
-UCLASS(DisplayName="Fantastic Engine|Byte")
+UCLASS(Category="Fantastic Engine", DisplayName="Byte")
 class FANTASTICENGINE_COMMON_API UByteUtil : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
+
 public:
 	/** 1字节 */
 	inline constexpr static uint8 ONE = 1;

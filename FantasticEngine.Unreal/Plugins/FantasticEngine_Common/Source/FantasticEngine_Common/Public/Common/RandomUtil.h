@@ -33,10 +33,11 @@ SOFTWARE.
 /**
  * 随机数管理
  */
-UCLASS(DisplayName="Fantastic Engine|Random")
+UCLASS(Category="Fantastic Engine", DisplayName="Random")
 class FANTASTICENGINE_COMMON_API URandomUtil : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
+
 public:
 	/**
 	 * 随机一个字节

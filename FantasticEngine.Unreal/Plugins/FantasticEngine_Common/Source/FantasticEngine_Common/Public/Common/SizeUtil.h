@@ -33,10 +33,11 @@ SOFTWARE.
 /**
  * 长度管理类
  */
-UCLASS(DisplayName="Fantastic Engine|Size")
+UCLASS(Category="Fantastic Engine", DisplayName="Size")
 class FANTASTICENGINE_COMMON_API USizeUtil : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
+
 public:
 	/**
 	 * bool 长度
