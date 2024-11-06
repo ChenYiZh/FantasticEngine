@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "FantasticEngine_UnrealGameModeBase.generated.h"
+#include "FantasticEngineGameModeBase.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class FANTASTICENGINE_UNREAL_API AFantasticEngine_UnrealGameModeBase : public AGameModeBase
+class FANTASTICENGINE_API AFantasticEngineGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	

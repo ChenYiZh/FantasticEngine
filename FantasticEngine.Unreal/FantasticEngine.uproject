@@ -5,7 +5,7 @@
 	"Description": "",
 	"Modules": [
 		{
-			"Name": "FantasticEngine_Unreal",
+			"Name": "FantasticEngine",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}

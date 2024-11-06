@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Games", "Games", "{DE1F8B53
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UE5", "Intermediate\ProjectFiles\UE5.vcxproj", "{AB81AA6C-475F-3252-8656-F03A8A035D5E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FantasticEngine_Unreal", "Intermediate\ProjectFiles\FantasticEngine_Unreal.vcxproj", "{9BEF0736-D3BF-387F-90F1-FA225A0BA4F9}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FantasticEngine", "Intermediate\ProjectFiles\FantasticEngine.vcxproj", "{9BEF0736-D3BF-387F-90F1-FA225A0BA4F9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visualizers", "Visualizers", "{1CCEC849-CC72-4C59-8C36-2F7C38706D4C}"
 	ProjectSection(SolutionItems) = preProject

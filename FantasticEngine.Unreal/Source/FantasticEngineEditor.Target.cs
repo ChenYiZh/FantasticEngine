@@ -3,13 +3,13 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class FantasticEngine_UnrealEditorTarget : TargetRules
+public class FantasticEngineEditorTarget : TargetRules
 {
-	public FantasticEngine_UnrealEditorTarget( TargetInfo Target) : base(Target)
+	public FantasticEngineEditorTarget( TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_1;
-		ExtraModuleNames.Add("FantasticEngine_Unreal");
+		ExtraModuleNames.Add("FantasticEngine");
 	}
 }

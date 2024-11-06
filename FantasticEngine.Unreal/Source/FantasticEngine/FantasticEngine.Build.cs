@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class FantasticEngine_Unreal : ModuleRules
+public class FantasticEngine : ModuleRules
 {
-	public FantasticEngine_Unreal(ReadOnlyTargetRules Target) : base(Target)
+	public FantasticEngine(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
