@@ -6,7 +6,6 @@
 #include "Engine/Texture2DDynamic.h"
 #include "Kismet/KismetRenderingLibrary.h"
 #include "Log/FEConsole.h"
-#include "Utilities/ObjectFactory.h"
 
 UTexture2D* UImageUtility::LoadTexture2DFromBytes(const TArray<uint8>& Buffer)
 {
@@ -130,7 +129,12 @@ UTextureRenderTarget2D* UImageUtility::ConvertRenderTarget2DFromTexture2D(
 			materialBase, WorldContextObject);
 		material->SetTextureParameterValue(TEXT("Source"), Source);
 		UKismetRenderingLibrary::DrawMaterialToRenderTarget(WorldContextObject, target, material);
-		UObjectFactory::Destroy(material);
+		if (material->IsRooted())
+		{
+			material->RemoveFromRoot();
+		}
+		material->ClearGarbage();
+		material->MarkAsGarbage();
 		return target;
 	}
 	return nullptr;

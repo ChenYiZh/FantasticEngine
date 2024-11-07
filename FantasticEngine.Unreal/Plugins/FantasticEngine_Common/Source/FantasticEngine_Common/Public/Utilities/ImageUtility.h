@@ -10,7 +10,7 @@
  * 图片处理类
  */
 UCLASS()
-class FANTASTICENGINE_FRAMEWORK_API UImageUtility : public UBlueprintFunctionLibrary
+class FANTASTICENGINE_COMMON_API UImageUtility : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 
