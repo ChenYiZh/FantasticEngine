@@ -31,7 +31,7 @@ SOFTWARE.
 #include "ILogger.generated.h"
 
 // This class does not need to be modified.
-UINTERFACE(Category="Fantastic Engine")
+UINTERFACE(BlueprintType, Category="Fantastic Engine")
 class UILogger : public UInterface
 {
 	GENERATED_BODY()

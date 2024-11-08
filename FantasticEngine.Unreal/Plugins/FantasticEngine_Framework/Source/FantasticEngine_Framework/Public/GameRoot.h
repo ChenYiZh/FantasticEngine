@@ -147,13 +147,16 @@ protected:
 	/** 启动事件 */
 	void StartUp(UEventParam* Param = nullptr);
 
+private:
+	void OnInitialize();
+	
 protected:
 	/** 窗体或者全局过滤器注册函数 */
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category="Fantastic Engine|Game Root|Internal")
 	void Registing();
 	/** 初始化函数覆写位置 */
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category="Fantastic Engine|Game Root|Internal")
-	void OnInitialize();
+	void OnInitialized();
 	/** Event事件注册函数 */
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category="Fantastic Engine|Game Root|Internal")
 	void RegistEvents();

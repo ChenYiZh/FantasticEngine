@@ -27,7 +27,8 @@ public class FantasticEngine_Common : ModuleRules
 		PublicDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"Core"
+				"Core", "CoreUObject", "Engine", "Slate", "SlateCore",
+				"ImageWrapper", "RHI", "RenderCore"
 				// ... add other public dependencies that you statically link with here ...
 			}
 		);
@@ -36,10 +37,6 @@ public class FantasticEngine_Common : ModuleRules
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"CoreUObject",
-				"Engine",
-				"Slate",
-				"SlateCore"
 				// ... add private dependencies that you statically link with here ...	
 			}
 		);

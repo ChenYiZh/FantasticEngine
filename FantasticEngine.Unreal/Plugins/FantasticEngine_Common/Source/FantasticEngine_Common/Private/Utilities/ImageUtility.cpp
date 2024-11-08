@@ -1,5 +1,5 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
-#include "..\..\Public\Utilities\ImageUtility.h"
+#include "Utilities/ImageUtility.h"
 
 #include "IImageWrapper.h"
 #include "IImageWrapperModule.h"

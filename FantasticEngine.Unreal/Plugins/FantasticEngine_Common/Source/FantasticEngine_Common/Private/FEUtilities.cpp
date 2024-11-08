@@ -3,10 +3,13 @@
 
 #include "FEUtilities.h"
 
+#include "Kismet/GameplayStatics.h"
+
 #if PLATFORM_WINDOWS
-#include <Runtime\Core\Public\HAL\FileManager.h>
-#include <Runtime\Core\Public\Misc\Paths.h>
-#include <Runtime\Core\Public\Windows\COMPointer.h>
+#include "HAL/FileManager.h"
+#include "Misc/Paths.h"
+#include "Windows/COMPointer.h"
+#include "Windows/WindowsHWrapper.h"
 #endif
 
 #if PLATFORM_MAC
@@ -63,6 +66,19 @@ bool UFEUtilities::SaveFileDialog(FString DialogTitle, FString DefaultPath, FStr
 		Filename = FString();
 	}
 	return bSuccess;
+}
+
+bool UFEUtilities::KeyPressed(const UObject* WorldContextObject, const FKey Key)
+{
+	if (FSlateApplication::Get().GetPressedMouseButtons().Contains(Key))
+	{
+		return true;
+	}
+	if (APlayerController* Controller = UGameplayStatics::GetPlayerController(WorldContextObject, 0))
+	{
+		return Controller->IsInputKeyDown(Key);
+	}
+	return false;
 }
 
 bool UFEUtilities::FileDialogShared(bool bSave, const void* ParentWindowHandle, const FString& DialogTitle,

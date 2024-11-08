@@ -37,7 +37,7 @@ public:
 /**
  * 
  */
-UCLASS(BlueprintType, Blueprintable)
+UCLASS(BlueprintType, Blueprintable, Category="Fantastic Engine")
 class FANTASTICENGINE_FRAMEWORK_API UTipWidgets : public UUserWidget
 {
 	GENERATED_BODY()
@@ -50,7 +50,7 @@ private:
 	float Seconds = 0;
 
 public:
-	UFUNCTION(BlueprintPure, Category="Tips")
+	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Tip Widgets")
 	static UTipWidgets* GetRoot();
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
@@ -96,14 +96,14 @@ protected:
 	bool IsViewVisible(UTipView* View);
 
 public:
-	UFUNCTION(BlueprintCallable, Category="Tip Widgets", meta=(WorldContext="WorldContextObject"))
+	UFUNCTION(BlueprintCallable, Category="Fantastic Engine|Tip Widgets", meta=(WorldContext="WorldContextObject"))
 	static void Show(const UObject* WorldContextObject, const FString& TipKeyName, UTipParam* Param = nullptr,
-	                 const bool& bHideOthers = true);
+	                 const bool bHideOthers = true);
 
-	UFUNCTION(BlueprintCallable, Category="Tip Widgets", meta=(WorldContext="WorldContextObject"))
+	UFUNCTION(BlueprintCallable, Category="Fantastic Engine|Tip Widgets", meta=(WorldContext="WorldContextObject"))
 	static void Hide(const UObject* WorldContextObject, const FString& TipKeyName);
 
-	UFUNCTION(BlueprintCallable, Category="Tip Widgets", meta=(WorldContext="WorldContextObject"))
+	UFUNCTION(BlueprintCallable, Category="Fantastic Engine|Tip Widgets", meta=(WorldContext="WorldContextObject"))
 	static void HideAllTips(const UObject* WorldContextObject);
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
@@ -111,7 +111,7 @@ public:
 	virtual void OnQuit_Implementation();
 
 protected:
-	UFUNCTION(BlueprintCallable, Category="Tip Widgets")
+	UFUNCTION(BlueprintCallable, Category="Fantastic Engine|Tip Widgets")
 	void Regist(const FString& TipKeyName, UTipView* TipVIew);
 
 protected:

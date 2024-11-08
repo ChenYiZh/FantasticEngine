@@ -228,7 +228,7 @@ bool UTipWidgets::IsViewVisible(UTipView* View)
 }
 
 void UTipWidgets::Show(const UObject* WorldContextObject, const FString& TipKeyName, UTipParam* Param,
-                       const bool& bHideOthers)
+                       const bool bHideOthers)
 {
 	UTipWidgets* Tips = UUIFactory::GetTips(WorldContextObject);
 	Tips->ShowImpl(TipKeyName, bHideOthers, Param);

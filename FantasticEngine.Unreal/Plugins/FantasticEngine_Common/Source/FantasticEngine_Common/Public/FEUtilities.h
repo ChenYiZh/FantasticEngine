@@ -24,7 +24,7 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable, Category="Fantastic Engine|Utilities")
 	static void OpenFileDialog(FString DialogTitle, const FString& FileTypes,
-	                           TArray<FString>& Filenames, bool bMultiSelect = false);
+							   TArray<FString>& Filenames, bool bMultiSelect = false);
 
 	/**
 	 * 拉起保存对话框
@@ -37,12 +37,17 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable, Category="Fantastic Engine|Utilities")
 	static bool SaveFileDialog(FString DialogTitle,
-	                           FString DefaultPath, FString DefaultFile, const FString& FileTypes,
-	                           FString& Filename);
+							   FString DefaultPath, FString DefaultFile, const FString& FileTypes,
+							   FString& Filename);
+
+	/** 判断按键是否在按下状态 */
+	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Utilities", meta=(WorldContext="WorldContextObject"))
+	// ReSharper disable once UnrealHeaderToolError
+	static bool KeyPressed(const UObject* WorldContextObject, const FKey Key);
 
 private:
 	static bool FileDialogShared(bool bSave, const void* ParentWindowHandle, const FString& DialogTitle,
-	                             const FString& DefaultPath, const FString& DefaultFile,
-	                             const FString& FileTypes,
-	                             uint32 Flags, TArray<FString>& OutFilenames, int32& OutFilterIndex);
+								 const FString& DefaultPath, const FString& DefaultFile,
+								 const FString& FileTypes,
+								 uint32 Flags, TArray<FString>& OutFilenames, int32& OutFilterIndex);
 };

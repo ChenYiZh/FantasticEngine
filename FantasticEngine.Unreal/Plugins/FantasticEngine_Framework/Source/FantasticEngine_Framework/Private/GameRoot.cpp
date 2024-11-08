@@ -80,7 +80,7 @@ UWorld* UGameRoot::GetRootWorld(const UObject* WorldContextObject)
 }
 
 UFEGameInstance* UGameRoot::GetGameInstance(const UObject* WorldContextObject,
-                                                 TSubclassOf<UFEGameInstance> Class)
+                                            TSubclassOf<UFEGameInstance> Class)
 {
 	return WorldContextObject->GetWorld()->GetGameInstance<UFEGameInstance>();
 }
@@ -195,6 +195,24 @@ void UGameRoot::StartUp(UEventParam* Param)
 	ExecuteConsoleCommands(this);
 	OnCreate();
 	OnInitialize();
+	OnInitialized();
+}
+
+void UGameRoot::OnInitialize()
+{
+	for (auto system : Systems)
+	{
+		try
+		{
+			system->OnInitialize();
+		}
+		catch (...)
+		{
+			UFEConsole::WriteErrorWithCategory(
+				TEXT("System"),
+				FString::Printf(TEXT("%s is error on calling OnInitialize."), ToCStr(system->GetFName().ToString())));
+		}
+	}
 }
 
 void UGameRoot::ExecuteConsoleCommands(const UObject* WorldContextObject)
@@ -227,21 +245,8 @@ void UGameRoot::UnregistEvents_Implementation()
 	//UEventSystem::UnregistEvent(UEventIdsBasic::GET_READY(), this, "GetReady");
 }
 
-void UGameRoot::OnInitialize_Implementation()
+void UGameRoot::OnInitialized_Implementation()
 {
-	for (auto system : Systems)
-	{
-		try
-		{
-			system->OnInitialize();
-		}
-		catch (...)
-		{
-			UFEConsole::WriteErrorWithCategory(
-				TEXT("System"),
-				FString::Printf(TEXT("%s is error on calling OnInitialize."), ToCStr(system->GetFName().ToString())));
-		}
-	}
 }
 
 bool UGameRoot::Tick(float DeltaTime)
@@ -312,7 +317,7 @@ void UGameRoot::Shutdown()
 	// 	Super::Shutdown();
 	// 	return;
 	// }
-	
+
 	FTSTicker::GetCoreTicker().RemoveTicker(TickHandler);
 	State = EGameRootState::Shutdown;
 	UnregistEvents();
@@ -320,7 +325,7 @@ void UGameRoot::Shutdown()
 	Systems.Empty();
 	UFEConsole::RemoveLogger(Singleton<UUELogger>(this));
 	UObjectFactory::RemoveAllSingletons(this);
-	
+
 	//Root = nullptr;
 	//UWorldUtility::ClearCache();
 	//Super::Shutdown();
