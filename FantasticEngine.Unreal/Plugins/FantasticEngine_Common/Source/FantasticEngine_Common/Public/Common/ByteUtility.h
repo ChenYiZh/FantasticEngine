@@ -28,13 +28,13 @@ SOFTWARE.
 
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
-#include "ByteUtil.generated.h"
+#include "ByteUtility.generated.h"
 
 /**
  * 字节流处理
  */
 UCLASS(Category="Fantastic Engine", DisplayName="Byte")
-class FANTASTICENGINE_COMMON_API UByteUtil : public UBlueprintFunctionLibrary
+class FANTASTICENGINE_COMMON_API UByteUtility : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 

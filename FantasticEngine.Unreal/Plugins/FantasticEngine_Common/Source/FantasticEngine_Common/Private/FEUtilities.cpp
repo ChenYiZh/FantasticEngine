@@ -4,6 +4,7 @@
 #include "FEUtilities.h"
 
 #include "Kismet/GameplayStatics.h"
+#include "Log/FEConsole.h"
 
 #if PLATFORM_WINDOWS
 #include "HAL/FileManager.h"
@@ -80,6 +81,52 @@ bool UFEUtilities::KeyPressed(const UObject* WorldContextObject, const FKey Key)
 	}
 	return false;
 }
+
+AActor* UFEUtilities::SpawnActorFromTemplate(AActor* Template)
+{
+	if (!Template)
+	{
+		return nullptr;
+	}
+	UWorld* World = Template->GetWorld();
+	FActorSpawnParameters Parameters;
+	Parameters.Template = Template;
+	AActor* OutActor = World->SpawnActor<AActor>(Template->GetClass(), Parameters);
+	return OutActor;
+}
+
+// AActor* UFEUtilities::SpawnPureActorFromTemplate(AActor* Template)
+// {
+// 	if (!Template)
+// 	{
+// 		return nullptr;
+// 	}
+// 	UWorld* World = Template->GetWorld();
+// 	AActor* OutActor = World->SpawnActor<AActor>(AActor::StaticClass(), Template->GetActorTransform());
+// 	USceneComponent* TemplateRoot = Template->GetRootComponent();
+// 	USceneComponent* RootComponent = NewObject<USceneComponent>(OutActor, TemplateRoot->GetClass(), NAME_None,
+// 	                                                            RF_NoFlags, TemplateRoot);
+// 	for (USceneComponent* TemplateChild : TemplateRoot->GetAttachChildren())
+// 	{
+// 		CreateChildrenOfSceneComponent(OutActor, RootComponent, TemplateChild);
+// 	}
+// 	OutActor->SetRootComponent(RootComponent);
+// 	return OutActor;
+// }
+//
+// void UFEUtilities::CreateChildrenOfSceneComponent(AActor* Owner, USceneComponent* Parent, USceneComponent* Template)
+// {
+// 	USceneComponent* Component = NewObject<USceneComponent>(Owner, Template->GetClass(), NAME_None,
+// 	                                                        RF_NoFlags, Template);
+// 	UStaticMeshComponent* t = Cast<UStaticMeshComponent>(Component);
+// 	UFEConsole::Write(t->GetFName().ToString());
+// 	Component->AttachToComponent(Parent, FAttachmentTransformRules::KeepWorldTransform);
+// 	Component->SetRelativeTransform(Template->GetRelativeTransform());
+// 	for (USceneComponent* Child : Template->GetAttachChildren())
+// 	{
+// 		CreateChildrenOfSceneComponent(Owner, Component, Child);
+// 	}
+// }
 
 bool UFEUtilities::FileDialogShared(bool bSave, const void* ParentWindowHandle, const FString& DialogTitle,
                                     const FString& DefaultPath, const FString& DefaultFile,

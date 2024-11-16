@@ -28,7 +28,7 @@ public class FantasticEngine_Common : ModuleRules
 			new string[]
 			{
 				"Core", "CoreUObject", "Engine", "Slate", "SlateCore",
-				"ImageWrapper", "RHI", "RenderCore"
+				"InputCore", "ImageCore", "ImageWrapper", "RHI", "RenderCore"
 				// ... add other public dependencies that you statically link with here ...
 			}
 		);
@@ -37,6 +37,7 @@ public class FantasticEngine_Common : ModuleRules
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
+				"UnrealUSDWrapper"
 				// ... add private dependencies that you statically link with here ...	
 			}
 		);

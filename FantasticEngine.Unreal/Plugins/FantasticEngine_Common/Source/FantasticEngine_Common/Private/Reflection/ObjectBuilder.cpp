@@ -44,9 +44,9 @@ UObject* UObjectBuilder::CreateObjectByName(UObject* WorldContextObject, const F
 		//蓝图类
 		if (IsBlueprintName(ClassName))
 		{
-			// AsyncTask(ENamedThreads::GameThread, []()
-			// {
-			// });
+			AsyncTask(ENamedThreads::GameThread, []()
+			{
+			});
 			UBlueprint* Blueprint = LoadObject<UBlueprint>(nullptr, ToCStr(ClassName));
 			if (Blueprint == nullptr)
 			{

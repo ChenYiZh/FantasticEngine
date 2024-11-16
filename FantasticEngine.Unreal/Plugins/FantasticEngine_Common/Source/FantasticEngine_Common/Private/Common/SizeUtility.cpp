@@ -25,9 +25,9 @@ SOFTWARE.
 ****************************************************************************/
 
 
-#include "Common/SizeUtil.h"
+#include "Common/SizeUtility.h"
 
-int32 USizeUtil::GetBoolSize()
+int32 USizeUtility::GetBoolSize()
 {
 	return BoolSize;
 }
@@ -37,62 +37,67 @@ int32 USizeUtil::GetBoolSize()
 // 	return CharSize;
 // }
 
-int32 USizeUtil::GetFloatSize()
+int32 USizeUtility::GetFloatSize()
 {
 	return FloatSize;
 }
 
-int32 USizeUtil::GetDoubleSize()
+int32 USizeUtility::GetDoubleSize()
 {
 	return DoubleSize;
 }
 
-int32 USizeUtil::GetSByteSize()
+int32 USizeUtility::GetSByteSize()
 {
 	return SByteSize;
 }
 
-int32 USizeUtil::GetShortSize()
+int32 USizeUtility::GetShortSize()
 {
 	return ShortSize;
 }
 
-int32 USizeUtil::GetIntSize()
+int32 USizeUtility::GetIntSize()
 {
 	return IntSize;
 }
 
-int32 USizeUtil::GetLongSize()
+int32 USizeUtility::GetLongSize()
 {
 	return LongSize;
 }
 
-int32 USizeUtil::GetByteSize()
+int32 USizeUtility::GetByteSize()
 {
 	return ByteSize;
 }
 
-int32 USizeUtil::GetUShortSize()
+int32 USizeUtility::GetUShortSize()
 {
 	return UShortSize;
 }
 
-int32 USizeUtil::GetUIntSize()
+int32 USizeUtility::GetUIntSize()
 {
 	return UIntSize;
 }
 
-int32 USizeUtil::GetULongSize()
+int32 USizeUtility::GetULongSize()
 {
 	return ULongSize;
 }
 
-int32 USizeUtil::GetANSICHARSize()
+int32 USizeUtility::GetANSICHARSize()
 {
 	return ANSICHARSize;
 }
 
-int32 USizeUtil::GetTCHARSize()
+int32 USizeUtility::GetTCHARSize()
 {
 	return TCHARSize;
+}
+
+int32 USizeUtility::GetColorSize()
+{
+	return COLORSIZE;
 }

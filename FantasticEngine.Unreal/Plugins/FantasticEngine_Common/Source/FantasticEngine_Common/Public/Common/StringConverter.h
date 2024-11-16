@@ -104,64 +104,40 @@ private:
 	static TCHAR FastEncryptChar(const TCHAR& Char, const int32& Shift);
 
 public:
-	/**
-	 * string => int16
-	 */
+	/** string => int16 */
 	//UFUNCTION(BlueprintPure, Category="Fantastic Engine|String Converter")
-	static void ToInt16(const FString Src, int16& Result);
-	/**
-	 * string => int32
-	 */
+	static bool ToInt16(const FString Src, int16& Result);
+	/** string => int32 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|String Converter")
-	static void ToInt32(const FString Src, int32& Result);
-	/**
-	 * string => int64
-	 */
+	static bool ToInt32(const FString Src, int32& Result);
+	/** string => int64 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|String Converter")
-	static void ToInt64(const FString Src, int64& Result);
-	/**
-	 * string => uint16
-	 */
+	static bool ToInt64(const FString Src, int64& Result);
+	/** string => uint16 */
 	//UFUNCTION(BlueprintPure, Category="Fantastic Engine|String Converter")
-	static void ToUInt16(const FString Src, uint16& Result);
-	/**
-	 * string => uint32
-	 */
+	static bool ToUInt16(const FString Src, uint16& Result);
+	/** string => uint32 */
 	//UFUNCTION(BlueprintPure, Category="Fantastic Engine|String Converter")
-	static void ToUInt32(const FString Src, uint32& Result);
-	/**
-	 * string => uint64
-	 */
+	static bool ToUInt32(const FString Src, uint32& Result);
+	/** string => uint64 */
 	//UFUNCTION(BlueprintPure, Category="Fantastic Engine|String Converter")
-	static void ToUInt64(const FString Src, uint64& Result);
-	/**
-	 * string => float
-	 */
+	static bool ToUInt64(const FString Src, uint64& Result);
+	/** string => float */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|String Converter")
-	static void ToFloat(const FString Src, float& Result);
-	/**
-	 * string => double
-	 */
+	static bool ToFloat(const FString Src, float& Result);
+	/** string => double */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|String Converter")
-	static void ToDouble(const FString Src, double& Result);
-	/**
-	 * string => bool
-	 */
+	static bool ToDouble(const FString Src, double& Result);
+	/** string => bool */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|String Converter")
 	static void ToBool(const FString Src, bool& Result);
-	/**
-	 * string => uint8
-	 */
+	/** string => uint8 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|String Converter")
-	static void ToUInt8(const FString Src, uint8& Result);
-	/**
-	 * string => char
-	 */
+	static bool ToUInt8(const FString Src, uint8& Result);
+	/** string => char */
 	//UFUNCTION(BlueprintPure, Category="Fantastic Engine|String Converter")
 	static void ToChar(const FString Src, TCHAR& Result);
-	/**
-	 * string => datetime
-	 */
+	/** string => datetime */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|String Converter")
 	static void ToDateTime(const FString Src, FDateTime& Result);
 

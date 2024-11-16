@@ -28,155 +28,108 @@ SOFTWARE.
 
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
-#include "SizeUtil.generated.h"
+#include "SizeUtility.generated.h"
 
 /**
  * 长度管理类
  */
 UCLASS(Category="Fantastic Engine", DisplayName="Size")
-class FANTASTICENGINE_COMMON_API USizeUtil : public UBlueprintFunctionLibrary
+class FANTASTICENGINE_COMMON_API USizeUtility : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 
 public:
-	/**
-	 * bool 长度
-	 */
-	inline constexpr static int32 BoolSize = sizeof(bool);
-	/**
-	 * char 长度
-	 */
-	//inline constexpr static int32 CharSize = sizeof(TCHAR);
+	/** bool 长度 */
+	const static int32 BoolSize;
+	/** char 长度 */
+	//const static int32 CharSize;
 
-	/**
-	 * float 长度
-	 */
-	inline constexpr static int32 FloatSize = sizeof(float);
-	/**
-	 * double 长度
-	 */
-	inline constexpr static int32 DoubleSize = sizeof(double);
+	/** float 长度 */
+	const static int32 FloatSize;
+	/** double 长度 */
+	const static int32 DoubleSize;
 
-	/**
-	 * int8 长度
-	 */
-	inline constexpr static int32 SByteSize = sizeof(int8);
-	/**
-	 * int16 长度
-	 */
-	inline constexpr static int32 ShortSize = sizeof(int16);
-	/**
-	 * int32 长度
-	 */
-	inline constexpr static int32 IntSize = sizeof(int32);
-	/**
-	 * int64 长度
-	 */
-	inline constexpr static int32 LongSize = sizeof(int64);
+	/** int8 长度 */
+	const static int32 SByteSize;
+	/** int16 长度 */
+	const static int32 ShortSize;
+	/** int32 长度 */
+	const static int32 IntSize;
+	/** int64 长度 */
+	const static int32 LongSize;
 
-	/**
-	 * uint8 长度
-	 */
-	inline constexpr static int32 ByteSize = sizeof(uint8);
-	/**
-	 * uint16 长度
-	 */
-	inline constexpr static int32 UShortSize = sizeof(uint16);
-	/**
-	 * uint32 长度
-	 */
-	inline constexpr static int32 UIntSize = sizeof(uint32);
-	/**
-	 * uint64 长度
-	 */
-	inline constexpr static int32 ULongSize = sizeof(uint64);
+	/** uint8 长度 */
+	const static int32 ByteSize;
+	/** uint16 长度 */
+	const static int32 UShortSize;
+	/** uint32 长度 */
+	const static int32 UIntSize;
+	/** uint64 长度 */
+	const static int32 ULongSize;
 
-	/**
-	 * ANSICHAR 长度
-	 */
-	inline constexpr static int32 ANSICHARSize = sizeof(ANSICHAR);
-	/**
-	 * CHAR 长度
-	 */
-	//inline constexpr static int32 CHARSize = sizeof(CHAR);
-	/**
-	 * TCHAR 长度
-	 */
-	inline constexpr static int32 TCHARSize = sizeof(TCHAR);
+	/** ANSICHAR 长度 */
+	const static int32 ANSICHARSize;
+	/** CHAR 长度 */
+	//const static int32 CHARSize;
+	/** TCHAR 长度 */
+	const static int32 TCHARSize;
+
+
+	/** 颜色长度 */
+	const static int32 COLORSIZE;
 
 public:
-	/**
-	 * bool 长度
-	 */
+	/** bool 长度 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="Bool Size")
 	static int32 GetBoolSize();
-	/**
-	 * char 长度
-	 */
+	/** char 长度 */
 	// UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="Char Size")
 	// static int32 GetCharSize();
 
-	/**
-	 * float 长度
-	 */
+	/** float 长度 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="Float Size")
 	static int32 GetFloatSize();
-	/**
-	 * double 长度
-	 */
+	/** double 长度 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="Double Size")
 	static int32 GetDoubleSize();
 
-	/**
-	 * int8 长度
-	 */
+	/** int8 长度 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="SByte Size")
 	static int32 GetSByteSize();
-	/**
-	 * int16 长度
-	 */
+	/** int16 长度 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="Short Size")
 	static int32 GetShortSize();
-	/**
-	 * int32 长度
-	 */
+	/** int32 长度 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="Int Size")
 	static int32 GetIntSize();
-	/**
-	 * int64 长度
-	 */
+	/** int64 长度 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="Long Size")
 	static int32 GetLongSize();
 
-	/**
-	 * uint8 长度
-	 */
+	/** uint8 长度 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="Byte Size")
 	static int32 GetByteSize();
-	/**
-	 * uint16 长度
-	 */
+	/** uint16 长度 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="UShort Size")
 	static int32 GetUShortSize();
-	/**
-	 * uint32 长度
-	 */
+	/** uint32 长度 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="UInt Size")
 	static int32 GetUIntSize();
-	/**
-	 * uint64 长度
-	 */
+	/** uint64 长度 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="ULong Size")
 	static int32 GetULongSize();
 
-	/**
-	 * ANSICHAR 长度
-	 */
+	/** ANSICHAR 长度 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="ANSICHAR Size")
 	static int32 GetANSICHARSize();
-	/**
-	 * TCHAR 长度
-	 */
+	/** TCHAR 长度 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="TCHAR Size")
 	static int32 GetTCHARSize();
+
+
+	/** 颜色 长度 */
+	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Size", DisplayName="COLOR Size")
+	static int32 GetColorSize();
 };
+
+

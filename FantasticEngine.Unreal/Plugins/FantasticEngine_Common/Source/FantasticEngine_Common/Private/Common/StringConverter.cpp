@@ -3,7 +3,7 @@
 
 #include "Common/StringConverter.h"
 
-#include "Common/SizeUtil.h"
+#include "Common/SizeUtility.h"
 
 void UStringConverter::ToUTF8(const FString& Src, TArray<uint8>& Result)
 {
@@ -68,102 +68,110 @@ TCHAR UStringConverter::FastEncryptChar(const TCHAR& Char, const int32& Shift)
 	return Result;
 }
 
-void UStringConverter::ToInt16(const FString Src, int16& Result)
+bool UStringConverter::ToInt16(const FString Src, int16& Result)
 {
 	if (!Src.IsNumeric())
 	{
-		Result = 0;
-		return;
+		Result = -1;
+		return false;
 	}
 	Result = static_cast<int16>(FCString::Atoi(ToCStr(Src)));
 	if (Src.StartsWith("-") && Result > 0)
 	{
 		Result *= -1;
 	}
+	return true;
 }
 
-void UStringConverter::ToInt32(const FString Src, int32& Result)
+bool UStringConverter::ToInt32(const FString Src, int32& Result)
 {
 	if (!Src.IsNumeric())
 	{
-		Result = 0;
-		return;
+		Result = -1;
+		return false;
 	}
 	Result = FCString::Atoi(ToCStr(Src));
 	if (Src.StartsWith("-") && Result > 0)
 	{
 		Result *= -1;
 	}
+	return true;
 }
 
-void UStringConverter::ToInt64(const FString Src, int64& Result)
+bool UStringConverter::ToInt64(const FString Src, int64& Result)
 {
 	if (!Src.IsNumeric())
 	{
-		Result = 0;
-		return;
+		Result = -1;
+		return false;
 	}
 	Result = FCString::Atoi64(ToCStr(Src));
+	return true;
 }
 
-void UStringConverter::ToUInt16(const FString Src, uint16& Result)
+bool UStringConverter::ToUInt16(const FString Src, uint16& Result)
 {
 	if (!Src.IsNumeric())
 	{
 		Result = 0;
-		return;
+		return false;
 	}
 	Result = static_cast<uint16>(FCString::Atoi(ToCStr(Src)));
+	return true;
 }
 
-void UStringConverter::ToUInt32(const FString Src, uint32& Result)
+bool UStringConverter::ToUInt32(const FString Src, uint32& Result)
 {
 	if (!Src.IsNumeric())
 	{
 		Result = 0;
-		return;
+		return false;
 	}
 	Result = static_cast<uint32>(FCString::Atoi64(ToCStr(Src)));
+	return true;
 }
 
-void UStringConverter::ToUInt64(const FString Src, uint64& Result)
+bool UStringConverter::ToUInt64(const FString Src, uint64& Result)
 {
 	if (!Src.IsNumeric())
 	{
 		Result = 0;
-		return;
+		return false;
 	}
 	//Base表示多少进制
 	//https://learn.microsoft.com/zh-cn/cpp/c-runtime-library/reference/strtoi64-wcstoi64-strtoi64-l-wcstoi64-l?view=msvc-170
 	Result = FCString::Strtoui64(ToCStr(Src), nullptr, 10);
+	return true;
 }
 
-void UStringConverter::ToFloat(const FString Src, float& Result)
+bool UStringConverter::ToFloat(const FString Src, float& Result)
 {
 	if (!Src.IsNumeric())
 	{
 		Result = 0;
-		return;
+		return false;
 	}
 	Result = FCString::Atof(ToCStr(Src));
 	if (Src.StartsWith("-") && Result > 0)
 	{
 		Result *= -1;
 	}
+	return true;
 }
 
-void UStringConverter::ToDouble(const FString Src, double& Result)
+bool UStringConverter::ToDouble(const FString Src, double& Result)
 {
 	if (!Src.IsNumeric())
 	{
-		Result = 0;
-		return;
+		Result = -1;
+		return false;
 	}
 	Result = FCString::Atod(ToCStr(Src));
 	if (Src.StartsWith("-") && Result > 0)
 	{
 		Result *= -1;
 	}
+	return true;
 }
 
 void UStringConverter::ToBool(const FString Src, bool& Result)
@@ -178,14 +186,15 @@ void UStringConverter::ToBool(const FString Src, bool& Result)
 	}
 }
 
-void UStringConverter::ToUInt8(const FString Src, uint8& Result)
+bool UStringConverter::ToUInt8(const FString Src, uint8& Result)
 {
 	if (!Src.IsNumeric())
 	{
 		Result = 0;
-		return;
+		return false;
 	}
 	Result = static_cast<uint8>(FCString::Atoi(ToCStr(Src)));
+	return true;
 }
 
 void UStringConverter::ToChar(const FString Src, TCHAR& Result)

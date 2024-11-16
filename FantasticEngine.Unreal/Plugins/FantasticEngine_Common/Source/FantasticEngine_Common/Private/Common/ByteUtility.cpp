@@ -25,21 +25,21 @@ SOFTWARE.
 ****************************************************************************/
 
 
-#include "Common/ByteUtil.h"
+#include "Common/ByteUtility.h"
 
-#include "Common/SizeUtil.h"
+#include "Common/SizeUtility.h"
 
-uint8 UByteUtil::GetOne()
+uint8 UByteUtility::GetOne()
 {
 	return ONE;
 }
 
-uint8 UByteUtil::GetZero()
+uint8 UByteUtility::GetZero()
 {
 	return ZERO;
 }
 
-void UByteUtil::BlockCopy(uint8* Src, const int32& SrcOffset, uint8* Dst, const int32& DstOffset, const int32& Count)
+void UByteUtility::BlockCopy(uint8* Src, const int32& SrcOffset, uint8* Dst, const int32& DstOffset, const int32& Count)
 {
 	FMemory::Memcpy(&Dst[DstOffset], &Src[SrcOffset], Count);
 	// for (int i = 0; i < Count; i++)
@@ -48,99 +48,99 @@ void UByteUtil::BlockCopy(uint8* Src, const int32& SrcOffset, uint8* Dst, const 
 	// }
 }
 
-void UByteUtil::BlockCopy(uint8* Src, const int32& SrcOffset, TArray<uint8>& Dst, const int32& DstOffset,
+void UByteUtility::BlockCopy(uint8* Src, const int32& SrcOffset, TArray<uint8>& Dst, const int32& DstOffset,
                           const int32& Count)
 {
 	FMemory::Memcpy(&Dst.GetData()[DstOffset], &Src[SrcOffset], Count);
 }
 
-void UByteUtil::BlockCopy(const TArray<uint8>& Src, const int32& SrcOffset, TArray<uint8>& Dst, const int32& DstOffset,
+void UByteUtility::BlockCopy(const TArray<uint8>& Src, const int32& SrcOffset, TArray<uint8>& Dst, const int32& DstOffset,
                           const int32& Count)
 {
 	FMemory::Memcpy(&Dst.GetData()[DstOffset], &Src.GetData()[SrcOffset], Count);
 }
 
-void UByteUtil::Convert(void* Dst, const TArray<uint8>& Src, const int32& StartIndex, int32 Length)
+void UByteUtility::Convert(void* Dst, const TArray<uint8>& Src, const int32& StartIndex, int32 Length)
 {
 	FMemory::Memcpy(Dst, &Src.GetData()[StartIndex], Length);
 }
 
-bool UByteUtil::ToBoolean(const TArray<uint8>& Src, const int32& StartIndex)
+bool UByteUtility::ToBoolean(const TArray<uint8>& Src, const int32& StartIndex)
 {
 	bool Value;
-	Convert(&Value, Src, StartIndex, USizeUtil::BoolSize);
+	Convert(&Value, Src, StartIndex, USizeUtility::BoolSize);
 	return Value;
 	//return *reinterpret_cast<bool*>(GetBytes(Value, StartIndex, USizeUtil::BoolSize));
 }
 
-TCHAR UByteUtil::ToChar(const TArray<uint8>& Src, const int32& StartIndex)
+TCHAR UByteUtility::ToChar(const TArray<uint8>& Src, const int32& StartIndex)
 {
 	TCHAR Value;
-	Convert(&Value, Src, StartIndex, USizeUtil::TCHARSize);
+	Convert(&Value, Src, StartIndex, USizeUtility::TCHARSize);
 	return Value;
 	//return *reinterpret_cast<char*>(GetBytes(Value, StartIndex, USizeUtil::CharSize));
 }
 
-float UByteUtil::ToFloat(const TArray<uint8>& Src, const int32& StartIndex)
+float UByteUtility::ToFloat(const TArray<uint8>& Src, const int32& StartIndex)
 {
 	float Value;
-	Convert(&Value, Src, StartIndex, USizeUtil::FloatSize);
+	Convert(&Value, Src, StartIndex, USizeUtility::FloatSize);
 	return Value;
 	//return *reinterpret_cast<float*>(GetBytes(Value, StartIndex, USizeUtil::FloatSize));
 }
 
-double UByteUtil::ToDouble(const TArray<uint8>& Src, const int32& StartIndex)
+double UByteUtility::ToDouble(const TArray<uint8>& Src, const int32& StartIndex)
 {
 	double Value;
-	Convert(&Value, Src, StartIndex, USizeUtil::DoubleSize);
+	Convert(&Value, Src, StartIndex, USizeUtility::DoubleSize);
 	return Value;
 	//return *reinterpret_cast<double*>(GetBytes(Value, StartIndex, USizeUtil::DoubleSize));
 }
 
-int16 UByteUtil::ToInt16(const TArray<uint8>& Src, const int32& StartIndex)
+int16 UByteUtility::ToInt16(const TArray<uint8>& Src, const int32& StartIndex)
 {
 	int16 Value;
-	Convert(&Value, Src, StartIndex, USizeUtil::ShortSize);
+	Convert(&Value, Src, StartIndex, USizeUtility::ShortSize);
 	return Value;
 	//return *reinterpret_cast<int16*>(GetBytes(Value, StartIndex, USizeUtil::ShortSize));
 }
 
-int32 UByteUtil::ToInt32(const TArray<uint8>& Src, const int32& StartIndex)
+int32 UByteUtility::ToInt32(const TArray<uint8>& Src, const int32& StartIndex)
 {
 	int32 Value;
-	Convert(&Value, Src, StartIndex, USizeUtil::IntSize);
+	Convert(&Value, Src, StartIndex, USizeUtility::IntSize);
 	return Value;
 	//return *reinterpret_cast<int32*>(GetBytes(Value, StartIndex, USizeUtil::IntSize));
 }
 
-int64 UByteUtil::ToInt64(const TArray<uint8>& Src, const int32& StartIndex)
+int64 UByteUtility::ToInt64(const TArray<uint8>& Src, const int32& StartIndex)
 {
 	int64 Value;
-	Convert(&Value, Src, StartIndex, USizeUtil::LongSize);
+	Convert(&Value, Src, StartIndex, USizeUtility::LongSize);
 	return Value;
 	//return *reinterpret_cast<int64*>(GetBytes(Value, StartIndex, USizeUtil::LongSize));
 }
 
-uint16 UByteUtil::ToUInt16(const TArray<uint8>& Src, const int32& StartIndex)
+uint16 UByteUtility::ToUInt16(const TArray<uint8>& Src, const int32& StartIndex)
 {
 	uint16 Value;
-	Convert(&Value, Src, StartIndex, USizeUtil::UShortSize);
+	Convert(&Value, Src, StartIndex, USizeUtility::UShortSize);
 	return Value;
 	//return *reinterpret_cast<uint16*>(GetBytes(Value, StartIndex, USizeUtil::UShortSize));
 }
 
-uint32 UByteUtil::ToUInt32(const TArray<uint8>& Src, const int32& StartIndex)
+uint32 UByteUtility::ToUInt32(const TArray<uint8>& Src, const int32& StartIndex)
 {
 	uint32 Value;
-	Convert(&Value, Src, StartIndex, USizeUtil::UIntSize);
+	Convert(&Value, Src, StartIndex, USizeUtility::UIntSize);
 	return Value;
 	//return *reinterpret_cast<uint32*>(GetBytes(Value, StartIndex, USizeUtil::UIntSize));
 }
 
-uint64 UByteUtil::ToUInt64(const TArray<uint8>& Src, const int32& StartIndex)
+uint64 UByteUtility::ToUInt64(const TArray<uint8>& Src, const int32& StartIndex)
 {
 	uint64 Value;
-	Convert(&Value, Src, StartIndex, USizeUtil::ULongSize);
+	Convert(&Value, Src, StartIndex, USizeUtility::ULongSize);
 	return Value;
 	//return *reinterpret_cast<uint64*>(GetBytes(Value, StartIndex, USizeUtil::ULongSize));
 }
