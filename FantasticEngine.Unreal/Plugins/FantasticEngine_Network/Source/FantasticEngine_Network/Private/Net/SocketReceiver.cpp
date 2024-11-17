@@ -28,9 +28,9 @@ SOFTWARE.
 #include "Net/SocketReceiver.h"
 
 #include "Sockets.h"
-#include "Common/ByteUtil.h"
-#include "Common/FPackageFactory.h"
-#include "Common/SizeUtil.h"
+#include "Common/ByteUtility.h"
+#include "Common/FEPackageFactory.h"
+#include "Common/SizeUtility.h"
 #include "Log/FEConsole.h"
 #include "Log/FENCategories.h"
 #include "Net/UserToken.h"
@@ -91,8 +91,8 @@ void USocketReceiver::ProcessReceive(UFESocket* InSocket, TArray<uint8>& ArgsBuf
 				{
 					TArray<uint8> Data;
 					Data.SetNumUninitialized(ArgsLength + UserToken->ReceivedBuffer.Num());
-					UByteUtil::BlockCopy(UserToken->ReceivedBuffer, 0, Data, 0, UserToken->ReceivedBuffer.Num());
-					UByteUtil::BlockCopy(ArgsBuffer, 0, Data, UserToken->ReceivedBuffer.Num(), ArgsLength);
+					UByteUtility::BlockCopy(UserToken->ReceivedBuffer, 0, Data, 0, UserToken->ReceivedBuffer.Num());
+					UByteUtility::BlockCopy(ArgsBuffer, 0, Data, UserToken->ReceivedBuffer.Num(), ArgsLength);
 					UserToken->ReceivedBuffer.Empty();
 					ArgsBuffer = Data;
 					Offset = 0;
@@ -101,7 +101,7 @@ void USocketReceiver::ProcessReceive(UFESocket* InSocket, TArray<uint8>& ArgsBuf
 				//数据仍然接收不完
 				else if (UserToken->ReceivedStartIndex + ArgsLength < UserToken->ReceivedBuffer.Num())
 				{
-					UByteUtil::BlockCopy(ArgsBuffer, 0, UserToken->ReceivedBuffer, UserToken->ReceivedStartIndex,
+					UByteUtility::BlockCopy(ArgsBuffer, 0, UserToken->ReceivedBuffer, UserToken->ReceivedStartIndex,
 					                     ArgsLength);
 					UserToken->ReceivedStartIndex += ArgsLength;
 					Offset += ArgsLength;
@@ -110,9 +110,9 @@ void USocketReceiver::ProcessReceive(UFESocket* InSocket, TArray<uint8>& ArgsBuf
 				else
 				{
 					int32 DeltaLength = UserToken->ReceivedBuffer.Num() - UserToken->ReceivedStartIndex;
-					UByteUtil::BlockCopy(ArgsBuffer, 0, UserToken->ReceivedBuffer, UserToken->ReceivedStartIndex,
+					UByteUtility::BlockCopy(ArgsBuffer, 0, UserToken->ReceivedBuffer, UserToken->ReceivedStartIndex,
 					                     DeltaLength);
-					UMessageReader* BigMessage = UFPackageFactory::Unpack(
+					UMessageReader* BigMessage = UFEPackageFactory::Unpack(
 						UserToken->ReceivedBuffer, InSocket->GetMessageOffset(), InSocket->GetCompression(),
 						InSocket->GetCryptoProvider());
 					UserToken->ReceivedBuffer.Empty();
@@ -124,14 +124,14 @@ void USocketReceiver::ProcessReceive(UFESocket* InSocket, TArray<uint8>& ArgsBuf
 			//针对接收到的数据进行完整解析
 			while (Offset < ArgsLength)
 			{
-				int32 TotalLength = UFPackageFactory::GetTotalLength(
+				int32 TotalLength = UFEPackageFactory::GetTotalLength(
 					ArgsBuffer, Offset + Socket->GetMessageOffset());
 				//包头解析不全
 				if (TotalLength < 0)
 				{
 					UserToken->ReceivedStartIndex = -1;
 					UserToken->ReceivedBuffer.SetNumUninitialized(ArgsLength - Offset);
-					UByteUtil::BlockCopy(ArgsBuffer, Offset, UserToken->ReceivedBuffer, 0,
+					UByteUtility::BlockCopy(ArgsBuffer, Offset, UserToken->ReceivedBuffer, 0,
 					                     ArgsLength - Offset);
 					break;
 				}
@@ -141,12 +141,12 @@ void USocketReceiver::ProcessReceive(UFESocket* InSocket, TArray<uint8>& ArgsBuf
 				{
 					UserToken->ReceivedStartIndex = ArgsLength - Offset;
 					UserToken->ReceivedBuffer.SetNumUninitialized(TotalLength - Offset);
-					UByteUtil::BlockCopy(ArgsBuffer, Offset, UserToken->ReceivedBuffer, 0, TotalLength - Offset);
+					UByteUtility::BlockCopy(ArgsBuffer, Offset, UserToken->ReceivedBuffer, 0, TotalLength - Offset);
 					break;
 				}
 
 				Offset += Socket->GetMessageOffset();
-				UMessageReader* Message = UFPackageFactory::Unpack(ArgsBuffer, Offset,
+				UMessageReader* Message = UFEPackageFactory::Unpack(ArgsBuffer, Offset,
 				                                                   UserToken->GetSocket()->GetCompression(),
 				                                                   UserToken->GetSocket()->GetCryptoProvider());
 				Messages.Push(Message);

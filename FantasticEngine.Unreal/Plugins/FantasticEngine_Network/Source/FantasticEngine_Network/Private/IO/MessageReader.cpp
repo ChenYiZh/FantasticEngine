@@ -27,9 +27,9 @@ SOFTWARE.
 
 #include "IO/MessageReader.h"
 
-#include "Common/ByteUtil.h"
-#include "Common/FPackageFactory.h"
-#include "Common/SizeUtil.h"
+#include "Common/ByteUtility.h"
+#include "Common/FEPackageFactory.h"
+#include "Common/SizeUtility.h"
 #include "Common/StringConverter.h"
 #include "Log/FEConsole.h"
 
@@ -92,7 +92,7 @@ void UMessageReader::Initialize(const TArray<uint8>& Package,
 	bSecret = bInSecret;
 	int32 PackageSize = Package.Num();
 	PackageLength = PackageSize - Offset;
-	if (PackageLength < UFPackageFactory::HeaderLength)
+	if (PackageLength < UFEPackageFactory::HeaderLength)
 	{
 		Error = TEXT("The message's length is error.");
 		return;
@@ -102,26 +102,26 @@ void UMessageReader::Initialize(const TArray<uint8>& Package,
 	ReadHeader(Package, Offset);
 
 	//内容获取
-	ContextLength = PackageLength - UFPackageFactory::HeaderLength;
+	ContextLength = PackageLength - UFEPackageFactory::HeaderLength;
 	TArray<uint8> Array;
 	Array.SetNumUninitialized(ContextLength);
-	UByteUtil::BlockCopy(Package, Offset + UFPackageFactory::HeaderLength, Array, 0, ContextLength);
+	UByteUtility::BlockCopy(Package, Offset + UFEPackageFactory::HeaderLength, Array, 0, ContextLength);
 	Context = Array;
 }
 
 void UMessageReader::ReadHeader(const TArray<uint8>& Package, const int32& Offset)
 {
 	int32 Index = Offset;
-	MsgId = UByteUtil::ToInt64(Package, Index);
-	Index += USizeUtil::LongSize;
+	MsgId = UByteUtility::ToInt64(Package, Index);
+	Index += USizeUtility::LongSize;
 	OpCode = static_cast<int8>(Package[Index]);
 	Index += 1;
-	ActionId = UByteUtil::ToInt32(Package, Index);
+	ActionId = UByteUtility::ToInt32(Package, Index);
 }
 
 bool UMessageReader::ReadBool()
 {
-	return ReadByte() == UByteUtil::ONE;
+	return ReadByte() == UByteUtility::ONE;
 }
 
 uint8 UMessageReader::ReadByte()
@@ -133,8 +133,8 @@ uint8 UMessageReader::ReadByte()
 
 TCHAR UMessageReader::ReadChar()
 {
-	TCHAR TheChar = UByteUtil::ToChar(Context, ReadIndex);
-	ReadIndex += USizeUtil::TCHARSize;
+	TCHAR TheChar = UByteUtility::ToChar(Context, ReadIndex);
+	ReadIndex += USizeUtility::TCHARSize;
 	return TheChar;
 }
 
@@ -145,29 +145,29 @@ FDateTime UMessageReader::ReadDateTime()
 
 double UMessageReader::ReadDouble()
 {
-	double TheDouble = UByteUtil::ToDouble(Context, ReadIndex);
-	ReadIndex += USizeUtil::DoubleSize;
+	double TheDouble = UByteUtility::ToDouble(Context, ReadIndex);
+	ReadIndex += USizeUtility::DoubleSize;
 	return TheDouble;
 }
 
 float UMessageReader::ReadFloat()
 {
-	float TheFloat = UByteUtil::ToFloat(Context, ReadIndex);
-	ReadIndex += USizeUtil::FloatSize;
+	float TheFloat = UByteUtility::ToFloat(Context, ReadIndex);
+	ReadIndex += USizeUtility::FloatSize;
 	return TheFloat;
 }
 
 int32 UMessageReader::ReadInt()
 {
-	int32 TheInt = UByteUtil::ToInt32(Context, ReadIndex);
-	ReadIndex += USizeUtil::IntSize;
+	int32 TheInt = UByteUtility::ToInt32(Context, ReadIndex);
+	ReadIndex += USizeUtility::IntSize;
 	return TheInt;
 }
 
 int64 UMessageReader::ReadLong()
 {
-	int64 TheLong = UByteUtil::ToInt64(Context, ReadIndex);
-	ReadIndex += USizeUtil::LongSize;
+	int64 TheLong = UByteUtility::ToInt64(Context, ReadIndex);
+	ReadIndex += USizeUtility::LongSize;
 	return TheLong;
 }
 
@@ -178,8 +178,8 @@ int8 UMessageReader::ReadSByte()
 
 int16 UMessageReader::ReadShort()
 {
-	int16 TheShort = UByteUtil::ToInt16(Context, ReadIndex);
-	ReadIndex += USizeUtil::ShortSize;
+	int16 TheShort = UByteUtility::ToInt16(Context, ReadIndex);
+	ReadIndex += USizeUtility::ShortSize;
 	return TheShort;
 }
 
@@ -195,21 +195,21 @@ FString UMessageReader::ReadString()
 
 uint32 UMessageReader::ReadUInt()
 {
-	uint32 TheUInt = UByteUtil::ToUInt32(Context, ReadIndex);
-	ReadIndex += USizeUtil::UIntSize;
+	uint32 TheUInt = UByteUtility::ToUInt32(Context, ReadIndex);
+	ReadIndex += USizeUtility::UIntSize;
 	return TheUInt;
 }
 
 uint64 UMessageReader::ReadULong()
 {
-	uint64 TheULong = UByteUtil::ToUInt64(Context, ReadIndex);
-	ReadIndex += USizeUtil::ULongSize;
+	uint64 TheULong = UByteUtility::ToUInt64(Context, ReadIndex);
+	ReadIndex += USizeUtility::ULongSize;
 	return TheULong;
 }
 
 uint16 UMessageReader::ReadUShort()
 {
-	uint16 TheUShort = UByteUtil::ToUInt16(Context, ReadIndex);
-	ReadIndex += USizeUtil::UShortSize;
+	uint16 TheUShort = UByteUtility::ToUInt16(Context, ReadIndex);
+	ReadIndex += USizeUtility::UShortSize;
 	return TheUShort;
 }

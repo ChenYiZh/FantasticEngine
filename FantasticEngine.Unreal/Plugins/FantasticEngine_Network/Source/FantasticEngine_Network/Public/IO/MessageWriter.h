@@ -27,7 +27,6 @@ SOFTWARE.
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Common/SizeUtil.h"
 #include "Net/FESocket.h"
 #include "UObject/Object.h"
 #include "MessageWriter.generated.h"

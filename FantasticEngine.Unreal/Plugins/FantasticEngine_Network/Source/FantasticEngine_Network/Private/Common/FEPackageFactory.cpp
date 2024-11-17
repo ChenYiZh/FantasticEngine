@@ -25,19 +25,21 @@ SOFTWARE.
 ****************************************************************************/
 
 
-#include "Common/FPackageFactory.h"
+#include "Common/FEPackageFactory.h"
 
-#include "Common/ByteUtil.h"
+#include "Common/ByteUtility.h"
 #include "Common/RandomUtil.h"
 #include "Log/FEConsole.h"
 #include "Log/FENCategories.h"
 
-int32 UFPackageFactory::GetHeaderLength()
+const int32 UFEPackageFactory::HeaderLength = USizeUtility::LongSize + USizeUtility::SByteSize + USizeUtility::IntSize;
+
+int32 UFEPackageFactory::GetHeaderLength()
 {
 	return HeaderLength;
 }
 
-void UFPackageFactory::Pack(TArray<uint8>& OutBuffer, UMessageWriter* Message, const int32& Offset,
+void UFEPackageFactory::Pack(TArray<uint8>& OutBuffer, UMessageWriter* Message, const int32& Offset,
                             UCompression* Compression, UCryptoProvider* CryptoProvider)
 {
 	if (Message == nullptr)
@@ -56,7 +58,7 @@ void UFPackageFactory::Pack(TArray<uint8>& OutBuffer, UMessageWriter* Message, c
 	TArray<uint8> Buffer;
 	Buffer.SetNumUninitialized(BufferSize);
 	Message->WriteHeader(Buffer, 0);
-	UByteUtil::BlockCopy(Context, 0, Buffer, HeaderLength, Message->GetContextLength());
+	UByteUtility::BlockCopy(Context, 0, Buffer, HeaderLength, Message->GetContextLength());
 	bool bCompress = Message->GetCompress() && Compression != nullptr;
 	bool bCrypto = Message->GetSecret() && CryptoProvider != nullptr;
 	EMessageType Type = EMessageType::NoProcess;
@@ -80,7 +82,7 @@ void UFPackageFactory::Pack(TArray<uint8>& OutBuffer, UMessageWriter* Message, c
 	{
 		Buffer = Compression->Compress(Buffer);
 	}
-	int32 OutDataSize = Offset + USizeUtil::IntSize + 1 + BufferSize;
+	int32 OutDataSize = Offset + USizeUtility::IntSize + 1 + BufferSize;
 	TArray<uint8> Result;
 	Result.SetNumUninitialized(OutDataSize);
 	for (int i = 0; i < Offset; i++)
@@ -88,23 +90,23 @@ void UFPackageFactory::Pack(TArray<uint8>& OutBuffer, UMessageWriter* Message, c
 		Result[i] = URandomUtil::RandomByte();
 	}
 	uint8* LenBs = reinterpret_cast<uint8*>(&BufferSize);
-	for (int i = 0; i < USizeUtil::IntSize; i++)
+	for (int i = 0; i < USizeUtility::IntSize; i++)
 	{
 		Result[Offset + i] = LenBs[i];
 	}
-	Result[Offset + USizeUtil::IntSize] = static_cast<uint8>(Type);
-	UByteUtil::BlockCopy(Buffer, 0, Result, OutDataSize - BufferSize, BufferSize);
+	Result[Offset + USizeUtility::IntSize] = static_cast<uint8>(Type);
+	UByteUtility::BlockCopy(Buffer, 0, Result, OutDataSize - BufferSize, BufferSize);
 	OutBuffer = Result;
 }
 
-UMessageReader* UFPackageFactory::Unpack(const TArray<uint8>& Package, const int32& Offset,
+UMessageReader* UFEPackageFactory::Unpack(const TArray<uint8>& Package, const int32& Offset,
                                          UCompression* Compression, UCryptoProvider* CryptoProvider)
 {
 	int32 Pos = 0;
 
 	Pos += Offset;
-	int32 Length = UByteUtil::ToInt32(Package, Pos);
-	Pos += USizeUtil::IntSize;
+	int32 Length = UByteUtility::ToInt32(Package, Pos);
+	Pos += USizeUtility::IntSize;
 	EMessageType Type = static_cast<EMessageType>(Package[Pos]);
 	Pos += 1;
 
@@ -112,7 +114,7 @@ UMessageReader* UFPackageFactory::Unpack(const TArray<uint8>& Package, const int
 	int32 DataSize = Length;
 	TArray<uint8> Data;
 	Data.SetNumUninitialized(DataSize);
-	UByteUtil::BlockCopy(Package, Pos, Data, 0, Length);
+	UByteUtility::BlockCopy(Package, Pos, Data, 0, Length);
 	Pos += Length;
 
 	bool bCompress = Type == EMessageType::OnlyCompress || Type == EMessageType::CompressAndCrypto;
@@ -130,14 +132,14 @@ UMessageReader* UFPackageFactory::Unpack(const TArray<uint8>& Package, const int
 	return Reader;
 }
 
-int32 UFPackageFactory::GetTotalLength(const TArray<uint8>& Package, const int32& Offset)
+int32 UFEPackageFactory::GetTotalLength(const TArray<uint8>& Package, const int32& Offset)
 {
-	int32 LocalHeaderLength = Offset + USizeUtil::IntSize + 1;
+	int32 LocalHeaderLength = Offset + USizeUtility::IntSize + 1;
 	if (Package.Num() < LocalHeaderLength)
 	{
 		return -1;
 	}
-	int32 Length = UByteUtil::ToInt32(Package, Offset);
+	int32 Length = UByteUtility::ToInt32(Package, Offset);
 	//偏移值，包体大小，消息格式
 	return LocalHeaderLength + Length;
 }

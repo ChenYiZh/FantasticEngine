@@ -26,11 +26,13 @@ SOFTWARE.
 
 #pragma once
 
+
 #include "CoreMinimal.h"
+#include "Common/SizeUtility.h"
 #include "IO/MessageReader.h"
 #include "IO/MessageWriter.h"
 #include "UObject/Object.h"
-#include "FPackageFactory.generated.h"
+#include "FEPackageFactory.generated.h"
 
 /**
  * 消息类型
@@ -60,17 +62,14 @@ enum EMessageType
  * 网络处理类
  */
 UCLASS(DisplayName="Fantastic Engine|Package Factory")
-class FANTASTICENGINE_NETWORK_API UFPackageFactory : public UBlueprintFunctionLibrary
+class FANTASTICENGINE_NETWORK_API UFEPackageFactory : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
+
 public:
-	/**
-	 * @brief 消息的头数据大小
-	 */
-	inline static constexpr int32 HeaderLength = USizeUtil::LongSize + USizeUtil::SByteSize + USizeUtil::IntSize;
-	/**
-	 * @brief 消息的头数据大小
-	 */
+	/** 消息的头数据大小 */
+	static const int32 HeaderLength;
+	/** 消息的头数据大小 */
 	UFUNCTION(BlueprintPure, Category="Fantastic Engine|Package Factory", DisplayName="Header Length")
 	static int32 GetHeaderLength();
 
@@ -102,3 +101,4 @@ public:
 	 */
 	static int32 GetTotalLength(const TArray<uint8>& Package, const int32& Offset);
 };
+

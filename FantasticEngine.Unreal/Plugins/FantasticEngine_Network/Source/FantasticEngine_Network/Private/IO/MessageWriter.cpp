@@ -27,8 +27,8 @@ SOFTWARE.
 
 #include "IO/MessageWriter.h"
 
-#include "Common/ByteUtil.h"
-#include "Common/FPackageFactory.h"
+#include "Common/ByteUtility.h"
+#include "Common/FEPackageFactory.h"
 #include "Common/RandomUtil.h"
 #include "Common/StringConverter.h"
 
@@ -99,7 +99,7 @@ int32 UMessageWriter::GetContextLength() const
 
 int32 UMessageWriter::GetPacketLength() const
 {
-	return UFPackageFactory::HeaderLength + ContextLength;
+	return UFEPackageFactory::HeaderLength + ContextLength;
 }
 
 uint8* UMessageWriter::GetContext(int32& OutSize)
@@ -116,15 +116,15 @@ void UMessageWriter::WriteHeader(TArray<uint8>& Buffer, int Offset)
 	}
 	int Index = Offset;
 	uint8* Data = reinterpret_cast<uint8*>(&MsgId);
-	for (int i = 0; i < USizeUtil::LongSize; i++)
+	for (int i = 0; i < USizeUtility::LongSize; i++)
 	{
 		Buffer[Index + i] = Data[i];
 	}
-	Index += USizeUtil::LongSize;
+	Index += USizeUtility::LongSize;
 	Buffer[Index] = static_cast<uint8>(OpCode);
 	Index += 1;
 	Data = reinterpret_cast<uint8*>(&ActionId);
-	for (int i = 0; i < USizeUtil::IntSize; i++)
+	for (int i = 0; i < USizeUtility::IntSize; i++)
 	{
 		Buffer[Index + i] = Data[i];
 	}
@@ -132,7 +132,7 @@ void UMessageWriter::WriteHeader(TArray<uint8>& Buffer, int Offset)
 
 void UMessageWriter::WriteBool(const bool Value)
 {
-	WriteByte(Value ? UByteUtil::ONE : UByteUtil::ZERO);
+	WriteByte(Value ? UByteUtility::ONE : UByteUtility::ZERO);
 }
 
 void UMessageWriter::WriteByte(const uint8 Value)
@@ -143,33 +143,33 @@ void UMessageWriter::WriteByte(const uint8 Value)
 
 void UMessageWriter::WriteChar(const TCHAR Value)
 {
-	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtil::TCHARSize);
+	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtility::TCHARSize);
 }
 
 void UMessageWriter::WriteDateTime(const FDateTime Value)
 {
 	const int64 Ticks = Value.GetTicks();
-	WriteBytes(reinterpret_cast<const uint8*>(&Ticks), USizeUtil::LongSize);
+	WriteBytes(reinterpret_cast<const uint8*>(&Ticks), USizeUtility::LongSize);
 }
 
 void UMessageWriter::WriteDouble(const double Value)
 {
-	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtil::DoubleSize);
+	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtility::DoubleSize);
 }
 
 void UMessageWriter::WriteFloat(const float Value)
 {
-	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtil::FloatSize);
+	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtility::FloatSize);
 }
 
 void UMessageWriter::WriteInt(const int32 Value)
 {
-	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtil::IntSize);
+	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtility::IntSize);
 }
 
 void UMessageWriter::WriteLong(const int64 Value)
 {
-	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtil::LongSize);
+	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtility::LongSize);
 }
 
 void UMessageWriter::WriteSByte(const int8 Value)
@@ -179,7 +179,7 @@ void UMessageWriter::WriteSByte(const int8 Value)
 
 void UMessageWriter::WriteShort(const int16 Value)
 {
-	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtil::ShortSize);
+	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtility::ShortSize);
 }
 
 void UMessageWriter::WriteString(const FString Value)
@@ -193,17 +193,17 @@ void UMessageWriter::WriteString(const FString Value)
 
 void UMessageWriter::WriteUInt(const uint32 Value)
 {
-	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtil::UIntSize);
+	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtility::UIntSize);
 }
 
 void UMessageWriter::WriteULong(const uint64 Value)
 {
-	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtil::ULongSize);
+	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtility::ULongSize);
 }
 
 void UMessageWriter::WriteUShort(const uint16 Value)
 {
-	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtil::UShortSize);
+	WriteBytes(reinterpret_cast<const uint8*>(&Value), USizeUtility::UShortSize);
 }
 
 void UMessageWriter::WriteBytes(const uint8* Value, const int32& ValueSize)

@@ -28,7 +28,7 @@ SOFTWARE.
 #include "Net/ClientSocket.h"
 
 #include "Sockets.h"
-#include "Common/FPackageFactory.h"
+#include "Common/FEPackageFactory.h"
 #include "IO/MessageWriter.h"
 
 #include "Log/FEConsole.h"
@@ -307,7 +307,7 @@ void UClientSocket::BuildHeartbeatBuffer(TArray<uint8>& Buffer)
 {
 	UMessageWriter* Message = NewObject<UMessageWriter>(this);
 	Message->SetOpCode(static_cast<int8>(EOpCode::Pong));
-	return UFPackageFactory::Pack(Buffer, Message, MessageOffset, nullptr, nullptr);
+	return UFEPackageFactory::Pack(Buffer, Message, MessageOffset, nullptr, nullptr);
 }
 
 void UClientSocket::RebuildHeartbeatPackage_Implementation()
@@ -329,7 +329,7 @@ void UClientSocket::Close_Implementation(EOpCode OpCode)
 		UMessageWriter* Message = NewObject<UMessageWriter>(this);
 		Message->SetOpCode(static_cast<int8>(EOpCode::Close));
 		TArray<uint8> CloseMessage;
-		UFPackageFactory::Pack(CloseMessage, Message, MessageOffset, nullptr, nullptr);
+		UFEPackageFactory::Pack(CloseMessage, Message, MessageOffset, nullptr, nullptr);
 		try
 		{
 			Sender->Push(this, CloseMessage, true);
@@ -412,7 +412,7 @@ void UClientSocket::Send(UMessageWriter* Message)
 {
 	AutoConnect();
 	TArray<uint8> Data;
-	UFPackageFactory::Pack(Data, Message, GetMessageOffset(), GetCompression(), GetCryptoProvider());
+	UFEPackageFactory::Pack(Data, Message, GetMessageOffset(), GetCompression(), GetCryptoProvider());
 	Sender->Push(this, Data, false);
 }
 
@@ -420,7 +420,7 @@ void UClientSocket::SendImmediately(UMessageWriter* Message)
 {
 	AutoConnect();
 	TArray<uint8> Data;
-	UFPackageFactory::Pack(Data, Message, GetMessageOffset(), GetCompression(), GetCryptoProvider());
+	UFEPackageFactory::Pack(Data, Message, GetMessageOffset(), GetCompression(), GetCryptoProvider());
 	Sender->Push(this, Data, true);
 }
 

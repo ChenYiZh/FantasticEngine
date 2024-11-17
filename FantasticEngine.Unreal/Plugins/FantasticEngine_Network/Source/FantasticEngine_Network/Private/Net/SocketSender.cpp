@@ -28,8 +28,8 @@ SOFTWARE.
 #include "Net/SocketSender.h"
 
 #include "Sockets.h"
-#include "Common/ByteUtil.h"
-#include "Common/FPackageFactory.h"
+#include "Common/ByteUtility.h"
+#include "Common/FEPackageFactory.h"
 #include "Log/FEConsole.h"
 #include "Log/FENCategories.h"
 #include "Net/UserToken.h"
@@ -70,13 +70,13 @@ void USocketSender::ProcessSend(UFESocket* InSocket)
 	{
 		int32 Length = Size - UserToken->SentCount;
 		ArgsBuffer.SetNumUninitialized(Length);
-		UByteUtil::BlockCopy(UserToken->SendingBuffer.GetData(), UserToken->SentCount, ArgsBuffer, 0, Length);
+		UByteUtility::BlockCopy(UserToken->SendingBuffer.GetData(), UserToken->SentCount, ArgsBuffer, 0, Length);
 		UserToken->Reset();
 	}
 	else
 	{
 		ArgsBuffer.SetNumUninitialized(ArgsCount);
-		UByteUtil::BlockCopy(UserToken->SendingBuffer.GetData(), UserToken->SentCount, ArgsBuffer, 0, ArgsCount);
+		UByteUtility::BlockCopy(UserToken->SendingBuffer.GetData(), UserToken->SentCount, ArgsBuffer, 0, ArgsCount);
 		UserToken->SentCount += ArgsCount;
 	}
 
