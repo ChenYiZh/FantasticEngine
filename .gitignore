@@ -103,3 +103,6 @@ bin
 /FantasticEngine.Unreal/Plugins/FantasticEngine_Network/Binaries
 /FantasticEngine.Unreal/Plugins/FantasticEngine_VirtualInput/Intermediate
 /FantasticEngine.Unreal/Plugins/FantasticEngine_VirtualInput/Binaries
+/FantasyEngine.ScriptsEngine/.nuget
+/FantasyEngine.ScriptsEngine/FantasyEngine.ScriptsEngine.Generator/il2Native
+/FantasyEngine.ScriptsEngine/NativeAOT

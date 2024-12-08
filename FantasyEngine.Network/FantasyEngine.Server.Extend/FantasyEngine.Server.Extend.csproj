@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>FantasyEngine.Server</RootNamespace>
+    <ApplicationIcon />
+    <StartupObject />
+    <Authors>ChenYiZh</Authors>
+    <Company>上海月音科技有限公司</Company>
+    <PackageProjectUrl>https://gitee.com/chenyizh/FoolishServer</PackageProjectUrl>
+    <PackageIconUrl>https://gitee.com/chenyizh/FoolishServer/blob/main/Logo.png</PackageIconUrl>
+    <Copyright>Copyright ©2022-2030 ChenYiZh and Shanghai YueYin Tech, Inc. All rights reserved.</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="FantasyEngine.Server.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mono.Cecil" Version="0.11.4" />
+    <PackageReference Include="MySql.Data" Version="8.0.31" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="NLog" Version="5.0.5" />
+    <PackageReference Include="protobuf-net" Version="3.1.25" />
+    <PackageReference Include="StackExchange.Redis" Version="2.6.70" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FantasyEngine.Common\FantasyEngine.Common\FantasyEngine.Common.csproj" />
+    <ProjectReference Include="..\..\FantasyEngine.ScriptsEngine\FantasyEngine.ScriptsEngine.Compilation\FantasyEngine.ScriptsEngine.Compilation.CSharp\FantasyEngine.ScriptsEngine.Compilation.CSharp.csproj" />
+    <ProjectReference Include="..\..\FantasyEngine.ScriptsEngine\FantasyEngine.ScriptsEngine.Standard\FantasyEngine.ScriptsEngine.Standard.csproj" />
+    <ProjectReference Include="..\FantasyEngine.Network\FantasyEngine.Network.csproj" />
+    <ProjectReference Include="..\FantasyEngine.Server\FantasyEngine.Server.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>FantasyEngine.TableTool.Exporter.Json</RootNamespace>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FantasyEngine.Common\FantasyEngine.Common\FantasyEngine.Common.csproj" />
+    <ProjectReference Include="..\..\FantasyEngine.TableTool.Framework\TableTool.Framework.csproj" />
+  </ItemGroup>
+
+</Project>
