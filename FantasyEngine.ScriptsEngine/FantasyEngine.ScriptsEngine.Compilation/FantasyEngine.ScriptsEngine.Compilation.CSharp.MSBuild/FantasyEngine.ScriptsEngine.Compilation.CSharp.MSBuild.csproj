@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <AssemblyName>FantasyEngine.ScriptsEngine.Compilation.CSharp.MSBuild</AssemblyName>
+    <RootNamespace>FantasyEngine.ScriptsEngine.Compilation</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FantasyEngine.Common\FantasyEngine.Common\FantasyEngine.Common.csproj" />
+    <ProjectReference Include="..\FantasyEngine.ScriptsEngine.Compilation.CSharp\FantasyEngine.ScriptsEngine.Compilation.CSharp.csproj" />
+  </ItemGroup>
+
+</Project>

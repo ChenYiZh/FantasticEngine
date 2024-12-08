@@ -106,3 +106,4 @@ bin
 /FantasyEngine.ScriptsEngine/.nuget
 /FantasyEngine.ScriptsEngine/FantasyEngine.ScriptsEngine.Generator/il2Native
 /FantasyEngine.ScriptsEngine/NativeAOT
+/FantasyEngine.ScriptsEngine/packages
