@@ -1,0 +1,52 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0.0",
+	"FriendlyName": "FantasyEngine.Gameplay",
+	"Description": "The gameplay of FantasyEngine.",
+	"Category": "Fantasy Engine",
+	"CreatedBy": "ChenYiZh",
+	"CreatedByURL": "http://www.chenyizh.cn",
+	"DocsURL": "https://github.com/ChenYiZh/FantasyEngine",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EnabledByDefault": true,
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "FantasyEngine_Gameplay",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"CoreUObject",
+				"AIModule",
+				"FantasyEngine_Common",
+				"FantasyEngine_Framework",
+				"FantasyEngine_VirtualInput"
+			]
+		},
+		{
+			"Name": "FantasyEngine_Gameplay_Editor",
+			"Type": "Editor",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Mac"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "FantasyEngine_Framework",
+			"Enabled": true
+		},
+		{
+			"Name": "FantasyEngine_VirtualInput",
+			"Enabled": true
+		}
+	],
+	"IsExperimentalVersion": false
+}
